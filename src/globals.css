@@ -144,3 +144,52 @@
   -moz-transform: translate3d(0,0,0);
   -webkit-transform: translate3d(0,0,0);
 }
+
+
+.title-font {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  font-family: "Zalando Sans", sans-serif;
+  font-style: normal;
+}
+
+.call-button {
+ padding: 15px 25px;
+ border: unset;
+ color: #e8e8e8;
+ border: 1px solid #7a6a00;
+ z-index: 1;
+ background: #212121;
+ position: relative;
+ -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ transition: all 350ms;
+ overflow: hidden;
+}
+
+.call-button::before {
+ content: "";
+ position: absolute;
+ top: 0;
+ left: 0;
+ height: 100%;
+ width: 0;
+ background-color: var(--brand-yellow);
+ z-index: -1;
+ -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ transition: all 350ms
+}
+
+.call-button:hover {
+ border: 1px solid var(--brand-yellow);
+ color: #212121;
+}
+
+.call-button:hover::before {
+ width: 100%;
+}

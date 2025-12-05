@@ -1,10 +1,11 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { FiArrowRight, FiCheck } from "react-icons/fi";
+import { FiArrowRight, FiCheck, FiPhone } from "react-icons/fi";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { GiCrane, GiHammerBreak } from "react-icons/gi";
 import { TfiRulerPencil } from "react-icons/tfi";
+import { FaWhatsapp } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -136,7 +137,7 @@ export default function HomePage() {
         },
       });
       
-      gsap.set(imgRef2.current, { scale: 1.1, borderRadius: "30px" });
+      gsap.set(imgRef2.current, { scale: 1.1, borderRadius: "30px 30px 0 0" });
 
       gsap.from(imgRef2.current, {
         scrollTrigger: {
@@ -207,25 +208,32 @@ export default function HomePage() {
                 </span>
                 <span className="text-white title-font"> FUERTE</span>
               </h1>
-              <p className="hero-subtitle text-2xl sm:text-2xl text-white/90 mt-6 leading-relaxed text-pretty">
+              <p className="hero-subtitle font-thin text-2xl sm:text-2xl text-white/90 mt-6 leading-relaxed text-pretty">
                 
-                Constructora profesional en Junín
+                Constructora profesional en Junín y alrededores
               </p>
               <div className="hero-cta mt-8 flex flex-wrap gap-4">
                 
                 <Link
                   to="/trabajos"
-                  className="inline-flex items-center gap-2 bg-brand-yellow text-brand-dark px-8 py-4 font-semibold hover:bg-yellow-400 transition-colors"
+                  className="inline-flex font-medium items-center gap-2 bg-brand-yellow text-brand-dark px-8 py-4 hover:bg-yellow-400 transition-colors"
                 >
                   
                   Ver Trabajos <FiArrowRight />
                 </Link>
                 <Link
                   to="/contacto"
-                  className="inline-flex items-center gap-2 border-2 border-background/70 text-background/70 px-8 py-4 font-semibold hover:bg-brand-dark hover:text-white transition-colors"
+                  className="inline-flex call-button items-center gap-2 border border-background/70 text-background/70 px-8 py-4  hover:bg-brand-dark hover:text-white transition-colors"
                 >
-                  
-                  Contactar
+                  <FiPhone className=" flex-shrink-0" size={20} />
+                  Llamar
+                </Link>
+                <Link
+                  to="/contacto"
+                  className="inline-flex call-button items-center gap-2 border border-background/70 text-background/70 px-8 py-4  hover:bg-brand-dark hover:text-white transition-colors"
+                >
+                  <FaWhatsapp className=" flex-shrink-0" size={20} />
+                  Whatsapp
                 </Link>
               </div>
             </div>
@@ -269,7 +277,7 @@ export default function HomePage() {
               >
                 
                 {service.icon}
-                <h3 className="text-2xl font-bold text-white/80 mb-3 title-font uppercase">
+                <h3 className="text-2xl font-bold text-white/90 mb-3 title-font uppercase">
                   {service.title}
                 </h3>
                 <p className="text-white/70 leading-relaxed">
@@ -328,7 +336,7 @@ export default function HomePage() {
             </div>
             <div>
               
-              <h2 className="text-4xl sm:text-5xl font-bold text-brand-dark mb-6 text-balance">
+              <h2 className="text-4xl uppercase title-font sm:text-5xl text-brand-dark mb-6 text-balance">
                 ¿Por qué elegirnos?
               </h2>
               <ul className="space-y-4">
@@ -363,7 +371,7 @@ export default function HomePage() {
         
         <div className="max-w-4xl mx-auto text-center">
           
-          <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-balance">
+          <h2 className="text-4xl uppercase title-font sm:text-5xl font-bold mb-6 text-balance">
             ¿Listo para comenzar tu proyecto?
           </h2>
           <p className="text-xl text-gray-300 mb-8 text-pretty">

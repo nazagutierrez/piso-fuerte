@@ -5,6 +5,7 @@ import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { FiMail, FiPhone, FiMapPin, FiCheck } from "react-icons/fi"
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -62,144 +63,67 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="min-h-screen pt-32 pb-20" ref={containerRef}>
+    <main className="min-h-screen bg-brand-dark text-white pt-32 pb-20" ref={containerRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="contact-header mb-16">
-          <h1 className="text-5xl sm:text-6xl font-bold text-brand-dark mb-6 text-balance">Contacto</h1>
-          <p className="text-2xl text-muted-foreground max-w-3xl text-pretty">
-            Estamos aquí para responder tus preguntas y comenzar tu proyecto
+        <div className="contact-header">
+          <h1 className="text-5xl sm:text-6xl font-bold  mb-6 text-balance title-font uppercase">Contacto</h1>
+          <p className="text-2xl mb-10 text-white/70 font-thin max-w-3xl text-pretty">
+            Contactanos por cualquier duda que tengas o para solicitar un presupuesto y comenzar tu proyecto.
+          </p>
+          <p className="text-2xl text-white/70 font-thin max-w-3xl text-pretty">
+            Hace click en la opción que prefieras!
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div>
           {/* Contact Info */}
-          <div className="contact-info space-y-8">
+          <div className="contact-info space-y-8 mt-20">
             <div>
-              <h2 className="text-3xl font-bold text-brand-dark mb-8">Información de Contacto</h2>
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
+              <div className="space-y-6 grid grid-cols-2 gap-10">
+                <a href={"tel:+5492364525588"} target="_blank"  rel="noopener noreferrer"  className="flex w-fit items-start gap-4">
                   <div className="w-12 h-12 bg-brand-yellow flex items-center justify-center flex-shrink-0">
-                    <FiPhone className="text-brand-dark" size={20} />
+                    <FiPhone className="text-black" size={20} />
                   </div>
                   <div>
-                    <h3 className="font-bold text-brand-dark mb-1">Teléfono</h3>
-                    <p className="text-muted-foreground">+34 612 345 678</p>
-                    <p className="text-sm text-muted-foreground mt-1">Lunes a Viernes: 9:00 - 18:00</p>
+                    <h3 className="mb-1 text-3xl title-font uppercase letter tracking-wider text-white/90">Teléfono</h3>
+                    <p className="text-white/90 font-thin text-3xl">+54 9 2364 52-5588</p>
+                    <p className="text-white/50 font-thin mt-1">Lunes a Viernes: 9:00 - 21:00</p>
                   </div>
-                </div>
-                <div className="flex items-start gap-4">
+                </a>
+                <a href={"mailto:info@pisofuerte.com"} target="_blank"  rel="noopener noreferrer"  className="flex items-start w-fit gap-4">
                   <div className="w-12 h-12 bg-brand-yellow flex items-center justify-center flex-shrink-0">
-                    <FiMail className="text-brand-dark" size={20} />
+                    <FiMail className="" size={20} />
                   </div>
                   <div>
-                    <h3 className="font-bold text-brand-dark mb-1">Email</h3>
-                    <p className="text-muted-foreground">info@pisofuerte.com</p>
-                    <p className="text-sm text-muted-foreground mt-1">Respuesta en menos de 24 horas</p>
+                    <h3 className="mb-1 text-3xl title-font uppercase letter tracking-wider text-white/90">Email</h3>
+                    <p className="text-white/90 font-thin text-3xl">info@pisofuerte.com</p>
+                    <p className="text-white/50 font-thin mt-1">Respuesta en menos de 24 horas</p>
                   </div>
-                </div>
-                <div className="flex items-start gap-4">
+                </a>
+                <a href={"https://api.whatsapp.com/send?phone=+5492364525588&text=Hola,%20te%20contacto%20desde%20la%20web"} target="_blank"  rel="noopener noreferrer"  className="flex items-start w-fit gap-4">
                   <div className="w-12 h-12 bg-brand-yellow flex items-center justify-center flex-shrink-0">
-                    <FiMapPin className="text-brand-dark" size={20} />
+                    <FaWhatsapp className="text-black" size={20} />
                   </div>
                   <div>
-                    <h3 className="font-bold text-brand-dark mb-1">Dirección</h3>
-                    <p className="text-muted-foreground">
-                      Calle Gran Vía 123, 4º B<br />
-                      28013 Madrid, España
+                    <h3 className="mb-1 text-3xl title-font uppercase letter tracking-wider text-white/90">Whatsapp</h3>
+                    <p className="text-white/90 font-thin text-3xl">+54 9 2364 52-5588</p>
+                    <p className="text-white/50 font-thin mt-1">Lunes a Viernes: 9:00 - 21:00</p>
+                  </div>
+                </a>
+                <a href={"https://maps.app.goo.gl/mrRb26Zf8osD8umRA"} target="_blank"  rel="noopener noreferrer"  className="flex items-start w-fit gap-4">
+                  <div className="w-12 h-12 bg-brand-yellow flex items-center justify-center flex-shrink-0">
+                    <FiMapPin className="" size={20} />
+                  </div>
+                  <div>
+                    <h3 className="mb-1 text-3xl title-font uppercase letter tracking-wider text-white/90">Dirección</h3>
+                    <p className="text-white/90 font-thin text-3xl">
+                      Junín y alrededores
                     </p>
+                    <p className="text-white/50 font-thin mt-1">Llegamos a todas las localidades cercanas</p>
                   </div>
-                </div>
+                </a>
               </div>
-            </div>
-
-            {/* Additional Info */}
-            <div className="bg-muted p-8">
-              <h3 className="text-xl font-bold text-brand-dark mb-4">¿Por qué elegirnos?</h3>
-              <ul className="space-y-3">
-                <li className="flex items-center gap-3">
-                  <FiCheck className="text-brand-yellow flex-shrink-0" />
-                  <span className="text-foreground">Presupuesto sin compromiso</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <FiCheck className="text-brand-yellow flex-shrink-0" />
-                  <span className="text-foreground">Atención personalizada</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <FiCheck className="text-brand-yellow flex-shrink-0" />
-                  <span className="text-foreground">Garantía en todos los trabajos</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <FiCheck className="text-brand-yellow flex-shrink-0" />
-                  <span className="text-foreground">Más de 15 años de experiencia</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Contact Form */}
-          <div className="contact-form">
-            <div className="bg-white p-8 border-2 border-border">
-              <h2 className="text-3xl font-bold text-brand-dark mb-6">Envíanos un Mensaje</h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-brand-dark mb-2">
-                    Nombre completo
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border-2 border-border focus:border-brand-yellow focus:outline-none transition-colors"
-                    placeholder="Tu nombre"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-brand-dark mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border-2 border-border focus:border-brand-yellow focus:outline-none transition-colors"
-                    placeholder="tu@email.com"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-brand-dark mb-2">
-                    Mensaje
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={6}
-                    className="w-full px-4 py-3 border-2 border-border focus:border-brand-yellow focus:outline-none transition-colors resize-none"
-                    placeholder="Cuéntanos sobre tu proyecto..."
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-brand-yellow text-brand-dark px-8 py-4 font-semibold hover:bg-yellow-400 transition-colors disabled:opacity-50"
-                  disabled={isSubmitted}
-                >
-                  {isSubmitted ? "Mensaje Enviado ✓" : "Enviar Mensaje"}
-                </button>
-                {isSubmitted && (
-                  <p className="text-center text-sm text-green-600 font-medium">
-                    Gracias por contactarnos. Te responderemos pronto.
-                  </p>
-                )}
-              </form>
             </div>
           </div>
         </div>
