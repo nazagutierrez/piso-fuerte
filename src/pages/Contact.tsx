@@ -1,20 +1,49 @@
 "use client"
 
-import type React from "react"
-
-import { useState, useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
-import { FiMail, FiPhone, FiMapPin, FiCheck } from "react-icons/fi"
+import { FiMail, FiPhone, FiMapPin } from "react-icons/fi"
 import { FaWhatsapp } from "react-icons/fa";
+import { FaRegCopy } from "react-icons/fa";
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  })
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [copiedText, setCopiedText] = useState(null);
   const containerRef = useRef<HTMLDivElement>(null)
+
+  const contactMethods = [
+    {
+      title: "teléfono",
+      href: "tel:+5492364525588",
+      label: "+54 9 2364 525588",
+      availability: "Lunes a Viernes: 9:00 - 21:00",
+      btnText: "Llamar",
+      icon: <FiPhone size={16} />
+    },
+    {
+      title: "Email",
+      href: "mailto:info@pisofuerte.com",
+      label: "info@pisofuerte.com",
+      availability: "Respuesta en menos de 24 horas",
+      btnText: "Enviar",
+      icon: <FiMail size={16} />
+    },
+    {
+      title: "Whatsapp",
+      href: "https://api.whatsapp.com/send?phone=+5492364525588&text=Hola,%20te%20contacto%20desde%20la%20web",
+      label: "+54 9 2364 525588 ",
+      availability: "Lunes a Viernes: 9:00 - 21:00",
+      btnText: "Enviar",
+      icon: <FaWhatsapp size={16} />
+    },
+    {
+      title: "Dirección",
+      href: "https://maps.app.goo.gl/mrRb26Zf8osD8umRA",
+      label: "Junín y alrededores",
+      availability: "Llegamos a todas las localidades cercanas",
+      btnText: "Ir",
+      icon: <FiMapPin size={16} />
+    },
+  ];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -45,22 +74,13 @@ export default function ContactPage() {
     return () => ctx.revert()
   }, [])
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitted(true)
-    // Aquí iría la lógica de envío del formulario
-    setTimeout(() => {
-      setFormData({ name: "", email: "", message: "" })
-      setIsSubmitted(false)
-    }, 3000)
-  }
+  
+  const handleCopy = (text) => {
+    navigator.clipboard.writeText(text)
+      .then(() => setCopiedText(text))
+      .catch(console.error);
+  };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
-  }
 
   return (
     <main className="min-h-screen bg-brand-dark text-white pt-32 pb-20" ref={containerRef}>
@@ -71,58 +91,48 @@ export default function ContactPage() {
           <p className="text-2xl mb-10 text-white/70 font-thin max-w-3xl text-pretty">
             Contactanos por cualquier duda que tengas o para solicitar un presupuesto y comenzar tu proyecto.
           </p>
-          <p className="text-2xl text-white/70 font-thin max-w-3xl text-pretty">
-            Hace click en la opción que prefieras!
-          </p>
+          <div className="bg-brand-yellow w-14 h-1 rounded"></div>
         </div>
 
         <div>
           {/* Contact Info */}
-          <div className="contact-info space-y-8 mt-20">
+          <div className="contact-info space-y-8 mt-13">
             <div>
-              <div className="space-y-6 grid grid-cols-2 gap-10">
-                <a href={"tel:+5492364525588"} target="_blank"  rel="noopener noreferrer"  className="flex w-fit items-start gap-4">
-                  <div className="w-12 h-12 bg-brand-yellow flex items-center justify-center flex-shrink-0">
-                    <FiPhone className="text-black" size={20} />
+              <div className="space-y-6 grid grid-cols-1 sm:grid-cols-2 gap-10">
+                
+                {contactMethods.map((method, index) => (
+                  <div key={index} className="flex w-fit items-start gap-4">
+                    <div>
+                      <h3 className="mb-1 text-3xl title-font uppercase letter tracking-wider text-white/90">{method.title}</h3>
+                      <p className="text-white/90 font-thin text-3xl">{method.label}</p>
+                      <p className="text-white/50 font-thin mt-2">{method.availability}</p>
+                      <div className="flex w-full gap-3 mt-4">
+                        {
+                          method.title !== "Dirección" &&
+                          <button 
+                            onClick={(e) => {
+                                e.preventDefault();
+                                handleCopy(method.label);
+                            }}                          
+                            className="inline-flex call-button cursor-pointer justify-center items-center gap-2 w-32 py-2 rounded"
+                          >
+                            <FaRegCopy size={16} /> {copiedText === method.label ? "¡Copiado!" : "Copiar"}
+                          </button>
+                        }
+                        <a
+                          href={method.href} 
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          data-variant="yellow"
+                          className="inline-flex call-button cursor-pointer items-center gap-2 px-4 py-2 rounded"
+                        >
+                          {method.icon} {method.btnText}
+                        </a>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="mb-1 text-3xl title-font uppercase letter tracking-wider text-white/90">Teléfono</h3>
-                    <p className="text-white/90 font-thin text-3xl">+54 9 2364 52-5588</p>
-                    <p className="text-white/50 font-thin mt-1">Lunes a Viernes: 9:00 - 21:00</p>
-                  </div>
-                </a>
-                <a href={"mailto:info@pisofuerte.com"} target="_blank"  rel="noopener noreferrer"  className="flex items-start w-fit gap-4">
-                  <div className="w-12 h-12 bg-brand-yellow flex items-center justify-center flex-shrink-0">
-                    <FiMail className="" size={20} />
-                  </div>
-                  <div>
-                    <h3 className="mb-1 text-3xl title-font uppercase letter tracking-wider text-white/90">Email</h3>
-                    <p className="text-white/90 font-thin text-3xl">info@pisofuerte.com</p>
-                    <p className="text-white/50 font-thin mt-1">Respuesta en menos de 24 horas</p>
-                  </div>
-                </a>
-                <a href={"https://api.whatsapp.com/send?phone=+5492364525588&text=Hola,%20te%20contacto%20desde%20la%20web"} target="_blank"  rel="noopener noreferrer"  className="flex items-start w-fit gap-4">
-                  <div className="w-12 h-12 bg-brand-yellow flex items-center justify-center flex-shrink-0">
-                    <FaWhatsapp className="text-black" size={20} />
-                  </div>
-                  <div>
-                    <h3 className="mb-1 text-3xl title-font uppercase letter tracking-wider text-white/90">Whatsapp</h3>
-                    <p className="text-white/90 font-thin text-3xl">+54 9 2364 52-5588</p>
-                    <p className="text-white/50 font-thin mt-1">Lunes a Viernes: 9:00 - 21:00</p>
-                  </div>
-                </a>
-                <a href={"https://maps.app.goo.gl/mrRb26Zf8osD8umRA"} target="_blank"  rel="noopener noreferrer"  className="flex items-start w-fit gap-4">
-                  <div className="w-12 h-12 bg-brand-yellow flex items-center justify-center flex-shrink-0">
-                    <FiMapPin className="" size={20} />
-                  </div>
-                  <div>
-                    <h3 className="mb-1 text-3xl title-font uppercase letter tracking-wider text-white/90">Dirección</h3>
-                    <p className="text-white/90 font-thin text-3xl">
-                      Junín y alrededores
-                    </p>
-                    <p className="text-white/50 font-thin mt-1">Llegamos a todas las localidades cercanas</p>
-                  </div>
-                </a>
+                ))}
+          
               </div>
             </div>
           </div>

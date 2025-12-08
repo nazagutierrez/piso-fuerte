@@ -216,21 +216,22 @@ export default function HomePage() {
                 
                 <Link
                   to="/trabajos"
-                  className="inline-flex font-medium items-center gap-2 bg-brand-yellow text-brand-dark px-8 py-4 hover:bg-yellow-400 transition-colors"
+                  data-variant="yellow"
+                  className="inline-flex call-button font-medium items-center gap-2 px-8 py-4"
                 >
                   
                   Ver Trabajos <FiArrowRight />
                 </Link>
                 <Link
                   to="/contacto"
-                  className="inline-flex call-button items-center gap-2 border border-background/70 text-background/70 px-8 py-4  hover:bg-brand-dark hover:text-white transition-colors"
+                  className="inline-flex call-button items-center gap-2 px-8 py-4"
                 >
                   <FiPhone className=" flex-shrink-0" size={20} />
                   Llamar
                 </Link>
                 <Link
                   to="/contacto"
-                  className="inline-flex call-button items-center gap-2 border border-background/70 text-background/70 px-8 py-4  hover:bg-brand-dark hover:text-white transition-colors"
+                  className="inline-flex call-button items-center gap-2 px-8 py-4"
                 >
                   <FaWhatsapp className=" flex-shrink-0" size={20} />
                   Whatsapp

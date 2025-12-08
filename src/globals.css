@@ -158,7 +158,6 @@
 }
 
 .call-button {
- padding: 15px 25px;
  border: unset;
  color: #e8e8e8;
  border: 1px solid #7a6a00;
@@ -192,4 +191,19 @@
 
 .call-button:hover::before {
  width: 100%;
+}
+
+.call-button[data-variant="yellow"] {
+  background: var(--brand-yellow);
+  color: #212121;
+  border-color: #7a6a00;
+}
+
+.call-button[data-variant="yellow"]:hover {
+ color: #e8e8e8;
+}
+
+.call-button[data-variant="yellow"]::before {
+  content: "";
+  background-color: #212121;
 }
