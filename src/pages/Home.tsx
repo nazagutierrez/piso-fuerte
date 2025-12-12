@@ -3,35 +3,41 @@ import { Link } from "react-router-dom";
 import { FiArrowRight, FiCheck, FiPhone } from "react-icons/fi";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { GiCrane, GiHammerBreak } from "react-icons/gi";
-import { TfiRulerPencil } from "react-icons/tfi";
 import { FaWhatsapp } from "react-icons/fa";
+import { MdOutlinePool } from "react-icons/md";
+import { IoHomeSharp } from "react-icons/io5";
+
+import { BsHouseDoorFill } from "react-icons/bs";
+import { PiWarehouseFill } from "react-icons/pi";
+
+
+
 
 gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   {
-    title: "Construcción",
+    title: "Galpones",
     description:
-      "Proyectos de construcción desde cero con los más altos estándares de calidad y seguridad.",
+      "Construimos galpones industriales y comerciales adaptados a tus necesidades específicas.",
     icon: (
-      <GiCrane className="text-4xl mb-4 absolute top-0 right-5 rotate-12 text-brand-yellow opacity-70" />
+      <PiWarehouseFill className="text-3xl mb-4 absolute top-0 right-5 rotate-12 text-brand-yellow opacity-70" />
     ),
   },
   {
-    title: "Remodelación",
+    title: "Casas",
     description:
-      "Transformamos espacios existentes en ambientes modernos y funcionales adaptados a tus necesidades.",
+      "Construimos casas personalizadas que combinan diseño, funcionalidad y calidad, siempre respetando tus gustos.",
     icon: (
-      <GiHammerBreak className="text-4xl mb-4 absolute top-0 right-5 rotate-12 text-brand-yellow opacity-70" />
+      <IoHomeSharp className="text-3xl mb-4 absolute top-0 right-5 rotate-12 text-brand-yellow opacity-70" />
     ),
   },
   {
-    title: "Diseño de Interiores",
+    title: "Piletas",
     description:
-      "Creamos espacios únicos que reflejan tu estilo y maximizan la funcionalidad de cada ambiente.",
+      "Construimos piletas de todos los tamaños y bien pensadas dependiendo del espacio disponible.",
     icon: (
-      <TfiRulerPencil className="text-4xl mb-4 absolute top-0 right-5 rotate-12 text-brand-yellow opacity-70" />
+      <MdOutlinePool className=" text-3xl mb-4 absolute top-0 right-5 rotate-12 text-brand-yellow opacity-70" />
     ),
   },
 ];
@@ -261,13 +267,12 @@ export default function HomePage() {
         />
         <div className="max-w-7xl mx-auto py-40 px-4 sm:px-6 lg:px-8 relative">
           
-          <h2 className="text-4xl sm:text-5xl font-bold text-yellow-200/80 mb-4 text-balance title-font">
+          <h2 className="text-4xl sm:text-5xl font-bold text-brand-yellow mb-4 text-balance title-font">
             NUESTROS SERVICIOS
           </h2>
           <p className="text-lg text-white/80 mb-12 max-w-2xl text-pretty">
-            
-            Ofrecemos una amplia gama de servicios de construcción y
-            remodelación adaptados a tus necesidades.
+            Somos capaces de llevar a cabo muchos tipos de proyectos de construcción,
+            pero principalmente nos especializamos en:
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             

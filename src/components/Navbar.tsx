@@ -23,7 +23,7 @@ export function Navbar() {
           <Link to="/" className="flex items-center">
             <img src="/logo.png" alt="Logo" className="h-12 w-12" />
 
-            <span className="font-bold text-xl text-white title-font"><span className='text-brand-yellow title-font'>PISO</span> FUERTE</span>
+            {/* <span className="font-bold text-xl text-white title-font"><span className='text-brand-yellow title-font'>PISO</span> FUERTE</span> */}
           </Link>
 
           {/* Desktop Navigation */}
