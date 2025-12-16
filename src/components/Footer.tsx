@@ -75,7 +75,7 @@ export function Footer() {
         </div>
       </div>
 
-      <img src="/logo.png" alt="Logo" className="h-[1000px] opacity-30 w-[1000px] -rotate-45 absolute blur-sm -bottom-40 -right-90" />
+      <img src="/logo.png" alt="Logo" className="h-[1000px] pointer-events-none opacity-30 w-[1000px] -rotate-45 absolute blur-sm -bottom-40 -right-90" />
     </footer>
   )
 }

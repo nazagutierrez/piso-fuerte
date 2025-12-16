@@ -230,14 +230,14 @@ export default function HomePage() {
                 </Link>
                 <Link
                   to="/contacto"
-                  className="inline-flex call-button items-center gap-2 px-8 py-4"
+                  className="inline-flex bg-[#212121] border border-[#7a6a00] text-white hover:border-[#9c8700] hover:bg-[#1a1a1a] transition-all duration-300 items-center gap-2 px-8 py-4"
                 >
                   <FiPhone className=" flex-shrink-0" size={20} />
                   Llamar
                 </Link>
                 <Link
                   to="/contacto"
-                  className="inline-flex call-button items-center gap-2 px-8 py-4"
+                  className="inline-flex bg-[#212121] border border-[#7a6a00] text-white hover:border-[#9c8700] hover:bg-[#1a1a1a] transition-all duration-300 items-center gap-2 px-8 py-4"
                 >
                   <FaWhatsapp className=" flex-shrink-0" size={20} />
                   Whatsapp
