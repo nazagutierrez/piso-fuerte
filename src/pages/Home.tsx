@@ -42,8 +42,8 @@ const services = [
   },
 ];
 const features = [
-  "Más de 15 años de experiencia",
-  "Equipo profesional certificado",
+  "Más de 10 años de experiencia",
+  "El mejor precio en la industria",
   "Materiales de primera calidad",
   "Presupuestos sin compromiso",
   "Garantía en todos los trabajos",
@@ -362,11 +362,11 @@ export default function HomePage() {
                 ))}
               </ul>
               <Link
-                to="/sobre-nosotros"
-                className="inline-flex items-center gap-2 mt-8 text-brand-dark font-semibold hover:text-brand-yellow transition-colors"
+                to="/nosotros"
+                className="inline-flex items-center gap-2 mt-8 text-brand-dark font-semibold hover:text-brand-yellow group transition-colors"
               >
                 
-                Conocer más sobre nosotros <FiArrowRight />
+                Conocer más sobre nosotros <FiArrowRight className="group-hover:ms-2 transition-all" />
               </Link>
             </div>
           </div>
@@ -380,10 +380,9 @@ export default function HomePage() {
           <h2 className="text-4xl uppercase title-font sm:text-5xl font-bold mb-6 text-balance">
             ¿Listo para comenzar tu proyecto?
           </h2>
-          <p className="text-xl text-gray-300 mb-8 text-pretty">
+          <p className="text-xl text-neutral-400 font-thin mb-8 text-pretty">
             
-            Contáctanos hoy y recibe un presupuesto personalizado sin
-            compromiso.
+            Mandanos un mensaje y en menos de 24 horas te enviaremos un presupuesto sin compromiso.
           </p>
           <Link
             to="/contacto"

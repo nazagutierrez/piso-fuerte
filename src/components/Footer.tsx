@@ -13,8 +13,8 @@ export function Footer() {
 
               <span className="font-bold text-3xl text-white title-font"><span className='text-brand-yellow title-font'>PISO</span> FUERTE</span>
             </Link>
-            <p className="text-sm text-neutral-400 leading-relaxed">
-              Construcción y remodelación profesional con más de 15 años de experiencia en el sector.
+            <p className="text-sm sm:w-2/3 text-pretty text-neutral-400 leading-relaxed">
+              Construcción profesional de galpones, piletas y casas en Junín y alrededores.
             </p>
           </div>
 

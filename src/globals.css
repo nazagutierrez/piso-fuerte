@@ -207,3 +207,7 @@
   content: "";
   background-color: #1a1a1a;
 }
+
+.bite-svg {
+  clip-path: url(#bite);
+}

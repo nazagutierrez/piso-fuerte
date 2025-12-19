@@ -38,11 +38,35 @@ export default function AboutPage() {
     <main className="min-h-screen bg-brand-dark text-white pt-32 pb-20" ref={containerRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="about-header mb-16">
+        <div className="about-header mb-16 absolute">
           <h1 className="text-5xl sm:text-6xl title-font uppercase mb-6 text-balance">Sobre Nosotros</h1>
           <p className="text-2xl max-w-3xl text-pretty text-white/70 font-thin">
             Construyendo sueños y transformando espacios desde 2008
           </p>
+        </div>
+
+        <div>
+          <svg
+            viewBox="0 0 17 10"
+            className="w-full h-auto mb-20"
+            preserveAspectRatio="xMidYMid slice"
+          >
+            <defs>
+              <clipPath id="bite">
+                <path d="
+M 0 3.5 V 9 Q 0 10 1 10 H 16 Q 17 10 17 9 V 1 Q 17 0 16 0 H 10 Q 9 0 9 1 V 2 Q 9 3 8 3 H 1 Q 0 3 0 4 Z
+                " />
+              </clipPath>
+            </defs>
+
+            <image
+              href="/construction-company-office-team-meeting-professio.jpg"
+              width="100%"
+              height="100%"
+              clipPath="url(#bite)"
+              preserveAspectRatio="xMidYMid slice"
+            />
+          </svg>
         </div>
 
         {/* Main Content */}
