@@ -59,6 +59,7 @@ export default function HomePage() {
   const backdropOpacityRef = useRef<HTMLDivElement>(null);
   const heroSectionRef = useRef<HTMLDivElement>(null);
   const animatedHeroTextRef = useRef<HTMLSpanElement>(null);
+  const buildingImg = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     // Hero Animation
@@ -87,7 +88,6 @@ export default function HomePage() {
           start: "top",
           end: "bottom",
           scrub: true,
-          markers: true,
         },
       });
 
@@ -178,6 +178,19 @@ export default function HomePage() {
         x: -30,
         stagger: 0.1,
         duration: 0.6,
+        ease: "power3.out",
+      });
+
+      gsap.set(".building-img", { y: 0 });
+
+      gsap.from(".building-img", {
+        scrollTrigger: { 
+          trigger: featuresRef.current, 
+          start: "top 70%",
+          end: "bottom 40%",
+          scrub: true,
+        },
+        y: 400,
         ease: "power3.out",
       });
 
@@ -373,8 +386,12 @@ export default function HomePage() {
         </div>
       </section>
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-brand-dark text-white">
-        
+      <div className="relative">
+        <img src="/building-no-bg.png" className="building-img absolute h-24 w-24 sm:w-40 sm:h-40 -top-[90px] sm:-top-[152px] z-30 left-5 object-cover pointer-events-none" alt="textura" />
+        <img src="/building-2-no-bg.png" className="building-img absolute h-24 w-20 sm:w-52 sm:h-52 -top-[70px] sm:-top-40 z-30 right-5 object-cover pointer-events-none" alt="textura" />
+      </div>
+      
+      <section className="relative py-20 px-4 z-40 sm:px-6 lg:px-8 bg-brand-dark text-white">
         <div className="max-w-4xl mx-auto text-center">
           
           <h2 className="text-4xl uppercase title-font sm:text-5xl font-bold mb-6 text-balance">
