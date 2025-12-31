@@ -3,8 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi"
-import { FaWhatsapp } from "react-icons/fa";
-import { FaRegCopy } from "react-icons/fa";
+import { FaWhatsapp, FaRegCopy } from "react-icons/fa";
 
 export default function ContactPage() {
   const [copiedText, setCopiedText] = useState(null);
@@ -94,47 +93,42 @@ export default function ContactPage() {
           <div className="bg-brand-yellow w-14 h-1 rounded"></div>
         </div>
 
-        <div>
           {/* Contact Info */}
-          <div className="contact-info space-y-8 mt-13">
-            <div>
-              <div className="space-y-6 grid grid-cols-1 sm:grid-cols-2 gap-10">
-                
-                {contactMethods.map((method, index) => (
-                  <div key={index} className="flex w-fit items-start gap-4">
-                    <div>
-                      <h3 className="mb-1 text-3xl title-font uppercase letter tracking-wider text-white/90">{method.title}</h3>
-                      <p className="text-white/90 font-thin text-3xl">{method.label}</p>
-                      <p className="text-white/50 font-thin mt-2">{method.availability}</p>
-                      <div className="flex w-full gap-3 mt-4">
-                        {
-                          method.title !== "Dirección" &&
-                          <button 
-                            onClick={(e) => {
-                                e.preventDefault();
-                                handleCopy(method.label);
-                            }}                          
-                            className="inline-flex call-button cursor-pointer justify-center items-center gap-2 w-32 py-2 rounded"
-                          >
-                            <FaRegCopy size={16} /> {copiedText === method.label ? "¡Copiado!" : "Copiar"}
-                          </button>
-                        }
-                        <a
-                          href={method.href} 
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          data-variant="yellow"
-                          className="inline-flex call-button cursor-pointer items-center gap-2 px-4 py-2 rounded"
-                        >
-                          {method.icon} {method.btnText}
-                        </a>
-                      </div>
-                    </div>
+        <div className="contact-info space-y-8 mt-13">
+          <div className="space-y-6 grid grid-cols-1 sm:grid-cols-2 gap-10">
+            
+            {contactMethods.map((method, index) => (
+              <div key={index} className="flex w-fit items-start gap-4">
+                <div>
+                  <h3 className="mb-1 text-3xl title-font uppercase letter tracking-wider text-white/90">{method.title}</h3>
+                  <p className="text-white/90 font-thin text-3xl">{method.label}</p>
+                  <p className="text-white/50 font-thin mt-2">{method.availability}</p>
+                  <div className="flex w-full gap-3 mt-4">
+                    {
+                      method.title !== "Dirección" &&
+                      <button 
+                        onClick={(e) => {
+                            e.preventDefault();
+                            handleCopy(method.label);
+                        }}                          
+                        className="inline-flex call-button cursor-pointer justify-center items-center gap-2 w-32 py-2 rounded"
+                      >
+                        <FaRegCopy size={16} /> {copiedText === method.label ? "¡Copiado!" : "Copiar"}
+                      </button>
+                    }
+                    <a
+                      href={method.href} 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-variant="yellow"
+                      className="inline-flex call-button cursor-pointer items-center gap-2 px-4 py-2 rounded"
+                    >
+                      {method.icon} {method.btnText}
+                    </a>
                   </div>
-                ))}
-          
+                </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

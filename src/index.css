@@ -125,15 +125,6 @@
     --breakpoint-xs: 25rem;
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
 .hollow-text {
   -webkit-text-stroke: 1px var(--brand-yellow); /* Borde del texto */
   display: inline-block;
@@ -148,7 +139,6 @@
   -moz-transform: translate3d(0,0,0);
   -webkit-transform: translate3d(0,0,0);
 }
-
 
 .title-font {
   font-family: "Anton", sans-serif;
