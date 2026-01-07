@@ -42,6 +42,7 @@ export default function Testimonials() {
     } else {
       if (audioRef.current) {
         audioRef.current.src = audioUrl;
+        audioRef.current.volume = 0.7;
         audioRef.current.play();
       }
       setPlayingId(id);
@@ -53,10 +54,10 @@ export default function Testimonials() {
   }
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gray-100">
+    <section ref={sectionRef} className="py-32 bg-gray-100">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-[#242424]">
-          Lo que dicen de nosotros
+        <h2 className="text-4xl title-font uppercase md:text-6xl font-bold text-center mb-4 text-[#242424]">
+          Lo que dicen de <span className='title-font uppercase text-brand-yellow'>nosotros</span>
         </h2>
         <p className="text-center text-gray-600 mb-16 text-lg">
           Escucha las opiniones de nuestros clientes satisfechos
@@ -86,7 +87,7 @@ export default function Testimonials() {
                 ))}
               </div>
 
-              <p className="text-gray-700 mb-6 leading-relaxed">
+              <p className="text-gray-700 h-[170px] mb-6 leading-relaxed">
                 "{testimonial.opinion}"
               </p>
 
@@ -96,7 +97,7 @@ export default function Testimonials() {
                     onClick={() =>
                       handlePlayAudio(testimonial.id, testimonial.audio_url)
                     }
-                    className="w-full flex items-center justify-center gap-3 bg-[#f1d200] text-[#242424] px-4 py-3 rounded-lg font-semibold hover:bg-[#d9be00] transition-colors"
+                    className="w-full flex items-center cursor-pointer justify-center gap-3 bg-[#f1d200] text-[#242424] px-4 py-3 rounded-lg font-semibold hover:bg-[#d9be00] transition-colors"
                   >
                     {playingId === testimonial.id && audioRef.current && !audioRef.current.paused ? (
                       <>

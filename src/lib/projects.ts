@@ -150,10 +150,10 @@ export const projects: Project[] = [
 export const testimonials: Testimonial[] = [
     {
         "id": "d7fd8849-b349-4939-b91a-4e1dd3e12fa6",
-        "name": "María Rodríguez",
-        "role": "Propietaria",
-        "opinion": "Excelente trabajo de remodelación. El equipo fue profesional, puntual y muy atento a los detalles. Recomendamos a Piso Fuerte sin dudas. Mi casa quedó hermosa y moderna.",
-        "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+        "name": "Alvaro Oroza",
+        "role": "Empresario exitoso en Junín",
+        "opinion": "No me hiciste renegar un día. No tuve un día un problema. La obra fue un éxito. Ayer fui lo avanzada, lo rápida, lo prolija que está",
+        "audio_url": "/audios/audioalvaro.mp3",
         "rating": 5,
         "featured": true,
     },
@@ -162,7 +162,7 @@ export const testimonials: Testimonial[] = [
         "name": "Carlos García",
         "role": "Arquitecto",
         "opinion": "Trabajé junto a Piso Fuerte en varios proyectos y siempre cumplieron con los plazos establecidos. El nivel de profesionalismo es muy alto, usan materiales de calidad y sus terminaciones son impecables.",
-        "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+        "audio_url": "/audios/audioalvaro.mp3",
         "rating": 5,
         "featured": true,
     },
@@ -171,19 +171,10 @@ export const testimonials: Testimonial[] = [
         "name": "Laura Martínez",
         "role": "Inversora Inmobiliaria",
         "opinion": "Confié en Piso Fuerte para la construcción de mi departamento de inversión. El proyecto se completó en tiempo y forma. Los inquilinos están muy satisfechos con la calidad de la obra. Excelente relación costo-beneficio.",
-        "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+        "audio_url": "/audios/audioalvaro.mp3",
         "rating": 5,
         "featured": true,
     },
-    {
-        "id": "6cb48533-6937-49b4-ad3e-92d5357c87ec",
-        "name": "Sofía Fernández",
-        "role": "Homeowner",
-        "opinion": "La remodelación de mi baño fue increíble. El diseño propuesto fue exactamente lo que imaginaba. Los detalles en acabados, griferías y revestimientos son de calidad premium. Muy satisfecha con el trabajo realizado.",
-        "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
-        "rating": 5,
-        "featured": true,
-    }
 ]
 
 export function getProjectById(id: string): Project | undefined {
