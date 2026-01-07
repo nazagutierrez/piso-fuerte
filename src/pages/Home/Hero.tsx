@@ -9,7 +9,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
-  const backdropOpacityRef = useRef<HTMLDivElement>(null);
   const heroSectionRef = useRef<HTMLDivElement>(null);
   const animatedHeroTextRef = useRef<HTMLSpanElement>(null);
 
@@ -72,10 +71,6 @@ export default function Hero() {
       ref={heroSectionRef}
       className="h-screen relative flex items-center bg-[url('/modern-construction-site-with-workers-and-equipmen.jpg')] bg-cover bg-center"
     >
-      <div
-        ref={backdropOpacityRef}
-        className="absolute h-full w-full bg-neutral-900/70 pointer-events-none"
-      ></div>
       <div className="max-w-7xl ms-72">
         <div className="gap-12 items-center">
           <div>
