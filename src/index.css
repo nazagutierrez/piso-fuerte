@@ -125,6 +125,12 @@
     --breakpoint-xs: 25rem;
 }
 
+@media (hover: none) {
+  .custom-cursor {
+    display: none;
+  }
+}
+
 .hollow-text {
   -webkit-text-stroke: 1px var(--brand-yellow); /* Borde del texto */
   display: inline-block;
