@@ -10,6 +10,7 @@ gsap.registerPlugin(ScrollTrigger)
 export default function AboutPage() {
   const containerRef = useRef<HTMLDivElement>(null)
   const buildingsRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -47,6 +48,18 @@ export default function AboutPage() {
       });
     }, containerRef)
 
+
+    gsap.fromTo(imageRef.current, {
+      opacity: 0,
+      y: -20,
+      ease: "power3.out",
+    }, 
+    {
+      opacity: 1,
+      y: 0,
+    }
+    );
+
     return () => ctx.revert()
   }, [])
 
@@ -58,13 +71,14 @@ export default function AboutPage() {
           <h1 className="text-5xl sm:text-6xl title-font uppercase mb-6 text-balance">
             <span className="title-font text-brand-yellow">Sobre</span> Nosotros
           </h1>
-          <p className="text-2xl max-w-xl text-pretty text-white/70 font-thin">
-            Construyendo sueños y transformando espacios desde 2008
+          <p className="text-2xl max-w-xl text-pretty text-white/80">
+            Construyendo sueños y transformando espacios desde 2015
           </p>
         </div>
 
-        <div>
+        <div ref={imageRef}>
           <svg
+          
             viewBox="0 0 17 10"
             className="w-full h-auto mb-20"
             preserveAspectRatio="xMidYMid slice"
@@ -93,14 +107,14 @@ M 0 3.5 V 9 Q 0 10 1 10 H 16 Q 17 10 17 9 V 1 Q 17 0 16 0 H 10 Q 9 0 9 1 V 2 Q 9
             <img
               src="/construction-company-office-team-meeting-professio.jpg"
               alt="Equipo Piso Fuerte"
-              className="w-full h-[400px] object-cover mb-8"
+              className="w-full h-[400px] rounded-bl-3xl rounded-t-3xl object-cover mb-8"
             />
           </div>
           <div className="about-content space-y-6">
             <div>
               <h2 className="text-7xl font-bold mb-4">Nuestra Historia</h2>
               <p className="text-lg leading-relaxed text-white/70 font-thin">
-                Piso Fuerte nació en 2008 con la visión de ofrecer servicios de construcción y remodelación de la más
+                Piso Fuerte nació en 2015 con la visión de ofrecer servicios de construcción y remodelación de la más
                 alta calidad. Desde nuestros inicios, nos hemos comprometido a superar las expectativas de nuestros
                 clientes, combinando experiencia técnica con un trato personalizado.
               </p>
@@ -123,7 +137,7 @@ M 0 3.5 V 9 Q 0 10 1 10 H 16 Q 17 10 17 9 V 1 Q 17 0 16 0 H 10 Q 9 0 9 1 V 2 Q 9
             <img
               src="/construction-company-office-team-meeting-professio.jpg"
               alt="Equipo Piso Fuerte"
-              className="w-full h-[400px] object-cover mb-8"
+              className="w-full h-[400px] rounded-tr-3xl rounded-b-3xl object-cover mb-8"
             />
           </div>
         </div>

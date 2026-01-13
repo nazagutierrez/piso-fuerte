@@ -10,9 +10,9 @@ const features = [
   "Más de 10 años de experiencia",
   "El mejor precio en la industria",
   "Materiales de primera calidad",
-  "Presupuestos sin compromiso",
+  "Prolijidad en todos los trabajos",
   "Garantía en todos los trabajos",
-  "Atención personalizada",
+  "Presupuestos sin compromiso",
 ];
 
 export default function Features() {
@@ -35,7 +35,7 @@ export default function Features() {
   return (
     <section
       ref={featuresRef}
-      className="py-20 w-full relative z-10 px-4 sm:px-6 lg:px-8 bg-white"
+      className="py-20 w-full relative z-10 px-4 sm:px-6 lg:px-8 bg-gray-100"
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -48,7 +48,7 @@ export default function Features() {
           </div>
           <div>
             <h2 className="text-4xl uppercase title-font sm:text-5xl text-brand-dark mb-6 text-balance">
-              ¿Por qué elegirnos?
+              ¿Por qué <span className="text-brand-yellow title-font uppercase">elegirnos</span>?
             </h2>
             <ul className="space-y-4">
               {features.map((feature, index) => (

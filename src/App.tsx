@@ -5,13 +5,13 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
 import Contact from "./pages/Contact";
-import { Footer } from "./components/footer";
 import { Navbar } from "./components/Navbar";
 import CustomCursor from "./components/CustomCursor";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { Footer } from "./components/Footer";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
