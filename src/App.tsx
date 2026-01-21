@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import Home from "./pages/Home/Home";
-import About from "./pages/About";
+import About from "./pages/About/About";
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
 import Contact from "./pages/Contact";
@@ -12,6 +12,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { Footer } from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
@@ -30,6 +31,7 @@ function App() {
     <Router>
       {/* ⚠️ Cursor SIEMPRE fuera del wrapper */}
       <CustomCursor />
+      <ScrollToTop />
 
       <div id="smooth-wrapper">
         <div id="smooth-content">

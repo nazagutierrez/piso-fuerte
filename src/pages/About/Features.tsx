@@ -64,10 +64,10 @@ export default function Features() {
               ))}
             </ul>
             <Link
-              to="/nosotros"
+              to="/contacto"
               className="inline-flex items-center gap-2 mt-8 text-brand-dark font-semibold hover:text-brand-yellow group transition-colors"
             >
-              Conocer más sobre nosotros{" "}
+              Contactanos {" "}
               <FiArrowRight className="group-hover:ms-2 transition-all" />
             </Link>
           </div>

@@ -1,14 +1,13 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FiArrowRight, FiPhone } from "react-icons/fi";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
-  const heroRef = useRef<HTMLDivElement>(null);
   const heroSectionRef = useRef<HTMLDivElement>(null);
   const animatedHeroTextRef = useRef<HTMLSpanElement>(null);
 
@@ -33,13 +32,18 @@ export default function Hero() {
       gsap.to(animatedHeroTextRef.current, {
         backgroundPosition: "-500% 0%",
         scrollTrigger: {
-          trigger: heroRef.current,
           start: "top",
           end: "bottom",
           scrub: true,
         },
       });
+    }, heroSectionRef);
+    return () => ctx.revert();
+  }, []);
 
+  
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
       gsap.from(".hero-title", {
         opacity: 0,
         y: 50,
@@ -53,16 +57,20 @@ export default function Hero() {
         duration: 1,
         delay: 0.3,
         ease: "power3.out",
+        
       });
 
-      gsap.from(".hero-cta", {
-        opacity: 0,
-        y: 30,
-        duration: 1,
-        delay: 0.6,
+      gsap.to(".hero-cta-item", {
+        opacity: 1,
+        y: 0,
+        stagger: 0.2,
+        duration: 0.8,
         ease: "power3.out",
+        delay: 0.3,
       });
-    }, heroRef);
+
+    }, heroSectionRef);
+
     return () => ctx.revert();
   }, []);
 
@@ -86,27 +94,36 @@ export default function Hero() {
             <p className="hero-subtitle font-thin text-2xl sm:text-2xl text-white/90 mt-6 leading-relaxed text-pretty">
               Constructora profesional en Junín y alrededores
             </p>
-            <div className="hero-cta mt-8 flex flex-wrap gap-4">
-              <Link
-                to="/trabajos"
-                data-variant="yellow"
-                className="inline-flex call-button font-medium items-center gap-2 px-8 py-4"
-              >
-                Ver Trabajos <FiArrowRight />
-              </Link>
+            <div className="mt-8 flex items-center justify-center flex-wrap gap-2">
               <Link
                 to="/contacto"
-                className="inline-flex bg-[#212121] border border-[#7a6a00] text-white hover:border-[#9c8700] hover:bg-[#1a1a1a] transition-all duration-300 items-center gap-2 px-8 py-4"
+                className="inline-flex place-content-center bg-[#212121] hero-cta-item opacity-0 w-[169px] translate-y-5 border border-[#7a6a00] text-white hover:border-[#9c8700] hover:bg-[#1a1a1a] items-center hover:transition-colors gap-2 px-8 py-4"
               >
-                <FiPhone className="flex-shrink-0" size={20} />
+                <FiPhone size={20} />
                 Llamar
               </Link>
               <Link
                 to="/contacto"
-                className="inline-flex bg-[#212121] border border-[#7a6a00] text-white hover:border-[#9c8700] hover:bg-[#1a1a1a] transition-all duration-300 items-center gap-2 px-8 py-4"
+                className="inline-flex bg-[#212121] hero-cta-item opacity-0 w-[169px] translate-y-5 border border-[#7a6a00] text-white hover:border-[#9c8700] hover:bg-[#1a1a1a] items-center hover:transition-colors gap-2 px-8 py-4"
               >
-                <FaWhatsapp className="flex-shrink-0" size={20} />
+                <FaWhatsapp size={20} />
                 Whatsapp
+              </Link>
+              <Link
+                to="/contacto"
+                className="inline-flex bg-[#212121] hero-cta-item opacity-0 w-[169px] translate-y-5 border border-[#7a6a00] text-white hover:border-[#9c8700] hover:bg-[#1a1a1a] items-center hover:transition-colors gap-2 px-8 py-4"
+              >
+                <FaInstagram size={20} />
+                Instagram
+              </Link>
+            </div>
+            <div className="items-center justify-center mt-4 flex flex-wrap gap-4">
+              <Link
+                to="/trabajos"
+                data-variant="yellow"
+                className="flex call-button place-content-end font-medium hero-cta-item opacity-0 w-[169px] text-center translate-y-5 items-center gap-2 px-5 py-4"
+              >
+                Ver Trabajos <FiArrowRight />
               </Link>
             </div>
           </div>

@@ -72,16 +72,14 @@ export default function Services() {
           alt="textura"
         />
         <div className="max-w-7xl mx-auto py-40 px-4 sm:px-6 lg:px-8 relative">
-          
           <h2 className="text-4xl sm:text-5xl font-bold text-brand-yellow mb-4 text-balance title-font">
             NUESTROS SERVICIOS
           </h2>
-          <p className="text-lg text-white/80 mb-12 max-w-2xl text-pretty">
+          <p className="text-lg text-white/90 font-thin mb-12 max-w-2xl text-pretty">
             Somos capaces de llevar a cabo muchos tipos de proyectos de construcción,
             pero principalmente nos especializamos en:
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
             {services.map((service, index) => (
               <div
                 key={index}
@@ -92,12 +90,14 @@ export default function Services() {
                 <h3 className="text-2xl font-bold text-white/90 mb-3 title-font uppercase">
                   {service.title}
                 </h3>
-                <p className="text-white/70 leading-relaxed">
+                <p className="text-white/80 font-thin leading-relaxed">
                   {service.description}
                 </p>
               </div>
             ))}
           </div>
+
+          <h2 className="text-center text-white/90 font-thin text-lg mt-20">También brindamos servicios de electricidad, soldadura y plomería, entre otros. Consultanos sin compromiso</h2>
         </div>
       </section>
   );
