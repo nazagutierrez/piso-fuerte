@@ -10,15 +10,16 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Hero() {
   const heroSectionRef = useRef<HTMLDivElement>(null);
   const animatedHeroTextRef = useRef<HTMLSpanElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.set(heroSectionRef.current, {
+      gsap.set(videoRef.current, {
         borderRadius: "450px",
         overflow: "hidden",
       });
 
-      gsap.from(heroSectionRef.current, {
+      gsap.from(videoRef.current, {
         borderRadius: "0px",
         duration: 0.5,
         scrollTrigger: {
@@ -80,13 +81,21 @@ export default function Hero() {
       ref={heroSectionRef}
       className="h-screen relative flex items-center"
     >
-      <video autoPlay loop muted playsInline className="absolute inset-0 object-cover h-full w-full z-10">
-        <source src="/hero-piso-fuerte-2.mp4" type="video/mp4" />
+      <video ref={videoRef} autoPlay loop muted playsInline className="absolute brightness-30 inset-0 object-cover h-full w-full z-10">
+        <source src="/video-hero.mp4" type="video/mp4" />
       </video>
-      <div className="max-w-7xl ms-72 z-50">
+      <div className="bg-[#141414] inset-0 absolute pointer-events-none -scale-x-100 -top-[89.9%] -z-10 w-full">
+        <img
+          src="/textura-de-la-pared-del-grunge.jpg"
+          className="rotate-180 w-full opacity-35 h-full"
+          alt="textura"
+        />
+      </div>
+      
+      <div className="max-w-7xl mx-auto z-50">
         <div className="gap-12 items-center">
           <div >
-            <h1 className="hero-title text-4xl sm:text-7xl lg:text-9xl font-bold text-brand-yellow leading-tight text-balance">
+            <h1 className="hero-title text-4xl sm:text-7xl lg:text-[9rem] font-bold text-brand-yellow leading-tight text-balance">
               <span
                 ref={animatedHeroTextRef}
                 className="hollow-text title-font"
@@ -95,27 +104,27 @@ export default function Hero() {
               </span>
               <span className="text-white title-font"> FUERTE</span>
             </h1>
-            <p className="hero-subtitle font-thin text-2xl sm:text-2xl text-white/90 mt-6 leading-relaxed text-pretty">
+            <p className="hero-subtitle text-center font-thin text-2xl sm:text-2xl text-white leading-relaxed text-pretty">
               Constructora profesional en Junín y alrededores
             </p>
-            <div className="mt-8 flex items-center justify-center flex-wrap gap-2">
+            <div className="mt-10 flex items-center justify-center flex-wrap gap-2">
               <Link
                 to="/contacto"
-                className="inline-flex place-content-center bg-[#212121] hero-cta-item opacity-0 w-[169px] translate-y-5 border border-[#7a6a00] text-white hover:border-[#9c8700] hover:bg-[#1a1a1a] items-center hover:transition-colors gap-2 px-8 py-4"
+                className="inline-flex rounded place-content-center bg-[#212121] hero-cta-item opacity-0 w-[169px] translate-y-5 border border-[#7a6a00] text-white hover:border-[#9c8700] hover:bg-[#1a1a1a] items-center hover:transition-colors gap-2 px-8 py-4"
               >
                 <FiPhone size={20} />
                 Llamar
               </Link>
               <Link
                 to="/contacto"
-                className="inline-flex bg-[#212121] hero-cta-item opacity-0 w-[169px] translate-y-5 border border-[#7a6a00] text-white hover:border-[#9c8700] hover:bg-[#1a1a1a] items-center hover:transition-colors gap-2 px-8 py-4"
+                className="inline-flex rounded bg-[#212121] hero-cta-item opacity-0 w-[169px] translate-y-5 border border-[#7a6a00] text-white hover:border-[#9c8700] hover:bg-[#1a1a1a] items-center hover:transition-colors gap-2 px-8 py-4"
               >
                 <FaWhatsapp size={20} />
                 Whatsapp
               </Link>
               <Link
                 to="/contacto"
-                className="inline-flex bg-[#212121] hero-cta-item opacity-0 w-[169px] translate-y-5 border border-[#7a6a00] text-white hover:border-[#9c8700] hover:bg-[#1a1a1a] items-center hover:transition-colors gap-2 px-8 py-4"
+                className="inline-flex rounded bg-[#212121] hero-cta-item opacity-0 w-[169px] translate-y-5 border border-[#7a6a00] text-white hover:border-[#9c8700] hover:bg-[#1a1a1a] items-center hover:transition-colors gap-2 px-8 py-4"
               >
                 <FaInstagram size={20} />
                 Instagram
@@ -125,7 +134,7 @@ export default function Hero() {
               <Link
                 to="/trabajos"
                 data-variant="yellow"
-                className="flex call-button place-content-end font-medium hero-cta-item opacity-0 w-[169px] text-center translate-y-5 items-center gap-2 px-5 py-4"
+                className="flex rounded call-button place-content-end font-medium hero-cta-item opacity-0 w-[169px] text-center translate-y-5 items-center gap-2 px-5 py-4"
               >
                 Ver Trabajos <FiArrowRight />
               </Link>
