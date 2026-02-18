@@ -157,6 +157,10 @@
   font-style: normal;
 }
 
+html {
+  background-color: var(--brand-dark);
+}
+
 .call-button {
  border: unset;
  color: #e8e8e8;
