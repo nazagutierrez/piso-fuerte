@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Projects from "./pages/Projects";
-import ProjectDetail from "./pages/ProjectDetail";
 import Contact from "./pages/Contact";
 import { Navbar } from "./components/Navbar";
 import CustomCursor from "./components/CustomCursor";
@@ -42,7 +41,6 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/nosotros" element={<About />} />
                 <Route path="/trabajos" element={<Projects />} />
-                <Route path="/trabajos/:slug" element={<ProjectDetail />} />
                 <Route path="/contacto" element={<Contact />} />
               </Routes>
             </main>
