@@ -30,10 +30,11 @@ export default function Hero() {
       });
 
       gsap.to(animatedHeroTextRef.current, {
-        backgroundPosition: "-500% 0%",
+        backgroundPosition: "-600% 0%",
         scrollTrigger: {
-          start: "top",
+          start: "top 10%",
           end: "bottom",
+          markers: true,
           scrub: true,
         },
       });
@@ -77,11 +78,14 @@ export default function Hero() {
   return (
     <section
       ref={heroSectionRef}
-      className="h-screen relative flex items-center bg-[url('/modern-construction-site-with-workers-and-equipmen.jpg')] bg-cover bg-center"
+      className="h-screen relative flex items-center"
     >
-      <div className="max-w-7xl ms-72">
+      <video autoPlay loop muted playsInline className="absolute inset-0 object-cover h-full w-full z-10">
+        <source src="/hero-piso-fuerte-2.mp4" type="video/mp4" />
+      </video>
+      <div className="max-w-7xl ms-72 z-50">
         <div className="gap-12 items-center">
-          <div>
+          <div >
             <h1 className="hero-title text-4xl sm:text-7xl lg:text-9xl font-bold text-brand-yellow leading-tight text-balance">
               <span
                 ref={animatedHeroTextRef}
