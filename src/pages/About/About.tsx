@@ -64,14 +64,14 @@ export default function AboutPage() {
   }, [])
 
   return (
-    <main className="min-h-screen bg-brand-dark text-white pt-24" ref={containerRef}>
+    <main className="min-h-screen bg-[url('/textura-oscura.jpg')] bg-bottom text-white pt-24" ref={containerRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="about-header pt-8 ps-8 mb-16 absolute">
           <h1 className="text-5xl sm:text-6xl title-font uppercase mb-6 text-balance">
             <span className="title-font text-brand-yellow">Sobre</span> Nosotros
           </h1>
-          <p className="text-2xl max-w-xl text-pretty text-white/80">
+          <p className="text-2xl font-thin max-w-xl text-pretty text-white/85">
             Construyendo sueños y transformando espacios desde 2015
           </p>
         </div>

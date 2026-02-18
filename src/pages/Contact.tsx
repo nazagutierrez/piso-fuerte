@@ -82,7 +82,7 @@ export default function ContactPage() {
 
 
   return (
-    <main className="min-h-screen bg-brand-dark text-white pt-32 pb-20" ref={containerRef}>
+    <main className="min-h-screen bg-[url('/textura-oscura.jpg')] bg-top text-white pt-32 pb-20" ref={containerRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="contact-header">
