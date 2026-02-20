@@ -66,43 +66,43 @@ export default function Images() {
 
   return (
     <section ref={imgContainer} className="h-full w-full flex flex-col">
-      <div className="h-screen w-full relative bg-[#141414]">
+      <div className="h-screen w-full relative bg-texture-black">
         <img
-          src="/textura-de-la-pared-del-grunge.jpg"
+          src="/textura.jpg"
           className="bg-top h-[674px] rotate-180 -scale-x-100 w-full opacity-30 object-cover"
           alt="background texture"
         ></img>
         <img
           ref={imgRef1}
-          className="w-full h-screen absolute inset-0 "
-          src="/galpon.jpg"
+          className="w-full h-screen absolute inset-0 brightness-85"
+          src="/galpon-3.jfif"
           alt="building example 1"
         />
         <div className="absolute flex flex-col items-start bottom-20 left-14">
           <h2 className="uppercase title-font text-brand-yellow text-7xl">
             Galpones
           </h2>
-          <h4 className="text-2xl text-white font-thin">Un proyecto de construcción de casas personalizadas</h4>
+          <h4 className="text-2xl text-white">Es nuestra especialidad, te garantizamos un trabajo de alta calidad</h4>
         </div>
       </div>
 			<div className="h-screen relative">
 				<img
 					ref={imgRef2}
-					className="w-full h-screen object-cover z-20"
-					src="/piletas.webp"
+					className="w-full h-screen object-cover z-20 brightness-85"
+					src="/piso-1.jfif"
 					alt="building example 2"
 				/>
 				<div className="absolute z-30 flex flex-col items-start bottom-20 left-14">
           <h2 className="uppercase title-font text-brand-yellow text-7xl">
-            Piletas
+            Pisos
           </h2>
-          <h4 className="text-2xl text-white font-thin">Un proyecto de construcción de casas personalizadas</h4>
+          <h4 className="text-2xl text-white">Expertos realizando pisos, contamos con la mejor maquinaria</h4>
         </div>
 			</div>
 			<div className="h-screen relative z-30">
 				<img
 					ref={imgRef3}
-					className="w-full h-screen object-cover"
+					className="w-full h-screen object-cover brightness-85"
 					src="/pared.jpg"
 					alt="building example 3"
 				/>
@@ -110,7 +110,7 @@ export default function Images() {
           <h2 className="uppercase title-font text-brand-yellow text-7xl">
             Construcción prolija
           </h2>
-          <h4 className="text-2xl text-white font-thin">Un proyecto de construcción de casas personalizadas</h4>
+          <h4 className="text-2xl text-white">Lo que mas nos destaca, nuestra prolijidad en todo lo que hacemos</h4>
         </div>
 			</div>
     </section>

@@ -9,9 +9,11 @@ import { testimonials } from '../../lib/projects';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Testimonials() {
-  const sectionRef = useRef<HTMLDivElement>(null);
   const [playingId, setPlayingId] = useState<string | null>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
     if (testimonials.length === 0) return;
@@ -25,8 +27,33 @@ export default function Testimonials() {
         y: 80,
         opacity: 0,
         duration: 0.8,
-        stagger: 0.2,
+        delay: 0.8,
+        stagger: 0.3,
         ease: 'power3.out',
+      });
+
+      gsap.from(titleRef.current, {
+        opacity: 0,
+        y: 30,
+        delay: .1,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 80%',
+        },
+      });
+
+      gsap.from(subtitleRef.current, {
+        opacity: 0,
+        y: 30,
+        delay: .5,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 80%',
+        },
       });
     });
 
@@ -54,12 +81,12 @@ export default function Testimonials() {
   }
 
   return (
-    <section ref={sectionRef} className="py-32 bg-gray-100">
+    <section ref={sectionRef} className="py-32 bg-gray-100 relative z-40">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl title-font uppercase md:text-6xl font-bold text-center mb-4 text-[#242424]">
+        <h2 ref={titleRef} className="text-4xl title-font uppercase md:text-6xl font-bold text-center mb-4 text-[#242424]">
           Lo que dicen de <span className='title-font uppercase text-brand-yellow'>nosotros</span>
         </h2>
-        <p className="text-center text-gray-600 mb-16 text-lg">
+        <p ref={subtitleRef} className="text-center text-gray-600 mb-16 text-lg">
           Escucha las opiniones de nuestros clientes satisfechos
         </p>
 

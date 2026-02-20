@@ -11,7 +11,7 @@ const features = [
   "El mejor precio en la industria",
   "Materiales de primera calidad",
   "Prolijidad en todos los trabajos",
-  "Garantía en todos los trabajos",
+  "Garantía en todo lo que hacemos",
   "Presupuestos sin compromiso",
 ];
 
@@ -41,7 +41,7 @@ export default function Features() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative h-[400px]">
             <img
-              src="/galpon-2.jpg"
+              src="/about-galpon-equipo-2.png"
               alt="Equipo profesional"
               className="w-full h-full object-cover"
             />
@@ -54,7 +54,7 @@ export default function Features() {
               {features.map((feature, index) => (
                 <li
                   key={index}
-                  className="feature-item flex items-center gap-3"
+                  className="feature-item flex items-center gap-3 text-brand-dark"
                 >
                   <div className="w-6 h-6 bg-brand-yellow flex items-center justify-center flex-shrink-0">
                     <FiCheck className="text-brand-dark" size={16} />
@@ -65,10 +65,10 @@ export default function Features() {
             </ul>
             <Link
               to="/contacto"
-              className="inline-flex items-center gap-2 mt-8 text-brand-dark font-semibold hover:text-brand-yellow group transition-colors"
+              className="inline-flex items-center gap-2 mt-8 text-brand-dark font-semibold group transition-colors"
             >
               Contactanos {" "}
-              <FiArrowRight className="group-hover:ms-2 transition-all" />
+              <FiArrowRight className="group-hover:ms-2 group-hover:text-brand-yellow transition-all" />
             </Link>
           </div>
         </div>

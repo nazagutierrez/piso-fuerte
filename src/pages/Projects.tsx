@@ -85,7 +85,9 @@ useEffect(() => {
 
   return (
     <main className="min-h-screen bg-[url('/textura-oscura.jpg')] pt-32 pb-20 text-white" ref={containerRef}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="absolute bg-texture-black/35 inset-0 h-full z-0" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         {/* Header */}
         <div className="works-header mb-16">
           <h1 className="text-4xl sm:text-6xl font-semibold mb-4 tracking-tight uppercase title-font">
@@ -101,9 +103,8 @@ useEffect(() => {
           className="mb-6 gap-y-16 flex flex-col w-full relative group"
         >
           <Carousel media={media} text="GALPONES" side="left" classname="first-carousel" />
-          <Carousel media={media} text="PILETAS" side="right" />
-          <Carousel media={media} text="CASAS" side="left" />
-          <Carousel media={media} text="OTRAS" side="right" />
+          <Carousel media={media} text="PISOS" side="right" />
+          <Carousel media={media} text="OTROS" side="left" />
 
           {/* <div className="pl-1 pr-3 py-3 text-white">
             <div className="text-xs text-brand-yellow title-font uppercase tracking-widest font-medium mb-1">asas</div>

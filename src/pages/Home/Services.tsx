@@ -24,6 +24,7 @@ const services = [
 
 export default function Services() {
   const servicesRef = useRef<HTMLDivElement>(null);
+  const lastTextRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -32,20 +33,29 @@ export default function Services() {
         scrollTrigger: { trigger: servicesRef.current, start: "top 80%" },
         opacity: 0,
         y: 50,
-        stagger: 0.2,
+        stagger: 0.3,
+        delay: 0.3,
         duration: 0.8,
         ease: "power3.out",
       });
 
+      gsap.from(lastTextRef.current, {
+        opacity: 0,
+        y: 30,
+        delay: 1.2,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: { trigger: servicesRef.current, start: "top 80%" },
+      });
     }, servicesRef);
     return () => ctx.revert();
   }, []);
 
   return (
-      <section ref={servicesRef} className="relative -mb-1 bg-[#141414]">
+      <section ref={servicesRef} className="relative -mb-1 bg-texture-black">
         <img
           className="absolute top-0 left-0 w-full h-full object-cover opacity-30 pointer-events-none"
-          src="/textura-de-la-pared-del-grunge.jpg"
+          src="/textura.jpg"
           alt="textura"
         />
         <div className="max-w-7xl mx-auto py-40 px-4 sm:px-6 lg:px-8 relative">
@@ -73,7 +83,7 @@ export default function Services() {
             ))}
           </div>
 
-          <h2 className="text-center text-white/90 font-thin text-lg mt-20">También brindamos servicios de electricidad, soldadura y plomería, entre otros. Consultanos sin compromiso</h2>
+          <h2 ref={lastTextRef} className="text-center text-white/90 font-thin text-lg mt-20">También brindamos servicios de electricidad, soldadura y plomería, entre otros. Consultanos sin compromiso</h2>
         </div>
       </section>
   );

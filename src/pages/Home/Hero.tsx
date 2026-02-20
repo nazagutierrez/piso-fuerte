@@ -49,7 +49,7 @@ export default function Hero() {
       });
 
       gsap.to(animatedHeroTextRef.current, {
-        backgroundPosition: "-600% 0%",
+        backgroundPosition: "-570% 0%",
         scrollTrigger: {
           start: "top 10%",
           end: "bottom",
@@ -99,12 +99,12 @@ export default function Hero() {
       ref={heroSectionRef}
       className="h-screen relative flex items-center"
     >
-      <video ref={videoRef} autoPlay loop muted playsInline className="absolute brightness-35 inset-0 object-cover h-full w-full z-10">
+      <video ref={videoRef} autoPlay loop muted playsInline className="absolute shadow-2xl shadow-white/20 brightness-35 inset-0 object-cover h-full w-full z-10">
         <source src="/video-hero.mp4" type="video/mp4" />
       </video>
-      <div className="bg-[#141414] inset-0 absolute pointer-events-none -scale-x-100 -top-[89.9%] -z-10 w-full">
+      <div className="bg-texture-black inset-0 absolute pointer-events-none -scale-x-100 -top-[89.9%] -z-10 w-full">
         <img
-          src="/textura-de-la-pared-del-grunge.jpg"
+          src="/textura.jpg"
           className="rotate-180 w-full opacity-35 h-full"
           alt="textura"
         />

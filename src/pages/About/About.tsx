@@ -65,7 +65,9 @@ export default function AboutPage() {
 
   return (
     <main className="min-h-screen bg-[url('/textura-oscura.jpg')] bg-bottom text-white pt-24" ref={containerRef}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="absolute bg-texture-black/35 inset-0 h-full z-0" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         {/* Header */}
         <div className="about-header pt-8 ps-8 mb-16 absolute">
           <h1 className="text-5xl sm:text-6xl title-font uppercase mb-6 text-balance">
@@ -92,9 +94,10 @@ M 0 3.5 V 9 Q 0 10 1 10 H 16 Q 17 10 17 9 V 1 Q 17 0 16 0 H 10 Q 9 0 9 1 V 2 Q 9
             </defs>
 
             <image
-              href="/construction-company-office-team-meeting-professio.jpg"
-              width="100%"
+              href="/about-equipo.jfif"
+              width="110%"
               height="100%"
+              className="brightness-80 saturate-120"
               clipPath="url(#bite)"
               preserveAspectRatio="xMidYMid slice"
             />
@@ -105,7 +108,7 @@ M 0 3.5 V 9 Q 0 10 1 10 H 16 Q 17 10 17 9 V 1 Q 17 0 16 0 H 10 Q 9 0 9 1 V 2 Q 9
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
           <div className="about-content">
             <img
-              src="/construction-company-office-team-meeting-professio.jpg"
+              src="/galpon-3.jfif"
               alt="Equipo Piso Fuerte"
               className="w-full h-[400px] rounded-bl-3xl rounded-t-3xl object-cover mb-8"
             />
@@ -135,7 +138,7 @@ M 0 3.5 V 9 Q 0 10 1 10 H 16 Q 17 10 17 9 V 1 Q 17 0 16 0 H 10 Q 9 0 9 1 V 2 Q 9
           </div>
           <div className="about-content">
             <img
-              src="/construction-company-office-team-meeting-professio.jpg"
+              src="/about-galpon-equipo.png"
               alt="Equipo Piso Fuerte"
               className="w-full h-[400px] rounded-tr-3xl rounded-b-3xl object-cover mb-8"
             />
@@ -145,28 +148,28 @@ M 0 3.5 V 9 Q 0 10 1 10 H 16 Q 17 10 17 9 V 1 Q 17 0 16 0 H 10 Q 9 0 9 1 V 2 Q 9
         {/* Experience Section */}
         <div className="about-content grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <div>
-            <div className="text-5xl font-bold text-brand-yellow mb-2">15+</div>
-            <p className="text-lg">Años de Experiencia</p>
+            <div className="text-5xl font-bold text-brand-yellow mb-2">10+</div>
+            <p className="text-lg font-thin">Años de Experiencia</p>
           </div>
           <div>
-            <div className="text-5xl font-bold text-brand-yellow mb-2">200+</div>
-            <p className="text-lg">Proyectos Completados</p>
+            <div className="text-5xl font-bold text-brand-yellow mb-2">20+</div>
+            <p className="text-lg font-thin">Galpones realizados</p>
           </div>
           <div>
-            <div className="text-5xl font-bold text-brand-yellow mb-2">100%</div>
-            <p className="text-lg">Clientes Satisfechos</p>
+            <div className="text-5xl font-bold text-brand-yellow mb-2">30+</div>
+            <p className="text-lg font-thin">Pisos fuertes</p>
           </div>
         </div>
 
   
       </div>
-      <div className="relative mt-20">
+      <div className="relative mt-20 z-10">
         <Features />
 
         {/* Buildings images */}
         <div ref={buildingsRef} className="relative">
-          <img src="/building-no-bg.png" className="building-img absolute h-24 w-24 sm:w-40 sm:h-40 -top-[90px] sm:-top-[152px] z-10 left-5 object-cover pointer-events-none" alt="textura" />
-          <img src="/building-2-no-bg.png" className="building-img absolute h-24 w-20 sm:w-52 sm:h-52 -top-[70px] sm:-top-40 z-10 right-5 object-cover pointer-events-none" alt="textura" />
+          <img src="/about-illustracion.png" className="building-img absolute h-24 w-24 sm:w-40 sm:h-40 -top-[90px] sm:-top-[152px] z-10 left-5 object-cover pointer-events-none" alt="textura" />
+          <img src="/about-illustracion-2.png" className="building-img absolute h-24 w-20 sm:w-52 sm:h-52 -top-[70px] sm:-top-40 z-10 right-5 object-cover pointer-events-none" alt="textura" />
         </div>
 
       </div>

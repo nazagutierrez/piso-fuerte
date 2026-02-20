@@ -6,7 +6,9 @@ export default function FinalCTA() {
     <section className="relative py-20 px-4 z-40 sm:px-6 lg:px-8 bg-brand-dark text-white">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-4xl uppercase title-font sm:text-5xl font-bold mb-6 text-balance">
-          ¿Listo para comenzar tu proyecto?
+          ¿Listo para
+          <span className="text-brand-yellow title-font"> comenzar </span>
+           tu proyecto?
         </h2>
         <p className="text-xl text-neutral-400 font-thin mb-8 text-pretty">
           Mandanos un mensaje y en menos de 24 horas te enviaremos un

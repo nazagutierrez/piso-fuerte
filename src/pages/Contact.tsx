@@ -6,14 +6,15 @@ import { FiMail, FiPhone, FiMapPin } from "react-icons/fi"
 import { FaWhatsapp, FaRegCopy } from "react-icons/fa";
 
 export default function ContactPage() {
-  const [copiedText, setCopiedText] = useState(null);
+  const [copiedText, setCopiedText] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement>(null)
 
   const contactMethods = [
     {
       title: "teléfono",
       href: "tel:+5492364525588",
-      label: "+54 9 2364 525588",
+      copy: "5492364525588 ",
+      label: <h3><span className="text-brand-yellow">+</span>54 9 2364 525588</h3>,
       availability: "Lunes a Viernes: 9:00 - 21:00",
       btnText: "Llamar",
       icon: <FiPhone size={16} />
@@ -21,7 +22,8 @@ export default function ContactPage() {
     {
       title: "Email",
       href: "mailto:info@pisofuerte.com",
-      label: "info@pisofuerte.com",
+      copy: "info@pisofuerte.com",
+      label: <h3>info<span className="text-brand-yellow">@</span>pisofuerte.com</h3>,
       availability: "Respuesta en menos de 24 horas",
       btnText: "Enviar",
       icon: <FiMail size={16} />
@@ -29,15 +31,16 @@ export default function ContactPage() {
     {
       title: "Whatsapp",
       href: "https://api.whatsapp.com/send?phone=+5492364525588&text=Hola,%20te%20contacto%20desde%20la%20web",
-      label: "+54 9 2364 525588 ",
+      copy: "5492364525588",
+      label: <h3><span className="text-brand-yellow">+</span>54 9 2364 525588</h3>,
       availability: "Lunes a Viernes: 9:00 - 21:00",
-      btnText: "Enviar",
+      btnText: "Mensaje",
       icon: <FaWhatsapp size={16} />
     },
     {
       title: "Dirección",
       href: "https://maps.app.goo.gl/mrRb26Zf8osD8umRA",
-      label: "Junín y alrededores",
+      label: <h3>Junín <span className="text-brand-yellow">y</span> alrededores</h3>,
       availability: "Llegamos a todas las localidades cercanas",
       btnText: "Ir",
       icon: <FiMapPin size={16} />
@@ -74,7 +77,7 @@ export default function ContactPage() {
   }, [])
 
   
-  const handleCopy = (text) => {
+  const handleCopy = (text : string) => {
     navigator.clipboard.writeText(text)
       .then(() => setCopiedText(text))
       .catch(console.error);
@@ -109,11 +112,12 @@ export default function ContactPage() {
                       <button 
                         onClick={(e) => {
                             e.preventDefault();
-                            handleCopy(method.label);
+                            if (!method.copy) return;
+                            handleCopy(method.copy);
                         }}                          
                         className="inline-flex call-button cursor-pointer justify-center items-center gap-2 w-32 py-2 rounded"
                       >
-                        <FaRegCopy size={16} /> {copiedText === method.label ? "¡Copiado!" : "Copiar"}
+                        <FaRegCopy size={16} /> {copiedText === method.copy ? "¡Copiado!" : "Copiar"}
                       </button>
                     }
                     <a
@@ -121,7 +125,7 @@ export default function ContactPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       data-variant="yellow"
-                      className="inline-flex call-button cursor-pointer items-center gap-2 px-4 py-2 rounded"
+                      className="inline-flex border call-button cursor-pointer items-center gap-2 px-4 py-2 rounded"
                     >
                       {method.icon} {method.btnText}
                     </a>
