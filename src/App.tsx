@@ -31,11 +31,11 @@ function App() {
       {/* ⚠️ Cursor SIEMPRE fuera del wrapper */}
       <CustomCursor />
       <ScrollToTop />
+      <Navbar />
 
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <div className="min-h-screen flex flex-col">
-            <Navbar />
             <main className="flex-grow">
               <Routes>
                 <Route path="/" element={<Home />} />
