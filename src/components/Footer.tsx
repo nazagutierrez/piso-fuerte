@@ -1,8 +1,25 @@
 import { Link } from 'react-router-dom';
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi"
 import { useRef } from 'react';
+import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { gsap } from "gsap";
 
 export function Footer() {
+  const scrollTween = useRef<gsap.core.Tween | null>(null);
+
+  const scrollToTop = () => {
+    const smoother = ScrollSmoother.get();
+    if (!smoother) return;
+
+    scrollTween.current?.kill();
+
+    scrollTween.current = gsap.to(smoother, {
+      scrollTop: 0,
+      duration: 1.5,
+      ease: "power3.inOut"
+    });
+  };
+
   return (
     <footer className="bg-brand-dark z-20 relative text-white border-t border-neutral-700">      
       <div className="max-w-7xl flex flex-col mx-auto px-4 sm:px-6 lg:px-8 pb-6 pt-12">
@@ -14,8 +31,8 @@ export function Footer() {
 
               <span className="font-bold text-3xl text-white title-font"><span className='text-brand-yellow title-font'>PISO</span> FUERTE</span>
             </Link>
-            <p className="text-sm sm:w-2/3 text-pretty text-neutral-400 leading-relaxed">
-              Construcción profesional de galpones, piletas y casas en Junín y alrededores.
+            <p className="text-sm sm:w-4/3 text-balance text-neutral-400 leading-relaxed">
+              Construcción profesional de galpones, pisos y mucho mas en Junín y alrededores.
             </p>
           </div>
 
@@ -86,6 +103,7 @@ export function Footer() {
         </div>
 
         <button 
+          onClick={scrollToTop}
           className="mx-auto w-fit px-6 hover:shadow-[5px_5px_2px_2px_#000] transition-all text-neutral-400 py-px rounded mt-5 bg-neutral-700 cursor-pointer"
         >
           Volver arriba

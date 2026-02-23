@@ -23,13 +23,13 @@ const media: MediaItem[] = [
     src: '/galpon.jpg',
   },
   {
-    id: 2,
+    id: 4,
     type: 'video',
     src: '/v1.mp4',
     thumbnail: '/a1.jpg',
   },
   {
-    id: 3,
+    id: 5,
     type: 'image',
     src: '/galpon.jpg',
   },
@@ -38,50 +38,21 @@ const media: MediaItem[] = [
 export default function WorksPage() {
   const containerRef = useRef<HTMLDivElement>(null)
 
-useEffect(() => {
-  const ctx = gsap.context(() => {
+  useEffect(() => {
+    const ctx = gsap.context(() => {
 
-    const tl = gsap.timeline()
+      const tl = gsap.timeline()
 
-    tl.from(".works-header", {
-      opacity: 0,
-      y: 50,
-      duration: 0.8,
-      ease: "power3.out",
-    })
+      tl.from(".works-header", {
+        opacity: 0,
+        y: 50,
+        duration: 0.8,
+        ease: "power3.out",
+      })
+    }, containerRef)
 
-    // 🔥 STAGGER DEL PRIMER CAROUSEL
-    .from(".first-carousel .swiper-slide", {
-      opacity: 0,
-      y: 40,
-      scale: 0.95,
-      stagger: 0.1,
-      duration: 0.6,
-      ease: "power3.out",
-    }, "-=0.2")
-
-            
-    .to(".init-fade",
-    {
-      opacity: 1,
-      duration: 0.8,
-      ease: "power3.out",
-    }, "-=0.50")
-    
-
-    // opcional: animar también el texto lateral
-    .from(".first-carousel .carousel-title", {
-      opacity: 0,
-      x: -40,
-      duration: 0.8,
-      ease: "power3.out",
-    }, "-=0.6")
-
-  }, containerRef)
-
-  return () => ctx.revert()
-}, [])
-
+    return () => ctx.revert()
+  }, [])
 
   return (
     <main className="min-h-screen bg-[url('/textura-oscura.jpg')] pt-32 pb-20 text-white" ref={containerRef}>
@@ -102,7 +73,7 @@ useEffect(() => {
         <div
           className="mb-6 gap-y-16 flex flex-col w-full relative group"
         >
-          <Carousel media={media} text="GALPONES" side="left" classname="first-carousel" />
+          <Carousel media={media} text="GALPONES" side="left" isFirst />
           <Carousel media={media} text="PISOS" side="right" />
           <Carousel media={media} text="OTROS" side="left" />
 

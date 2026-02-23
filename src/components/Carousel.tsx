@@ -108,7 +108,7 @@ function MediaViewer({ item, onClose }: ViewerProps) {
   );
 }
 
-export function Carousel({ text, media, side, classname }: { text: string, media: MediaItem[], side: 'left' | 'right', classname?: string }) {
+export function Carousel({ text, media, side, classname, isFirst = false }: { text: string, media: MediaItem[], side: 'left' | 'right', classname?: string, isFirst?: boolean }) {
   const [activeItem, setActiveItem] = useState<MediaItem | null>(null);
   const paginationRef = useRef<HTMLDivElement>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -123,53 +123,71 @@ export function Carousel({ text, media, side, classname }: { text: string, media
     }
   }, [activeItem]);
 
-  useEffect(() => {
-    if (classname === "first-carousel") return;
-    const ctx = gsap.context(() => {
+useEffect(() => {
+  const ctx = gsap.context(() => {
+    if (!carouselRef.current) return;
 
-      gsap.from(".swiper-slide", {
-        scrollTrigger: {
-          trigger: carouselRef.current,
-          start: "top 85%",
-        },
-        opacity: 0,
-        y: 60,
-        stagger: 0.1,
-        duration: 0.8,
-        ease: "power3.out",
-      })
+    const slides = carouselRef.current.querySelectorAll(".swiper-slide");
+    const fades = carouselRef.current.querySelectorAll(".fade-element");
+    const title = carouselRef.current.querySelector(".carousel-title");
 
-      gsap.from(".carousel-title", {
-        scrollTrigger: {
-          trigger: carouselRef.current,
-          start: "top 80%",
-        },
-        opacity: 0,
-        x: side === "left" ? -50 : 50,
-        duration: 1,
-        ease: "power3.out",
-      })
-    }, carouselRef)
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: carouselRef.current,
+        start: "top 70%",
+      }
+    });
 
-    return () => ctx.revert()
-  }, [])
+    // 🔥 Slides stagger
+    tl.from(slides, {
+      opacity: 0,
+      y: 40,
+      scale: 0.95,
+      stagger: 0.15,
+      duration: isFirst ? 1 : 0.6,
+      ease: "power3.out",
+    });
 
+    // 🔥 Fade izquierdo, derecho y pagination
+    tl.fromTo(fades, {
+      opacity: 0,
+      stagger: 0.15,
+      duration: isFirst ? 1 : 0.6,
+      ease: "power3.out",
+    }, {
+      opacity: 1,
+      duration: 0.8,
+      ease: "power3.out",
+    }, "-=1");
+
+    // 🔥 Título lateral
+    tl.from(title, {
+      opacity: 0,
+      x: side === "left" ? -40 : 40,
+      duration: isFirst ? 1 : 0.7,
+      ease: "power3.out",
+    }, "-=1");
+
+  }, carouselRef);
+
+  return () => ctx.revert();
+}, []);
   return (
     <div ref={carouselRef} className={`${classname} carousel-section relative text-main-white`}>
       <div
         ref={paginationRef}
-        className="swiper-pagination opacity-0 init-fade absolute -bottom-13! h-10 left-0 w-full flex justify-center z-10"
+        className="swiper-pagination fade-element opacity-0 absolute -bottom-13! h-10 left-0 w-full flex justify-center z-10"
       />
       
       {/* FADE IZQUIERDO */}
-      <div className={`${side === 'left' ? 'block' : 'hidden'} opacity-0 init-fade pointer-events-none absolute shadow-[-20px_0_30px_-5px_#000] left-0 top-0 h-full w-16 z-20
-        bg-gradient-to-r from-black/70 to-transparent
+      <div className={`${side === 'left' ? 'block' : 'hidden'} fade-element pointer-events-none absolute shadow-[-20px_0_30px_-5px_#000] left-0 top-0 h-full w-16 z-20
+        bg-gradient-to-r from-black/40 to-transparent
        `} />
 
         
       {/* FADE DERECHO */}
-      <div className={`${side === 'left' ? 'hidden' : 'block'} pointer-events-none absolute shadow-[20px_0px_30px_-5px_#000] right-0 top-0 h-full w-16 z-20
-        bg-gradient-to-l from-black/60 to-transparent
+      <div className={`${side === 'left' ? 'hidden' : 'block'} fade-element pointer-events-none fade-in absolute shadow-[20px_0px_30px_-5px_#000] right-0 top-0 h-full w-16 z-20
+        bg-gradient-to-l from-black/40 to-transparent
        `} />
 
 
