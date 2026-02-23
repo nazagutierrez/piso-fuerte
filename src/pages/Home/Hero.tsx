@@ -10,17 +10,17 @@ gsap.registerPlugin(ScrollTrigger);
 const buttons = [
   {
     href: "tel:+542364525588",
-    icon: <FiPhone className="group-hover:text-brand-yellow transition-all" size={20} />,
+    icon: <FiPhone className="group-hover:text-brand-yellow transition-all" />,
     text: "Llamar",
   },
   {
     href: "https://wa.me/542364525588?text=Hola!%20vengo%20de%20la%20página%20web%20y%20quiero%20saber%20más%20sobre%20sus%20servicios.",
-    icon: <FaWhatsapp className="group-hover:text-brand-yellow transition-all" size={20} />,
+    icon: <FaWhatsapp className="group-hover:text-brand-yellow transition-all" />,
     text: "Whatsapp",
   },
   {
     href: "https://www.instagram.com/constructorapisofuerte",
-    icon: <FaInstagram className="group-hover:text-brand-yellow transition-all" size={20} />,
+    icon: <FaInstagram className="group-hover:text-brand-yellow transition-all" />,
     text: "Instagram",
   },
 ]
@@ -53,7 +53,6 @@ export default function Hero() {
         scrollTrigger: {
           start: "top 10%",
           end: "bottom",
-          markers: true,
           scrub: true,
         },
       });
@@ -113,7 +112,7 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto z-50">
         <div className="gap-12 items-center">
           <div >
-            <h1 className="hero-title text-4xl sm:text-7xl lg:text-[9rem] font-bold text-brand-yellow leading-tight text-balance">
+            <h1 className="hero-title text-center text-6xl xs:text-7xl sm:text-8xl lg:text-[9rem] font-bold text-brand-yellow leading-tight text-balance">
               <span
                 ref={animatedHeroTextRef}
                 className="hollow-text title-font"
@@ -122,21 +121,21 @@ export default function Hero() {
               </span>
               <span className="text-white title-font"> FUERTE</span>
             </h1>
-            <p className="hero-subtitle text-center font-thin text-lg sm:text-xl text-white leading-relaxed text-pretty">
+            <p className="hero-subtitle text-center font-thin  xs:text-lg sm:text-xl text-white leading-relaxed text-pretty">
               Constructora profesional en Junín y alrededores
             </p>
-            <div className="mt-10 flex items-center justify-center flex-wrap gap-2">
+            <div className="mt-10 mx-10 flex items-center justify-center flex-wrap gap-2">
 
               {buttons.map((button) => (
                 <a
                   key={button.text}
                   href={button.href}
-                  className="inline-flex rounded group place-content-center bg-[#212121] hero-cta-item opacity-0 w-[169px] translate-y-5 border border-transparent text-white hover:border-[#9c8700] hover:bg-[#1a1a1a] items-center duration-400 transition-colors gap-2 px-8 py-4"
+                  className="inline-flex rounded group place-content-center bg-[#212121] hero-cta-item opacity-0 w-[80px] sm:w-[169px] translate-y-5 border border-transparent text-white hover:border-[#9c8700] hover:bg-[#1a1a1a] items-center duration-400 transition-colors gap-2 px-8 py-4"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  {button.icon}
-                  {button.text}
+                  <span className="text-xl">{button.icon}</span>
+                  <span className="hidden sm:block">{button.text}</span>
                 </a>
               ))}
 
@@ -144,7 +143,7 @@ export default function Hero() {
             <div className="items-center justify-center mt-4 flex flex-wrap gap-4">
               <Link
                 to="/trabajos"
-                className="flex rounded border-b border-brand-yellow/50 call-button place-content-end font-medium hero-cta-item opacity-0 w-[169px] text-center translate-y-5 items-center gap-2 px-5 py-4"
+                className="flex rounded border-b border-brand-yellow/50 call-button place-content-end font-medium hero-cta-item opacity-0 w-[169px] text-center translate-y-5 items-center gap-2 px-5 py-3 sm:py-4"
               >
                 Ver Trabajos <FiArrowRight />
               </Link>

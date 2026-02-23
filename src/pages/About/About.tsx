@@ -41,7 +41,6 @@ export default function AboutPage() {
           start: "top bottom",
           end: "bottom 40%",
           scrub: true,
-          markers: true,
         },
         y: 200,
         ease: "power3.out",
@@ -168,8 +167,8 @@ M 0 3.5 V 9 Q 0 10 1 10 H 16 Q 17 10 17 9 V 1 Q 17 0 16 0 H 10 Q 9 0 9 1 V 2 Q 9
 
         {/* Buildings images */}
         <div ref={buildingsRef} className="relative">
-          <img src="/about-illustracion.png" className="building-img absolute h-24 w-24 sm:w-40 sm:h-40 -top-[90px] sm:-top-[152px] z-10 left-5 object-cover pointer-events-none" alt="textura" />
-          <img src="/about-illustracion-2.png" className="building-img absolute h-24 w-20 sm:w-52 sm:h-52 -top-[70px] sm:-top-40 z-10 right-5 object-cover pointer-events-none" alt="textura" />
+          <img src="/about-illustracion.png" className="building-img absolute hidden xs:block w-40 h-40 -top-[120px] sm:-top-[124px] z-10 right-62 xl:left-5 object-cover pointer-events-none" alt="textura" />
+          <img src="/about-illustracion-2.png" className="building-img absolute w-34 h-34 xs:w-52 xs:h-52 -top-[129px] xs:-top-[195px] sm:-top-40 z-10 right-5 object-cover pointer-events-none" alt="textura" />
         </div>
 
       </div>

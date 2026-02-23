@@ -74,15 +74,15 @@ export default function Images() {
         ></img>
         <img
           ref={imgRef1}
-          className="w-full h-screen absolute inset-0 brightness-85"
+          className="w-full h-screen object-cover absolute inset-0 brightness-85"
           src="/galpon-3.jfif"
           alt="building example 1"
         />
-        <div className="absolute flex flex-col items-start bottom-20 left-14">
-          <h2 className="uppercase title-font text-brand-yellow text-7xl">
+        <div className="absolute flex flex-col items-start bottom-20 left-6 sm:left-14">
+          <h2 className="uppercase title-font text-brand-yellow text-5xl xs:text-6xl sm:text-7xl">
             Galpones
           </h2>
-          <h4 className="text-2xl text-white">Es nuestra especialidad, te garantizamos un trabajo de alta calidad</h4>
+          <h4 className="text-xl text-pretty sm:text-2xl text-white">Es nuestra especialidad, te garantizamos un trabajo de alta calidad</h4>
         </div>
       </div>
 			<div className="h-screen relative">
@@ -92,11 +92,11 @@ export default function Images() {
 					src="/piso-1.jfif"
 					alt="building example 2"
 				/>
-				<div className="absolute z-30 flex flex-col items-start bottom-20 left-14">
-          <h2 className="uppercase title-font text-brand-yellow text-7xl">
+        <div className="absolute flex flex-col items-start bottom-20 left-6 sm:left-14 z-30">
+          <h2 className="uppercase title-font text-brand-yellow text-5xl xs:text-6xl sm:text-7xl">
             Pisos
           </h2>
-          <h4 className="text-2xl text-white">Expertos realizando pisos, contamos con la mejor maquinaria</h4>
+          <h4 className="text-xl text-pretty sm:text-2xl text-white">Es nuestra especialidad, te garantizamos un trabajo de alta calidad</h4>
         </div>
 			</div>
 			<div className="h-screen relative z-30">
@@ -106,11 +106,11 @@ export default function Images() {
 					src="/pared.jpg"
 					alt="building example 3"
 				/>
-				<div className="absolute z-30 flex flex-col items-start bottom-20 left-14">
-          <h2 className="uppercase title-font text-brand-yellow text-7xl">
+        <div className="absolute flex flex-col items-start bottom-20 left-6 sm:left-14">
+          <h2 className="uppercase title-font text-brand-yellow text-5xl xs:text-6xl sm:text-7xl">
             Construcción prolija
           </h2>
-          <h4 className="text-2xl text-white">Lo que mas nos destaca, nuestra prolijidad en todo lo que hacemos</h4>
+          <h4 className="text-xl text-pretty sm:text-2xl text-white">Es nuestra especialidad, te garantizamos un trabajo de alta calidad</h4>
         </div>
 			</div>
     </section>
