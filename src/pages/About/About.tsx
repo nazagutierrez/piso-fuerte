@@ -102,50 +102,53 @@ M 0 3.5 V 9 Q 0 10 1 10 H 16 Q 17 10 17 9 V 1 Q 17 0 16 0 H 10 Q 9 0 9 1 V 2 Q 9
             />
           </svg>
         </div>
+        <div className="flex flex-col">
+          {/* Main Content */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+            <div className="about-content order-1">
+              <img
+                src="/galpon-3.jfif"
+                alt="Equipo Piso Fuerte"
+                className="w-full h-[400px] rounded-bl-3xl rounded-t-3xl object-cover mb-8"
+              />
+            </div>
+            <div className="about-content space-y-6">
+              <div>
+                <h2 className="text-7xl font-bold mb-4">Nuestra Historia</h2>
+                <p className="text-lg leading-relaxed text-white/70 font-thin">
+                  Piso Fuerte nació en 2015 con la visión de ofrecer servicios de construcción y remodelación de la más
+                  alta calidad. Desde nuestros inicios, nos hemos comprometido a superar las expectativas de nuestros
+                  clientes, combinando experiencia técnica con un trato personalizado.
+                </p>
+              </div>
+            </div>
+          </div>
 
-        {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
-          <div className="about-content">
-            <img
-              src="/galpon-3.jfif"
-              alt="Equipo Piso Fuerte"
-              className="w-full h-[400px] rounded-bl-3xl rounded-t-3xl object-cover mb-8"
-            />
-          </div>
-          <div className="about-content space-y-6">
-            <div>
-              <h2 className="text-7xl font-bold mb-4">Nuestra Historia</h2>
-              <p className="text-lg leading-relaxed text-white/70 font-thin">
-                Piso Fuerte nació en 2015 con la visión de ofrecer servicios de construcción y remodelación de la más
-                alta calidad. Desde nuestros inicios, nos hemos comprometido a superar las expectativas de nuestros
-                clientes, combinando experiencia técnica con un trato personalizado.
-              </p>
+          {/* Main Content */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+            <div className="about-content space-y-6 lg:order-1">
+              <div>
+                <h2 className="text-7xl font-bold mb-4">Nuestra Misión</h2>
+                <p className="text-lg leading-relaxed text-white/70 font-thin">
+                  Transformar espacios en lugares funcionales y estéticamente excepcionales, utilizando materiales de
+                  primera calidad y las mejores prácticas del sector. Cada proyecto es una oportunidad para demostrar
+                  nuestro compromiso con la excelencia.
+                </p>
+              </div>
+            </div>
+            <div className="about-content">
+              <img
+                src="/about-galpon-equipo.png"
+                alt="Equipo Piso Fuerte"
+                className="w-full h-[400px] rounded-tr-3xl rounded-b-3xl object-cover mb-8"
+              />
             </div>
           </div>
         </div>
-        {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
-          <div className="about-content space-y-6">
-            <div>
-              <h2 className="text-7xl font-bold mb-4">Nuestra Misión</h2>
-              <p className="text-lg leading-relaxed text-white/70 font-thin">
-                Transformar espacios en lugares funcionales y estéticamente excepcionales, utilizando materiales de
-                primera calidad y las mejores prácticas del sector. Cada proyecto es una oportunidad para demostrar
-                nuestro compromiso con la excelencia.
-              </p>
-            </div>
-          </div>
-          <div className="about-content">
-            <img
-              src="/about-galpon-equipo.png"
-              alt="Equipo Piso Fuerte"
-              className="w-full h-[400px] rounded-tr-3xl rounded-b-3xl object-cover mb-8"
-            />
-          </div>
-        </div>
+
 
         {/* Experience Section */}
-        <div className="about-content grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div className="about-content grid grid-cols-1 xs:grid-cols-3 gap-8 text-center">
           <div>
             <div className="text-5xl font-bold text-brand-yellow mb-2">10+</div>
             <p className="text-lg font-thin">Años de Experiencia</p>
