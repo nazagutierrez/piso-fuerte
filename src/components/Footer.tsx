@@ -22,22 +22,22 @@ export function Footer() {
 
   return (
     <footer className="bg-brand-dark z-20 relative text-white border-t border-neutral-700">      
-      <div className="max-w-7xl flex flex-col mx-auto px-4 sm:px-6 lg:px-8 pb-6 pt-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="max-w-7xl flex flex-col mx-auto px-4 sm:px-6 lg:px-8 pb-6 pt-4 sm:pt-12">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-8 sm:gap-8">
           {/* Company Info */}
-          <div>
+          <div className='col-span-2 sm:col-span-1 mx-auto sm:mx-0 text-center sm:text-start'>
             <Link to="/" className="flex items-center w-fit">
-              <img src="/logo.png" alt="Logo" className="h-16 -ms-4 w-16" />
+              <img src="/logo.png" alt="Logo" className="h-16 -ms-2 sm:-ms-4 w-16" />
 
               <span className="font-bold text-3xl text-white title-font"><span className='text-brand-yellow title-font'>PISO</span> FUERTE</span>
             </Link>
-            <p className="text-sm sm:w-4/3 text-balance text-neutral-400 leading-relaxed">
+            <p className="text-sm w-[200px] md:w-60 text-pretty text-neutral-400 leading-relaxed">
               Construcción profesional de galpones, pisos y mucho mas en Junín y alrededores.
             </p>
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className='mx-auto '>
             <h3 className="font-thin mb-4 text-brand-yellow">Enlaces Rápidos</h3>
             <ul className="space-y-2">
               <li>
@@ -67,8 +67,8 @@ export function Footer() {
           </div>
 
           {/* Contact Info */}
-          <div>
-            <h3 className="font-thin mb-4 text-brand-yellow">Contacto</h3>
+          <div className='mx-auto'>
+            <h3 className="font-thin mb-4 text-center sm:text-start text-brand-yellow">Contacto</h3>
             <ul className="space-y-3">
               <a 
                 href="tel:+5492364525588" 
@@ -86,7 +86,7 @@ export function Footer() {
                 className="flex items-center gap-3 text-neutral-400 hover:text-brand-yellow"
               >
                 <FiMail className="text-brand-yellow flex-shrink-0" size={16} />
-                <span className="text-sm transition-all">info@pisofuerte.com</span>
+                <span className="text-sm break-all text-balance transition-all">info@pisofuerte.com</span>
               </a>
               <li className="flex items-start gap-3">
                 <FiMapPin className="text-brand-yellow flex-shrink-0" size={16} />

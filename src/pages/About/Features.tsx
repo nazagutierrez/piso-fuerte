@@ -43,7 +43,7 @@ export default function Features() {
             <img
               src="/about-galpon-equipo-2.png"
               alt="Equipo profesional"
-              className="w-full h-full object-cover"
+              className="w-full h-full rounded object-cover"
             />
           </div>
           <div>

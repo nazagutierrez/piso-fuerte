@@ -156,25 +156,7 @@ export const testimonials: Testimonial[] = [
         "audio_url": "/audios/audioalvaro.mp3",
         "rating": 5,
         "featured": true,
-    },
-    {
-        "id": "74c5a8e2-2f5c-40bd-af1b-8c9ddead1f37",
-        "name": "Carlos García",
-        "role": "Arquitecto",
-        "opinion": "Trabajé junto a Piso Fuerte en varios proyectos y siempre cumplieron con los plazos establecidos. El nivel de profesionalismo es muy alto, usan materiales de calidad y sus terminaciones son impecables.",
-        "audio_url": "/audios/audioalvaro.mp3",
-        "rating": 5,
-        "featured": true,
-    },
-    {
-        "id": "c08720a0-80d0-483a-b258-ef0ecb4ab338",
-        "name": "Laura Martínez",
-        "role": "Inversora Inmobiliaria",
-        "opinion": "Confié en Piso Fuerte para la construcción de mi departamento de inversión. El proyecto se completó en tiempo y forma. Los inquilinos están muy satisfechos con la calidad de la obra. Excelente relación costo-beneficio.",
-        "audio_url": "/audios/audioalvaro.mp3",
-        "rating": 5,
-        "featured": true,
-    },
+    }
 ]
 
 export function getProjectById(id: string): Project | undefined {
