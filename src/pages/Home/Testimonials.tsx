@@ -86,11 +86,12 @@ export default function Testimonials() {
         <h2 ref={titleRef} className="text-4xl title-font uppercase md:text-6xl font-bold text-center mb-4 text-[#242424]">
           Lo que dicen de <span className='title-font uppercase text-brand-yellow'>nosotros</span>
         </h2>
-        <p ref={subtitleRef} className="text-center text-gray-600 mb-16 text-lg">
+        <p ref={subtitleRef} className="text-center text-gray-600 mb-16 sm:text-lg">
           Escucha las opiniones de nuestros clientes satisfechos
         </p>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* <div className="grid md:grid-cols-3 gap-8"> */}
+        <div className='max-w-200 mx-auto'>
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}

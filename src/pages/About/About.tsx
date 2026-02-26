@@ -1,5 +1,3 @@
-"use client"
-
 import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -11,6 +9,7 @@ export default function AboutPage() {
   const containerRef = useRef<HTMLDivElement>(null)
   const buildingsRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
+  const isMobile = window.innerWidth < 640;
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -66,42 +65,74 @@ export default function AboutPage() {
     <main className="min-h-screen bg-[url('/textura-oscura.jpg')] bg-bottom text-white pt-24" ref={containerRef}>
       <div className="absolute bg-texture-black/35 inset-0 h-full z-0" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+      {/* <img className="object-cover brightness-75 z-0 xs:hidden block" src="/about-equipo.jfif" alt="" /> */}
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 z-20">
         {/* Header */}
-        <div className="about-header pt-8 ps-8 mb-16 absolute">
-          <h1 className="text-5xl sm:text-6xl title-font uppercase mb-6 text-balance">
+        <div className="about-header absolute w-1/2 pt-4 xl:pt-8 xs:px-4 ps-2 md:ps-8 mb-16">
+          <h1 className="text-4xl xs:text-5xl sm:text-5xl lg:text-6xl title-font uppercase mb-1 xs:mb-3">
             <span className="title-font text-brand-yellow">Sobre</span> Nosotros
           </h1>
-          <p className="text-2xl font-thin max-w-xl text-pretty text-white/85">
+          <p className="text-[0.95rem] sm:text-xl md:text-2xl font-thin max-w-xl text-pretty xs:text-white/85">
             Construyendo sueños y transformando espacios desde 2015
           </p>
         </div>
 
-        <div ref={imageRef}>
-          <svg
-          
-            viewBox="0 0 17 10"
-            className="w-full h-auto mb-20"
-            preserveAspectRatio="xMidYMid slice"
-          >
+        <div ref={imageRef} className="w-full h-[710px] mb-20 relative ">
+          <svg className="absolute">
             <defs>
-              <clipPath id="bite">
-                <path d="
-M 0 3.5 V 9 Q 0 10 1 10 H 16 Q 17 10 17 9 V 1 Q 17 0 16 0 H 10 Q 9 0 9 1 V 2 Q 9 3 8 3 H 1 Q 0 3 0 4 Z
-                " />
+              <clipPath id="bite" clipPathUnits="objectBoundingBox">
+                <path
+                  d="
+                    M 0 0.35
+                    V 0.9
+                    Q 0 1 0.06 1
+                    H 0.94
+                    Q 1 1 1 0.9
+                    V 0.1
+                    Q 1 0 0.94 0
+                    H 0.6
+                    Q 0.53 0 0.53 0.1
+                    V 0.2
+                    Q 0.53 0.3 0.47 0.3
+                    H 0.06
+                    Q 0 0.3 0 0.4
+                    Z
+                  "
+                />
+              </clipPath>
+              <clipPath id="bite-mobile" clipPathUnits="objectBoundingBox">
+                <path
+                  d="
+                    M 0 0.35
+                    V 0.9
+                    Q 0 1 0.10 1
+                    H 0.90
+                    Q 1 1 1 0.9
+                    V 0.1
+                    Q 1 0 0.9 0
+                    H 0.75
+                    Q 0.64 0 0.65 0.1
+                    V 0.2
+                    Q 0.65 0.3 0.55 0.3
+                    H 0.10
+                    Q 0 0.3 0 0.35
+                    Z
+                  "
+                />
               </clipPath>
             </defs>
-
-            <image
-              href="/about-equipo.jfif"
-              width="110%"
-              height="100%"
-              className="brightness-80 saturate-120"
-              clipPath="url(#bite)"
-              preserveAspectRatio="xMidYMid slice"
-            />
           </svg>
+
+          <img
+            src="/about-equipo.jfif"
+            alt="Equipo"
+            className="w-full h-full object-cover brightness-80 saturate-120"
+            style={{
+              clipPath: isMobile ? "url(#bite-mobile)" : "url(#bite)"
+            }}
+          />
         </div>
+
         <div className="flex flex-col">
           {/* Main Content */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
