@@ -31,21 +31,39 @@ export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
+    const mm = gsap.matchMedia();
+
     const ctx = gsap.context(() => {
       gsap.set(videoRef.current, {
         borderRadius: "450px",
         overflow: "hidden",
       });
 
-      gsap.from(videoRef.current, {
-        borderRadius: "0px",
-        duration: 0.5,
-        scrollTrigger: {
-          trigger: heroSectionRef.current,
-          start: "center",
-          end: "bottom",
-          scrub: true,
-        },
+      mm.add("(max-width: 1023px)", () => {
+        gsap.from(videoRef.current, {
+          borderRadius: "0px",
+          duration: 0.5,
+          scrollTrigger: {
+            trigger: heroSectionRef.current,
+            start: "top -80%",
+            end: "bottom -50%",
+            markers: true,
+            scrub: true,
+          },
+        });
+      });
+
+      mm.add("(min-width: 1024px)", () => {
+        gsap.from(videoRef.current, {
+          borderRadius: "0px",
+          duration: 0.5,
+          scrollTrigger: {
+            trigger: heroSectionRef.current,
+            start: "center",
+            end: "bottom",
+            scrub: true,
+          },
+        });
       });
 
       gsap.to(animatedHeroTextRef.current, {
@@ -98,7 +116,7 @@ export default function Hero() {
       ref={heroSectionRef}
       className="h-screen relative flex items-center"
     >
-      <video ref={videoRef} autoPlay loop muted playsInline className="absolute shadow-2xl shadow-white/20 brightness-35 inset-0 object-cover h-full w-full z-10">
+      <video ref={videoRef} autoPlay loop muted playsInline className="absolute sm:shadow-2xl shadow-white/20 brightness-35 inset-0 object-cover h-full w-full z-10">
         <source src="/video-hero.mp4" type="video/mp4" />
       </video>
       <div className="bg-texture-black inset-0 absolute pointer-events-none -scale-x-100 -top-[89.9%] -z-10 w-full">

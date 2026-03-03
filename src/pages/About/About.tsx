@@ -156,7 +156,7 @@ export default function AboutPage() {
           </div>
 
           {/* Main Content */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-10 sm:mb-20">
             <div className="about-content space-y-6 lg:order-1">
               <div>
                 <h2 className="text-7xl font-bold mb-4">Nuestra Misión</h2>
@@ -179,18 +179,18 @@ export default function AboutPage() {
 
 
         {/* Experience Section */}
-        <div className="about-content grid grid-cols-1 xs:grid-cols-3 gap-8 text-center">
+        <div className="about-content grid grid-cols-3 xs:grid-cols-3 gap-4 xs:gap-8 mx-2 text-center">
           <div>
-            <div className="text-5xl font-bold text-brand-yellow mb-2">10+</div>
-            <p className="text-lg font-thin">Años de Experiencia</p>
+            <div className="text-4xl sm:text-5xl font-bold text-brand-yellow mb-2">10+</div>
+            <p className="text-base sm:text-lg font-thin">Años de Experiencia</p>
           </div>
           <div>
-            <div className="text-5xl font-bold text-brand-yellow mb-2">20+</div>
-            <p className="text-lg font-thin">Galpones realizados</p>
+            <div className="text-4xl sm:text-5xl font-bold text-brand-yellow mb-2">20+</div>
+            <p className="text-base sm:text-lg font-thin">Galpones realizados</p>
           </div>
           <div>
-            <div className="text-5xl font-bold text-brand-yellow mb-2">30+</div>
-            <p className="text-lg font-thin">Pisos fuertes</p>
+            <div className="text-4xl sm:text-5xl font-bold text-brand-yellow mb-2">30+</div>
+            <p className="text-base sm:text-lg font-thin">Pisos fuertes</p>
           </div>
         </div>
 

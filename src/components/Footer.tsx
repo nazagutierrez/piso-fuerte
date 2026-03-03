@@ -80,13 +80,13 @@ export function Footer() {
                 <span className="text-sm transition-all">+54 9 2364 52-5588</span>
               </a>
               <a 
-                href="mailto:info@pisofuerte.com" 
+                href="mailto:pisofuerte@gmail.com" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-neutral-400 hover:text-brand-yellow"
               >
                 <FiMail className="text-brand-yellow flex-shrink-0" size={16} />
-                <span className="text-sm break-all text-balance transition-all">info@pisofuerte.com</span>
+                <span className="text-sm break-all text-balance transition-all">pisofuerte@gmail.com</span>
               </a>
               <li className="flex items-start gap-3">
                 <FiMapPin className="text-brand-yellow flex-shrink-0" size={16} />

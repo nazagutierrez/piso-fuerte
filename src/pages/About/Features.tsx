@@ -41,7 +41,7 @@ export default function Features() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative h-[400px]">
             <img
-              src="/about-galpon-equipo-2.png"
+              src="/about-galpon-equipo-2.webp"
               alt="Equipo profesional"
               className="w-full h-full rounded object-cover"
             />
@@ -59,7 +59,7 @@ export default function Features() {
                   <div className="w-6 h-6 bg-brand-yellow flex items-center justify-center flex-shrink-0">
                     <FiCheck className="text-brand-dark" size={16} />
                   </div>
-                  <span className="text-lg text-foreground">{feature}</span>
+                  <span className="text-base sm:text-lg text-foreground">{feature}</span>
                 </li>
               ))}
             </ul>

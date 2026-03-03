@@ -95,9 +95,9 @@ export default function Testimonials() {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="testimonial-card bg-white rounded-lg p-8 shadow-lg hover:shadow-2xl transition-shadow"
+              className="testimonial-card text-center bg-white rounded-lg p-8 shadow-lg hover:shadow-2xl transition-shadow"
             >
-              <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center justify-center mb-4">
                 <div>
                   <h3 className="text-xl font-bold text-[#242424]">
                     {testimonial.name}
@@ -106,7 +106,7 @@ export default function Testimonials() {
                 </div>
               </div>
 
-              <div className="flex gap-1 mb-4">
+              <div className="flex gap-1 justify-center mb-4">
                 {Array.from({ length: testimonial.rating }).map((_, i) => (
                   <FaStar
                     key={i}

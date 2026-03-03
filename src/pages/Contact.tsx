@@ -21,9 +21,9 @@ export default function ContactPage() {
     },
     {
       title: "Email",
-      href: "mailto:info@pisofuerte.com",
-      copy: "info@pisofuerte.com",
-      label: <h3>info<span className="text-brand-yellow">@</span>pisofuerte.com</h3>,
+      href: "mailto:pisofuerte@gmail.com",
+      copy: "pisofuerte@gmail.com",
+      label: <h3>pisofuerte<span className="text-brand-yellow">@</span>gmail.com</h3>,
       availability: "Respuesta en menos de 24 horas",
       btnText: "Enviar",
       icon: <FiMail size={16} />
@@ -86,7 +86,10 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen bg-[url('/textura-oscura.jpg')] bg-top text-white pt-32 pb-20" ref={containerRef}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="absolute bg-texture-black/35 inset-0 h-full z-0" />
+
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
         {/* Header */}
         <div className="contact-header">
           <h1 className="text-5xl sm:text-6xl font-bold  mb-6 text-balance title-font uppercase">Contacto</h1>
