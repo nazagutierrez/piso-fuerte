@@ -63,7 +63,7 @@ export function Navbar() {
     <>
       {/* Desktop menu */}
       <nav ref={navRef} className="fixed hidden md:flex top-0 w-full z-50">
-        <div className="w-full px-4 sm:px-6 lg:px-8 ">
+        <div className="w-full px-4 sm:px-6 lg:px-8 from-black/90 to-transparent bg-linear-to-b">
           <div className="flex w-full justify-around items-center h-16">
             <Link to="/" className="flex items-center">
               <img src="/logo.png" alt="Logo" className="h-12 w-12" />

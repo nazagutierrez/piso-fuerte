@@ -62,22 +62,23 @@ export default function AboutPage() {
   }, [])
 
   return (
-    <main className="min-h-screen bg-[url('/textura-oscura.jpg')] bg-bottom text-white pt-24" ref={containerRef}>
+    <main className="min-h-screen bg-[url('/textura-oscura.jpg')] bg-bottom text-white xs:pt-24" ref={containerRef}>
       <div className="absolute bg-texture-black/35 inset-0 h-full z-0" />
 
-      {/* <img className="object-cover brightness-75 z-0 xs:hidden block" src="/about-equipo.jfif" alt="" /> */}
-      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 z-20">
+      <img className="object-cover brightness-75 z-0 xs:hidden block absolute h-150 w-full object-[center_-180px] " src="/about-equipo.jfif" alt="equipo piso fuerte" />
+      
+      <div className="xs:max-w-7xl mx-3 xs:mx-auto sm:px-4 lg:px-8 z-20">
         {/* Header */}
-        <div className="about-header absolute w-1/2 pt-4 xl:pt-8 xs:px-4 ps-2 md:ps-8 mb-16">
-          <h1 className="text-4xl xs:text-5xl sm:text-5xl lg:text-6xl title-font uppercase mb-1 xs:mb-3">
+        <div className="about-header w-full text-center xs:text-start h-100 px-5 xs:absolute  xs:w-1/2 pt-42 xs:pt-8 xs:px-4 xs:ps-5 md:ps-8 mb-16">
+          <h1 className="text-6xl xs:text-5xl sm:text-5xl lg:text-6xl title-font uppercase mb-1 xs:mb-3">
             <span className="title-font text-brand-yellow">Sobre</span> Nosotros
           </h1>
-          <p className="text-[0.95rem] sm:text-xl md:text-2xl font-thin max-w-xl text-pretty xs:text-white/85">
+          <p className="text-[0.95rem] sm:text-xl md:text-2xl xs:font-thin max-w-xl text-pretty xs:text-white/85">
             Construyendo sueños y transformando espacios desde 2015
           </p>
         </div>
 
-        <div ref={imageRef} className="w-full h-[710px] mb-20 relative ">
+        <div ref={imageRef} className="w-full h-[710px] px-4 mb-20 relative xs:block hidden">
           <svg className="absolute">
             <defs>
               <clipPath id="bite" clipPathUnits="objectBoundingBox">
@@ -135,18 +136,18 @@ export default function AboutPage() {
 
         <div className="flex flex-col">
           {/* Main Content */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 mb-5 sm:mb-20">
             <div className="about-content order-1">
               <img
                 src="/galpon-3.jfif"
                 alt="Equipo Piso Fuerte"
-                className="w-full h-[400px] rounded-bl-3xl rounded-t-3xl object-cover mb-8"
+                className="w-full sm:h-[400px] rounded-3xl rounded-tl-none sm:rounded-bl-none sm:rounded-t-3xl object-cover mb-8"
               />
             </div>
             <div className="about-content space-y-6">
               <div>
-                <h2 className="text-7xl font-bold mb-4">Nuestra Historia</h2>
-                <p className="text-lg leading-relaxed text-white/70 font-thin">
+                <h2 className="text-6xl sm:text-7xl font-bold mb-4">Nuestra Historia</h2>
+                <p className="sm:text-lg leading-relaxed text-white/70 font-thin">
                   Piso Fuerte nació en 2015 con la visión de ofrecer servicios de construcción y remodelación de la más
                   alta calidad. Desde nuestros inicios, nos hemos comprometido a superar las expectativas de nuestros
                   clientes, combinando experiencia técnica con un trato personalizado.
@@ -156,11 +157,11 @@ export default function AboutPage() {
           </div>
 
           {/* Main Content */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-10 sm:mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 mb-10 sm:mb-20">
             <div className="about-content space-y-6 lg:order-1">
               <div>
-                <h2 className="text-7xl font-bold mb-4">Nuestra Misión</h2>
-                <p className="text-lg leading-relaxed text-white/70 font-thin">
+                <h2 className="text-6xl sm:text-7xl font-bold mb-4">Nuestra Misión</h2>
+                <p className="sm:text-lg leading-relaxed text-white/70 font-thin">
                   Transformar espacios en lugares funcionales y estéticamente excepcionales, utilizando materiales de
                   primera calidad y las mejores prácticas del sector. Cada proyecto es una oportunidad para demostrar
                   nuestro compromiso con la excelencia.
@@ -171,7 +172,7 @@ export default function AboutPage() {
               <img
                 src="/about-galpon-equipo.png"
                 alt="Equipo Piso Fuerte"
-                className="w-full h-[400px] rounded-tr-3xl rounded-b-3xl object-cover mb-8"
+                className="w-full sm:h-[400px] rounded-tl-none sm:rounded-tl-3xl sm:rounded-tr-none rounded-3xl object-cover mb-8"
               />
             </div>
           </div>

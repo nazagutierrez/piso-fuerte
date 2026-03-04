@@ -64,7 +64,7 @@ export default function CustomCursor() {
       ref={cursorRef}
       className="fixed top-0 left-0 z-[9999]
                  h-5 w-5 rounded-full border border-brand-yellow
-                 pointer-events-none
+                 pointer-events-none custom-cursor
                  -translate-x-1/2 -translate-y-1/2"
     />
   );
