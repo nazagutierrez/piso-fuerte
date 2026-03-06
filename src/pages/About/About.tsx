@@ -63,7 +63,7 @@ export default function AboutPage() {
 
   return (
     <main className="min-h-screen bg-[url('/textura-oscura.jpg')] bg-bottom text-white xs:pt-24" ref={containerRef}>
-      <div className="absolute bg-texture-black/35 inset-0 h-full z-0" />
+      <div className="absolute bg-texture-black/80 inset-0 h-full z-0" />
 
       <img className="object-cover brightness-75 z-0 xs:hidden block absolute h-150 w-full object-[center_-180px] " src="/about-equipo.jfif" alt="equipo piso fuerte" />
       

@@ -12,8 +12,11 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.17",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "embla-carousel-react": "8.5.1",
-    "gsap": "latest",
+    "gsap": "^3.13.0",
+    "lucide-react": "^0.577.0",
     "react": "19.2.1",
     "react-day-picker": "9.8.0",
     "react-dom": "19.2.1",
@@ -24,6 +27,7 @@
     "recharts": "2.15.4",
     "sonner": "^1.7.4",
     "swiper": "^12.1.1",
+    "tailwind-merge": "^3.5.0",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {

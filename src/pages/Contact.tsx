@@ -86,7 +86,7 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen bg-[url('/textura-oscura.jpg')] bg-top text-white pt-32 pb-20" ref={containerRef}>
-      <div className="absolute bg-texture-black/35 inset-0 h-full z-0" />
+      <div className="absolute bg-texture-black/80 inset-0 h-full z-0" />
 
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">

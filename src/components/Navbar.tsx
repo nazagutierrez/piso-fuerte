@@ -1,17 +1,22 @@
-import { Link, useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import { useState, useEffect, useRef } from "react"
-import { FiMenu, FiX } from "react-icons/fi"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import StaggeredMenu from "./StaggeredMenu"
 
 gsap.registerPlugin(ScrollTrigger)
 
-const navLinks = [
-  { href: "/", label: "Inicio" },
-  { href: "/nosotros", label: "Nosotros" },
-  { href: "/trabajos", label: "Trabajos" },
-  { href: "/contacto", label: "Contacto" },
+const menuItems = [
+  { link: "/", label: "Inicio", ariaLabel: "Ir a la página de inicio" },
+  { link: "/nosotros", label: "Nosotros", ariaLabel: "Más información sobre nosotros" },
+  { link: "/trabajos", label: "Trabajos", ariaLabel: "Ver nuestros trabajos" },
+  { link: "/contacto", label: "Contacto", ariaLabel: "Contactarnos" },
 ]
+
+const socialItems = [
+  { label: 'Whatsapp', link: 'https://wa.me/542364525588?text=Hola!%20vengo%20de%20la%20página%20web%20y%20quiero%20saber%20más%20sobre%20sus%20servicios.' },
+  { label: 'Instagram', link: 'https://www.instagram.com/constructorapisofuerte' },
+];
 
 export function Navbar() {
   const pathname = useLocation()
@@ -60,67 +65,23 @@ export function Navbar() {
   }, [])
 
   return (
-    <>
-      {/* Desktop menu */}
-      <nav ref={navRef} className="fixed hidden md:flex top-0 w-full z-50">
-        <div className="w-full px-4 sm:px-6 lg:px-8 from-black/90 to-transparent bg-linear-to-b">
-          <div className="flex w-full justify-around items-center h-16">
-            <Link to="/" className="flex items-center">
-              <img src="/logo.png" alt="Logo" className="h-12 w-12" />
-            </Link>
-
-            <div className="items-center flex gap-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className={`text-sm font-medium transition-colors ${
-                    pathname.pathname === link.href
-                      ? "text-brand-yellow"
-                      : "text-white"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      {/* Mobile menu */}
-      <nav className="fixed md:hidden top-0 w-full z-50">
-        <div className="max-w-7xl mx-auto px-5">
-          <div className="flex justify-between items-center h-18">
-            <Link to="/" className="flex items-center">
-              <img src="/logo.png" alt="Logo" className="h-12 w-12" />
-            </Link>
-
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="p-2 text-white"
-              aria-label="Toggle menu"
-            >
-              {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-            </button>
-          </div>
-
-          {isOpen && (
-            <div className="py-4 border-t flex flex-col items-end text-white border-border">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="block w-fit p-2 text-sm font-medium transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          )}
-        </div>
-      </nav>
-    </>
+      <div className="h-screen w-full bg-black overflow-hidden z-60">
+        <StaggeredMenu
+          isFixed
+          position="right"
+          items={menuItems}
+          socialItems={socialItems}
+          displaySocials
+          displayItemNumbering={true}
+          menuButtonColor="#ffffff"
+          openMenuButtonColor="#000"
+          changeMenuColorOnOpen={true}
+          colors={['#d6c44f', '#f1d200']}
+          logoUrl="/logo.png"
+          accentColor="#f1d200"
+          onMenuOpen={() => console.log('Menu opened')}
+          onMenuClose={() => console.log('Menu closed')}
+        />
+      </div>
   )
 }

@@ -27,6 +27,16 @@
   }
 }
 
+::selection {
+  background: rgba(241, 209, 0, 0.781);
+  color: rgb(22, 22, 22);
+}
+
+::-moz-selection {
+  background: var(--brand-yellow);
+  color: rgb(22, 22, 22);
+}
+
 .hollow-text {
   -webkit-text-stroke: 1px var(--brand-yellow); /* Borde del texto */
   display: inline-block;

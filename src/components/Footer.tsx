@@ -21,7 +21,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-brand-dark z-20 relative text-white border-t border-neutral-700">      
+    <footer className="bg-brand-dark z-20 relative text-white ">      
       <div className="max-w-7xl flex flex-col mx-auto px-4 sm:px-6 lg:px-8 pb-6 pt-4 sm:pt-12">
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-8 sm:gap-8">
           {/* Company Info */}
@@ -96,7 +96,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-neutral-700 mt-8 pt-8 text-center">
+        <div className="border-t border-[#353535] mt-8 pt-8 text-center">
           <p className="text-sm text-neutral-400">
             © {new Date().getFullYear()} Piso Fuerte. Todos los derechos reservados.
           </p>

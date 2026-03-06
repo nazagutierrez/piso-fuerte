@@ -114,7 +114,7 @@ export default function Hero() {
   return (
     <section
       ref={heroSectionRef}
-      className="h-screen relative flex items-center"
+      className="min-h-screen relative flex items-center"
     >
       <video ref={videoRef} autoPlay loop muted playsInline className="absolute sm:shadow-2xl shadow-white/20 brightness-35 inset-0 object-cover h-full w-full z-10">
         <source src="/video-hero.mp4" type="video/mp4" />
@@ -122,12 +122,12 @@ export default function Hero() {
       <div className="bg-texture-black inset-0 absolute pointer-events-none -scale-x-100 -top-[89.9%] -z-10 w-full">
         <img
           src="/textura.jpg"
-          className="rotate-180 w-full opacity-35 h-full"
+          className="rotate-180 w-full opacity-20 h-full"
           alt="textura"
         />
       </div>
       
-      <div className="max-w-7xl mx-auto z-50">
+      <div className="max-w-7xl mx-auto z-50 py-20">
         <div className="gap-12 items-center">
           <div >
             <h1 className="hero-title text-center text-6xl xs:text-7xl sm:text-8xl lg:text-[9rem] font-bold text-brand-yellow leading-tight text-balance">
