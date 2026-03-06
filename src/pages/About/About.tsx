@@ -69,7 +69,7 @@ export default function AboutPage() {
       
       <div className="xs:max-w-7xl mx-3 xs:mx-auto sm:px-4 lg:px-8 z-20">
         {/* Header */}
-        <div className="about-header w-full text-center xs:text-start h-100 px-5 xs:absolute  xs:w-1/2 pt-42 xs:pt-8 xs:px-4 xs:ps-5 md:ps-8 mb-16">
+        <div className="about-header w-full text-center xs:text-start h-100 px-5 xs:absolute  xs:w-1/2 pt-42 xs:pt-3 md:pt-6 xs:px-2 xs:ps-7 md:ps-8 mb-16">
           <h1 className="text-6xl xs:text-5xl sm:text-5xl lg:text-6xl title-font uppercase mb-1 xs:mb-3">
             <span className="title-font text-brand-yellow">Sobre</span> Nosotros
           </h1>
@@ -134,7 +134,7 @@ export default function AboutPage() {
           />
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col mx-1 xs:mx-3 sm:mx-5">
           {/* Main Content */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 mb-5 sm:mb-20">
             <div className="about-content order-1">

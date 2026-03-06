@@ -19,6 +19,7 @@
 
 @theme {
     --breakpoint-xs: 25rem;
+    --breakpoint-xxs: 22.5rem;
 }
 
 @media (hover: none) {
