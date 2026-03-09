@@ -166,14 +166,14 @@ useEffect(() => {
       x: side === "left" ? -40 : 40,
       duration: isFirst ? 1 : 0.7,
       ease: "power3.out",
-    }, "-=1");
+    }, "-=0.5");
 
   }, carouselRef);
 
   return () => ctx.revert();
 }, []);
   return (
-    <div ref={carouselRef} className={`${classname} carousel-section relative text-main-white`}>
+    <div ref={carouselRef} className={`${classname} carousel-section ${side === "left" ? "ms-10 xs:ms-20" : "me-10 xs:me-20"} relative text-main-white `}>
       <div
         ref={paginationRef}
         className="swiper-pagination fade-element opacity-0 absolute -bottom-13! h-10 left-0 w-full flex justify-center z-10"
@@ -181,19 +181,18 @@ useEffect(() => {
       
       {/* FADE IZQUIERDO */}
       <div className={`${side === 'left' ? 'block' : 'hidden'} fade-element pointer-events-none absolute shadow-[-20px_0_30px_-5px_#000] left-0 top-0 h-full w-16 z-20
-        bg-gradient-to-r from-black/40 to-transparent
+        bg-gradient-to-r from-black/80 to-transparent
        `} />
 
         
       {/* FADE DERECHO */}
       <div className={`${side === 'left' ? 'hidden' : 'block'} fade-element pointer-events-none fade-in absolute shadow-[20px_0px_30px_-5px_#000] right-0 top-0 h-full w-16 z-20
-        bg-gradient-to-l from-black/40 to-transparent
+        bg-gradient-to-l from-black/80 to-transparent
        `} />
-
 
       {/* TEXTO ABSOLUTO */}
       <span
-        className={`hollow-text carousel-title text-center h-24 w-90 title-font text-8xl absolute top-1/2 z-40 -translate-y-1/2 ${side === 'left' ? '-left-65 -rotate-90' : '-right-65 rotate-90'}`}
+        className={`hollow-text carousel-title text-center h-24 w-90 title-font text-7xl xs:text-8xl absolute top-1/2 z-40 -translate-y-1/2 ${side === 'left' ? '-left-[170px] -rotate-90' : '-right-45 rotate-90'}`}
       >
         {text}
       </span>
@@ -231,7 +230,7 @@ useEffect(() => {
           }
         }}
         modules={[FreeMode, Pagination, A11y]}
-        className="h-120 w-full"
+        className="h-110 mx-0! w-full m-0!"
       >
         {media.map(item => (
           <SwiperSlide key={item.id}>
