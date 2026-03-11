@@ -153,7 +153,7 @@ export default function WorksPage() {
     <main className="min-h-screen bg-[url('/textura-oscura.jpg')] pt-24 sm:pt-32 pb-20 text-white" ref={containerRef}>
       <div className="absolute bg-texture-black/80 inset-0 h-full z-0" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+      <div className="mx-auto max-w-[1650px] px-4 sm:px-6 lg:px-8 z-10">
         {/* Header */}
         <div className="mb-6">
           <h1 className="works-title text-5xl sm:text-6xl font-semibold mb-4 tracking-tight uppercase title-font">
@@ -165,9 +165,9 @@ export default function WorksPage() {
           </p>
         </div>
         <div>
-          <h2 className="works-info mb-12 text font-thin opacity-50 z-20 relative">* Deslizá para ver mas y cliquea para hacer zoom</h2>
+          <h2 className="works-info mb-12 text font-thin opacity-50 z-20 relative">* Deslizá para ver mas y cliquea para hacer zoom y ver videos.</h2>
           <div
-            className="gap-y-16 pb-10 flex flex-col w-full relative group"
+            className="gap-y-16 pb-10 flex flex-col w-full mx-auto relative group"
           >
             <Carousel media={mediaGalpones} text="GALPONES" side="left" isFirst />
             <Carousel media={mediaPisos} text="PISOS" side="right" />

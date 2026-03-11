@@ -234,7 +234,7 @@ useEffect(() => {
           }
         }}
         modules={[FreeMode, Pagination, A11y]}
-        className="h-110 mx-0! w-full m-0!"
+        className="h-120 mx-0! w-full m-0!"
       >
         {media.map(item => (
           <SwiperSlide key={item.id}>
