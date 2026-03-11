@@ -5,6 +5,7 @@ import { IoPlayOutline } from "react-icons/io5";
 import { CiPause1 } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
 import { testimonials } from '../../lib/projects';
+import { LuQuote } from "react-icons/lu";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -95,8 +96,10 @@ export default function Testimonials() {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="testimonial-card text-center bg-white rounded-lg p-8 shadow-lg hover:shadow-2xl transition-shadow"
+              className="testimonial-card relative text-center bg-white rounded-lg p-8 shadow-lg hover:shadow-2xl transition-shadow"
             >
+              <LuQuote className="w-8 h-8 xs:w-10 xs:h-10 sm:w-15 sm:h-15 absolute top-3 sm:top-6 right-3 sm:right-8 text-brand-yellow/50" />
+
               <div className="flex items-center justify-center mb-4">
                 <div>
                   <h3 className="text-xl font-bold text-[#242424]">
@@ -115,12 +118,12 @@ export default function Testimonials() {
                 ))}
               </div>
 
-              <p className="text-gray-700 h-[170px] mb-6 leading-relaxed">
+              <p className="text-gray-700 mb-12 leading-relaxed">
                 "{testimonial.opinion}"
               </p>
 
               {testimonial.audio_url && (
-                <div className="border-t pt-4">
+                <div className="border-t border-brand-dark/20 pt-4">
                   <button
                     onClick={() =>
                       handlePlayAudio(testimonial.id, testimonial.audio_url)
