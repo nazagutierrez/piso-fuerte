@@ -99,6 +99,7 @@ function MediaViewer({ item, onClose }: ViewerProps) {
             src={item.src}
             controls
             autoPlay
+            muted
             className="max-w-[90vw] max-h-[90vh]"
           />
         )}
@@ -144,6 +145,7 @@ useEffect(() => {
       y: 40,
       scale: 0.95,
       stagger: 0.15,
+      delay: isFirst ? 1 : 0,
       duration: isFirst ? 1 : 0.6,
       ease: "power3.out",
     });
@@ -192,12 +194,13 @@ useEffect(() => {
 
       {/* TEXTO ABSOLUTO */}
       <span
-        className={`hollow-text carousel-title text-center h-24 w-90 title-font text-7xl xs:text-8xl absolute top-1/2 z-40 -translate-y-1/2 ${side === 'left' ? '-left-[170px] -rotate-90' : '-right-45 rotate-90'}`}
+        className={`hollow-text pointer-events-none carousel-title text-center h-24 w-90 title-font text-7xl xs:text-8xl absolute top-1/2 z-40 -translate-y-1/2 ${side === 'left' ? '-left-[170px] -rotate-90' : '-right-45 rotate-90'}`}
       >
         {text}
       </span>
 
       <Swiper
+        initialSlide={side === "right" ? 4 : 0}
         pagination={{
           clickable: true,
           renderBullet: (_index, className) => {
