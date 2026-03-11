@@ -116,7 +116,7 @@ export default function Hero() {
       ref={heroSectionRef}
       className="min-h-screen relative flex items-center"
     >
-      <video ref={videoRef} autoPlay loop muted playsInline className="absolute sm:shadow-2xl shadow-white/20 brightness-35 inset-0 object-cover h-full w-full z-10">
+      <video poster="/poster-hero-video.png" ref={videoRef} autoPlay loop muted playsInline className="absolute sm:shadow-2xl shadow-white/20 brightness-35 inset-0 object-cover h-full w-full z-10">
         <source src="/video-hero.mp4" type="video/mp4" />
       </video>
       <div className="bg-texture-black inset-0 absolute pointer-events-none -scale-x-100 -top-[89.9%] -z-10 w-full">

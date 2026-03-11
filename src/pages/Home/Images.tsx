@@ -102,8 +102,8 @@ export default function Images() {
 			<div className="h-screen relative z-30">
 				<img
 					ref={imgRef3}
-					className="w-full h-screen object-cover brightness-85"
-					src="/pared.jpg"
+					className="w-full h-screen object-cover brightness-65"
+					src="/otro-6.jpg"
 					alt="building example 3"
 				/>
         <div className="absolute flex flex-col items-start bottom-20 left-6 sm:left-14">
