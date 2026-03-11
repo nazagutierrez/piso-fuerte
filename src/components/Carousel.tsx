@@ -2,13 +2,13 @@ import { useState, useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Pagination, A11y } from 'swiper/modules';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
-import { createPortal } from 'react-dom';
 import { FaPlay } from "react-icons/fa";
 import gsap from 'gsap';
 
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
+import { MediaViewer } from './MediaViewer';
 
 export type MediaItem = {
   id: number;
@@ -17,113 +17,21 @@ export type MediaItem = {
   thumbnail?: string;
 };
 
-type ViewerProps = {
-  item: MediaItem;
-  onClose: () => void;
-};
-
-function MediaViewer({ item, onClose }: ViewerProps) {
-  const overlayRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  const closeWithAnimation = () => {
-    gsap.to(contentRef.current, {
-      opacity: 0,
-      scale: 0.95,
-      duration: 0.2,
-      onComplete: onClose,
-    });
-
-    gsap.to(overlayRef.current, {
-      opacity: 0,
-      duration: 0.2,
-    });
-  };
-
-  // ESC para cerrar
-  useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
-
-    window.addEventListener('keydown', handleKey);
-    return () => window.removeEventListener('keydown', handleKey);
-  }, [onClose]);
-
-  // Animación de entrada
-  useEffect(() => {
-    if (!overlayRef.current || !contentRef.current) return;
-
-    const tl = gsap.timeline();
-
-    tl.fromTo(
-      overlayRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 0.25, ease: 'power1.out' }
-    ).fromTo(
-      contentRef.current,
-      { opacity: 0, scale: 0.95 },
-      { opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out' },
-      '-=0.15'
-    );
-
-    return () => {
-      tl.kill();
-    };
-  }, []);
-
-  return createPortal(
-    <div
-      ref={overlayRef}
-      onClick={closeWithAnimation}
-      className="fixed cursor-zoom-out inset-0 z-[9999] bg-black/80 flex items-center justify-center"
-    >
-      <button
-        onClick={closeWithAnimation}
-        className="absolute cursor-pointer top-6 right-6 text-white text-2xl z-50"
-      >
-        ✕
-      </button>
-
-      <div
-        ref={contentRef}
-        onClick={e => e.stopPropagation()}
-      >
-        {item.type === 'image' ? (
-          <img
-            src={item.src}
-            alt=""
-            className="max-w-[90vw] max-h-[90vh] object-contain"
-          />
-        ) : (
-          <video
-            src={item.src}
-            controls
-            autoPlay
-            muted
-            className="max-w-[90vw] max-h-[90vh]"
-          />
-        )}
-      </div>
-    </div>,
-    document.body
-  );
-}
-
 export function Carousel({ text, media, side, classname, isFirst = false }: { text: string, media: MediaItem[], side: 'left' | 'right', classname?: string, isFirst?: boolean }) {
-  const [activeItem, setActiveItem] = useState<MediaItem | null>(null);
+
+const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const paginationRef = useRef<HTMLDivElement>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const smoother = ScrollSmoother.get();
 
-    if (activeItem) {
+    if (activeIndex) {
       smoother?.paused(true);
     } else {
       smoother?.paused(false);
     }
-  }, [activeItem]);
+  }, [activeIndex]);
 
 useEffect(() => {
   const ctx = gsap.context(() => {
@@ -176,26 +84,21 @@ useEffect(() => {
   return () => ctx.revert();
 }, []);
   return (
-    <div ref={carouselRef} className={`${classname} carousel-section ${side === "left" ? "ms-10 xs:ms-20" : "me-10 xs:me-20"} relative text-main-white `}>
+    <div ref={carouselRef} className={`${classname} carousel-section ${side === "left" ? "ms-5 xs:ms-20" : "me-5 xs:me-20"} relative text-main-white `}>
       <div
         ref={paginationRef}
         className="swiper-pagination fade-element opacity-0 absolute -bottom-13! h-10 left-0 w-full flex justify-center z-10"
       />
       
       {/* FADE IZQUIERDO */}
-      <div className={`${side === 'left' ? 'block' : 'hidden'} fade-element pointer-events-none absolute shadow-[-20px_0_30px_-5px_#000] left-0 top-0 h-full w-16 z-20
-        bg-gradient-to-r from-black/80 to-transparent
-       `} />
-
+      <div className={`fade-element pointer-events-none absolute left-0 top-0 h-full w-16 z-20 bg-linear-to-r from-black/80 to-transparent`} />
         
       {/* FADE DERECHO */}
-      <div className={`${side === 'left' ? 'hidden' : 'block'} fade-element pointer-events-none fade-in absolute shadow-[20px_0px_30px_-5px_#000] right-0 top-0 h-full w-16 z-20
-        bg-gradient-to-l from-black/80 to-transparent
-       `} />
+      <div className={`fade-element pointer-events-none fade-in absolute shadow-[20px_0px_30px_-5px_#000] right-0 top-0 h-full w-16 z-20 bg-linear-to-l from-black/80 to-transparent`} />
 
       {/* TEXTO ABSOLUTO */}
       <span
-        className={`hollow-text pointer-events-none carousel-title text-center h-24 w-90 title-font text-7xl xs:text-8xl absolute top-1/2 z-40 -translate-y-1/2 ${side === 'left' ? '-left-[170px] -rotate-90' : '-right-45 rotate-90'}`}
+        className={`hollow-text pointer-events-none carousel-title text-center h-24 w-90 title-font text-7xl xs:text-8xl absolute top-1/2 z-40 -translate-y-1/2 ${side === 'left' ? '-left-40 xs:-left-[170px] -rotate-90' : '-right-40 xs:-right-45 rotate-90'}`}
       >
         {text}
       </span>
@@ -226,20 +129,13 @@ useEffect(() => {
             spaceBetween: 10,
           },
         }}
-        freeMode
-        onBeforeInit={(swiper) => {
-          // aseguramos que pagination sea un objeto
-          if (typeof swiper.params.pagination === 'object') {
-            swiper.params.pagination.el = paginationRef.current;
-          }
-        }}
         modules={[FreeMode, Pagination, A11y]}
         className="h-120 mx-0! w-full m-0!"
       >
-        {media.map(item => (
+        {media.map((item, index) => (
           <SwiperSlide key={item.id}>
             <button
-              onClick={() => setActiveItem(item)}
+      onClick={() => setActiveIndex(index)}
               className="w-full h-full relative cursor-zoom-in"
             >
               {item.type === 'image' ? (
@@ -268,8 +164,12 @@ useEffect(() => {
         ))}
       </Swiper>
 
-      {activeItem && (
-        <MediaViewer item={activeItem} onClose={() => setActiveItem(null)} />
+      {activeIndex !== null && (
+        <MediaViewer
+          media={media}
+          initialIndex={activeIndex}
+          onClose={() => setActiveIndex(null)}
+        />
       )}
     </div>
   );
