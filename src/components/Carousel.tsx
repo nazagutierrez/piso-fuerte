@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Pagination, A11y } from 'swiper/modules';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { createPortal } from 'react-dom';
+import { FaPlay } from "react-icons/fa";
 import gsap from 'gsap';
 
 import 'swiper/css';
@@ -79,7 +80,7 @@ function MediaViewer({ item, onClose }: ViewerProps) {
     >
       <button
         onClick={closeWithAnimation}
-        className="absolute cursor-pointer top-6 right-6 text-white text-2xl"
+        className="absolute cursor-pointer top-6 right-6 text-white text-2xl z-50"
       >
         ✕
       </button>
@@ -244,19 +245,21 @@ useEffect(() => {
               {item.type === 'image' ? (
                 <img
                   src={item.src}
-                  alt=""
+                  alt="Imagen de ejemplo del trabajo de Piso Fuerte"
                   className="w-full h-full object-cover rounded"
                 />
               ) : (
                 <div className="relative w-full h-full">
                   <img
                     src={item.thumbnail}
-                    alt=""
+                    alt="Video de ejemplo del trabajo de Piso Fuerte"
                     className="w-full h-full object-cover rounded"
                   />
                   {/* play icon */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    ▶️
+                    <div className='border border-brand-yellow rounded-full py-4 pl-4 pr-3'>
+                      <FaPlay className='text-[#fff67d] text-3xl' />
+                    </div>
                   </div>
                 </div>
               )}
