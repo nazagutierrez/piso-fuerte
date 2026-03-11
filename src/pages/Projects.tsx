@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { projects } from "../lib/projects";
 import { Carousel, MediaItem } from "../components/Carousel";
 
 gsap.registerPlugin(ScrollTrigger)
