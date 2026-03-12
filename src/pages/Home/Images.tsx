@@ -82,7 +82,7 @@ export default function Images() {
           <h2 className="uppercase title-font text-brand-yellow text-5xl xs:text-6xl sm:text-7xl">
             Galpones
           </h2>
-          <h4 className="text-xl text-pretty sm:text-2xl text-white">Es nuestra especialidad, te garantizamos un trabajo de alta calidad</h4>
+          <h4 className="text-xl text-pretty sm:text-2xl text-white mr-3">Somos expertos, construimos galpones industriales y comerciales adaptados a tus necesidades específicas.</h4>
         </div>
       </div>
 			<div className="h-screen relative">
@@ -96,7 +96,7 @@ export default function Images() {
           <h2 className="uppercase title-font text-brand-yellow text-5xl xs:text-6xl sm:text-7xl">
             Pisos
           </h2>
-          <h4 className="text-xl text-pretty sm:text-2xl text-white">Es nuestra especialidad, te garantizamos un trabajo de alta calidad</h4>
+          <h4 className="text-xl text-pretty sm:text-2xl text-white">Te garantizamos un trabajo de primera calidad con maquinaria moderna y materiales resistentes.</h4>
         </div>
 			</div>
 			<div className="h-screen relative z-30">
@@ -110,7 +110,7 @@ export default function Images() {
           <h2 className="uppercase title-font text-brand-yellow text-5xl xs:text-6xl sm:text-7xl">
             Construcción prolija
           </h2>
-          <h4 className="text-xl text-pretty sm:text-2xl text-white">Es nuestra especialidad, te garantizamos un trabajo de alta calidad</h4>
+          <h4 className="text-xl text-pretty sm:text-2xl text-white">Lo que nos destaca, trabajamos rápido sin descuidar la prolijidad.</h4>
         </div>
 			</div>
     </section>

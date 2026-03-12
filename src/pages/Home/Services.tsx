@@ -83,7 +83,7 @@ export default function Services() {
             ))}
           </div>
 
-          <h2 ref={lastTextRef} className="text-center text-white/90 font-thin text-lg mt-20">También brindamos servicios de electricidad, soldadura y plomería, entre otros. Consultanos sin compromiso</h2>
+          <h2 ref={lastTextRef} className="text-center text-white/90 font-thin text-lg mt-20">También brindamos servicios de electricidad, soldadura, plomería y más! Consultanos sin compromiso</h2>
         </div>
       </section>
   );

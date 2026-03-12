@@ -101,7 +101,6 @@ export default function Hero() {
         opacity: 1,
         y: 0,
         stagger: 0.2,
-        duration: 0.8,
         ease: "power3.out",
         delay: 1,
       });
