@@ -3,7 +3,6 @@ import { MediaItem } from "./Carousel";
 import { createPortal } from "react-dom";
 import { gsap } from "gsap";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
 
 type ViewerProps = {
   media: MediaItem[];
@@ -65,10 +64,6 @@ export function MediaViewer({ media, initialIndex, onClose }: ViewerProps) {
     };
   }, []);
 
-  useEffect(() => {
-    videoRefs.current = [];
-  }, [media]);
-
   const updateVideos = (activeIndex: number) => {
     videoRefs.current.forEach((video, index) => {
       if (!video) return;
@@ -101,43 +96,34 @@ export function MediaViewer({ media, initialIndex, onClose }: ViewerProps) {
 
       <div ref={contentRef} onClick={(e) => e.stopPropagation()}>
         <Swiper
+          initialSlide={initialIndex}
           centeredSlides
-          slidesPerView="auto"
+          slidesPerView={1.1}
           spaceBetween={30}
-          onSwiper={(swiper) => {
-            swiperRef.current = swiper
-
-            requestAnimationFrame(() => {
-              swiper.update()
-              swiper.slideTo(initialIndex, 0)
-
-              requestAnimationFrame(() => {
-                updateVideos(initialIndex)
-              })
-            })
-          }}       
+          nested={true}
           onSlideChange={(swiper) => {
-            setActiveIndex(swiper.activeIndex)
+            setActiveIndex(swiper.activeIndex);
           }}
-          className="viewer-swiper max-w-[90vw] max-h-[90vh]"
+          className="viewer-swiper overflow-visible! max-w-[90vw] max-h-[90vh]"
         >
           {media.map((item, index) => (
             <SwiperSlide key={item.id} className="viewer-slide">
               {item.type === "image" ? (
                 <img
                   src={item.src}
-                  className="w-full h-[70vh] object-cover rounded"
+                  className="w-full md:w-[40vw] h-[80dvh] object-cover rounded"
                 />
               ) : (
               <video
-                ref={(el) => (videoRefs.current[index] = el)}
+                ref={(el) => {
+                  videoRefs.current[index] = el;
+                }}                
                 src={item.src}
                 controls={false}
                 loop
-                autoPlay
                 playsInline
                 muted
-                className="w-full h-[70vh] object-cover rounded pointer-events-none"
+                className="w-full md:w-[40vw] h-[80dvh] object-cover rounded pointer-events-none"
               />
               )}
             </SwiperSlide>
@@ -146,21 +132,12 @@ export function MediaViewer({ media, initialIndex, onClose }: ViewerProps) {
       </div>
 
       <style>{`
-      .viewer-swiper .viewer-slide { width: 32vw; display: flex; justify-content: center; transition: all 0.35s ease, transform 0.35s ease; transform: scale(0.9); }
-
-      @media (max-width: 768px) {
-        .viewer-swiper .viewer-slide {
-            width: 80vw;
-        }
-      }
+      .viewer-swiper .viewer-slide { display: flex; justify-content: center; transition: all 0.35s ease, transform 0.35s ease; transform: scale(0.9); }
 
       .viewer-swiper .swiper-slide-active { opacity: 1; transform: scale(1.1) !important; }
 
       .viewer-swiper .swiper-slide-prev,
-.viewer-swiper .swiper-slide-next {
-  filter: brightness(50%) blur(2px);
-  transform: scale(0.95) !important;
-}
+      .viewer-swiper .swiper-slide-next { filter: brightness(50%) blur(2px); transform: scale(0.95) !important; }
         `}</style>
     </div>,
     document.body,

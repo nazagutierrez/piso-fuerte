@@ -22,6 +22,7 @@ export function Carousel({ text, media, side, classname, isFirst = false }: { te
 const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const paginationRef = useRef<HTMLDivElement>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
+  const parentSwiperRef = useRef<any>(null);
 
   useEffect(() => {
     const smoother = ScrollSmoother.get();
@@ -53,7 +54,10 @@ useEffect(() => {
       opacity: 0,
       y: 40,
       scale: 0.95,
-      stagger: 0.15,
+      stagger: {
+        amount: 1,
+        from: side === "left" ? "start" : "end",
+      },
       delay: isFirst ? 1 : 0,
       duration: isFirst ? 1 : 0.6,
       ease: "power3.out",
@@ -63,13 +67,13 @@ useEffect(() => {
     tl.fromTo(fades, {
       opacity: 0,
       stagger: 0.15,
-      duration: isFirst ? 1 : 0.6,
+      duration: 1,
       ease: "power3.out",
     }, {
       opacity: 1,
       duration: 0.8,
       ease: "power3.out",
-    }, "-=1");
+    }, "-=1.5");
 
     // 🔥 Título lateral
     tl.from(title, {
@@ -77,33 +81,34 @@ useEffect(() => {
       x: side === "left" ? -40 : 40,
       duration: isFirst ? 1 : 0.7,
       ease: "power3.out",
-    }, "-=0.5");
+    }, "-=1");
 
   }, carouselRef);
 
   return () => ctx.revert();
 }, []);
   return (
-    <div ref={carouselRef} className={`${classname} carousel-section ${side === "left" ? "ms-5 xs:ms-20" : "me-5 xs:me-20"} relative text-main-white `}>
+    <div ref={carouselRef} className={`${classname} carousel-section ${side === "left" ? "ms-5 sm:ms-20" : "me-5 sm:me-20"} relative text-main-white `}>
       <div
         ref={paginationRef}
         className="swiper-pagination fade-element opacity-0 absolute -bottom-13! h-10 left-0 w-full flex justify-center z-10"
       />
       
       {/* FADE IZQUIERDO */}
-      <div className={`fade-element pointer-events-none absolute left-0 top-0 h-full w-16 z-20 bg-linear-to-r from-black/80 to-transparent`} />
+      <div className={`${side === "right" ? "hidden sm:block" : ""} fade-element pointer-events-none absolute left-0 top-0 h-full w-16 z-20 bg-linear-to-r from-black/80 to-transparent`} />
         
       {/* FADE DERECHO */}
-      <div className={`fade-element pointer-events-none fade-in absolute shadow-[20px_0px_30px_-5px_#000] right-0 top-0 h-full w-16 z-20 bg-linear-to-l from-black/80 to-transparent`} />
+      <div className={`${side === "left" ? "hidden sm:block" : ""} fade-element pointer-events-none fade-in absolute shadow-[20px_0px_30px_-5px_#000] right-0 top-0 h-full w-16 z-20 bg-linear-to-l from-black/80 to-transparent`} />
 
       {/* TEXTO ABSOLUTO */}
       <span
-        className={`hollow-text pointer-events-none carousel-title text-center h-24 w-90 title-font text-7xl xs:text-8xl absolute top-1/2 z-40 -translate-y-1/2 ${side === 'left' ? '-left-40 xs:-left-[170px] -rotate-90' : '-right-40 xs:-right-45 rotate-90'}`}
+        className={`hollow-text pointer-events-none carousel-title text-center h-24 w-90 title-font text-7xl sm:text-8xl absolute top-1/2 z-40 -translate-y-1/2 ${side === 'left' ? '-left-40 sm:-left-[170px] -rotate-90' : '-right-40 sm:-right-45 rotate-90'}`}
       >
         {text}
       </span>
 
       <Swiper
+        onSwiper={(swiper) => (parentSwiperRef.current = swiper)}
         initialSlide={side === "right" ? 4 : 0}
         pagination={{
           clickable: true,
@@ -135,7 +140,10 @@ useEffect(() => {
         {media.map((item, index) => (
           <SwiperSlide key={item.id}>
             <button
-      onClick={() => setActiveIndex(index)}
+              onClick={() => {
+                parentSwiperRef.current?.disable();
+                setActiveIndex(index);
+              }}
               className="w-full h-full relative cursor-zoom-in"
             >
               {item.type === 'image' ? (
@@ -168,7 +176,10 @@ useEffect(() => {
         <MediaViewer
           media={media}
           initialIndex={activeIndex}
-          onClose={() => setActiveIndex(null)}
+          onClose={() => {
+            setActiveIndex(null);
+            parentSwiperRef.current?.enable();
+          }}
         />
       )}
     </div>
