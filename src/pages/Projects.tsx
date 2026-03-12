@@ -155,8 +155,8 @@ export default function WorksPage() {
 
       <div className="mx-auto max-w-[1650px] px-4 sm:px-6 lg:px-8 z-10">
         {/* Header */}
-        <div className="mb-6">
-          <h1 className="works-title text-5xl sm:text-6xl font-semibold mb-4 tracking-tight uppercase title-font">
+        <div className="mb-4 ps-4 sm:ps-10">
+          <h1 className="works-title text-5xl sm:text-6xl font-semibold mb-6 tracking-tight uppercase title-font">
             <span className="title-font uppercase text-brand-yellow">Nuestros </span>
             Trabajos
           </h1>
@@ -165,7 +165,7 @@ export default function WorksPage() {
           </p>
         </div>
         <div>
-          <h2 className="works-info mb-12 text font-thin opacity-50 z-20 relative">* Deslizá para ver mas y cliquea para hacer zoom y ver videos.</h2>
+          <h2 className="works-info ps-4 sm:ps-10 mb-12 text font-thin opacity-50 z-20 relative"><span className="text-brand-yellow">* </span> Deslizá para ver mas y cliquea para hacer zoom y ver videos.</h2>
           <div
             className="gap-y-16 pb-10 flex flex-col w-full mx-auto relative group"
           >
