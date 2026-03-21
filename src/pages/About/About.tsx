@@ -12,7 +12,10 @@ export default function AboutPage() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo(
+
+      const tl = gsap.timeline();
+
+      tl.fromTo(
         ".about-header",
         {
           backgroundSize: "140%", // zoom inicial (leve)
@@ -34,11 +37,25 @@ export default function AboutPage() {
           start: "top bottom",
         },
         opacity: 0,
-        delay: 1,
+        delay: 1.8,
         y: 30,
         duration: 1,
         ease: "power3.out",
       })
+
+      tl.from(".about-title", {
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        ease: "power3.out",
+      }, "<1")
+
+      tl.from(".about-description", {
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        ease: "power3.out",
+      }, "<0.5")
 
       gsap.from(".about-content-2", {
         scrollTrigger: {
@@ -101,15 +118,15 @@ export default function AboutPage() {
         <div className="about-header bg-[url('about-equipo.jfif')] bg-no-repeat bg-size-[120%] xs:bg-size-[110%] sm:bg-cover h-80 xs:h-100 sm:h-120 md:h-140 lg:h-160 xl:h-180 m-2 xs:m-4 rounded-t-xl rounded-b  bg-position-[30%_5%] xxs:bg-position-[30%_35%] xs:bg-position-[0_25%] sm:bg-position-[0_35%] md:bg-position-[0_40%] xl:bg-center text-center md:text-start md:ps-20 pt-16 sm:pt-20 md:pt-20 mb-4 xs:mb-16">
           <div className="absolute bg-black/15 xs:bg-black/25 inset-0 h-full -z-10" />
           
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl title-font uppercase mb-1 xs:mb-3 mx-3">
+          <h1 className="about-title text-5xl sm:text-7xl lg:text-8xl title-font uppercase mb-1 xs:mb-3 mx-3 xs:ms-0">
             <span className="title-font text-brand-yellow">Sobre</span> Nosotros
           </h1>
-          <p className="text-lg xs:text-xl md:text-2xl xs:font-thin md:max-w-xl hidden xs:block text-pretty xs:text-white">
+          <p className="about-description text-lg xs:text-xl md:text-2xl xs:font-thin md:max-w-xl hidden xs:block text-pretty xs:text-white">
             Construyendo sueños y transformando espacios desde 2015
           </p>
         </div>
 
-        <p className="text-lg mx-2 mb-8 xs:text-xl md:text-2xl xs:font-thin block xs:hidden text-pretty text-center text-white z-10 relative">
+        <p className="about-description text-lg mx-2 mb-8 xs:text-xl md:text-2xl xs:font-thin block xs:hidden text-pretty text-center text-white z-10 relative">
           Construyendo sueños y transformando espacios desde 2015
         </p>
 
