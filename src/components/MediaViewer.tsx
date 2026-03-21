@@ -89,7 +89,7 @@ export function MediaViewer({ media, initialIndex, onClose }: ViewerProps) {
     >
       <button
         onClick={closeWithAnimation}
-        className="absolute cursor-pointer top-6 right-6 text-white text-2xl z-50"
+        className="absolute cursor-pointer top-6 right-6 text-white text-4xl z-50"
       >
         ✕
       </button>
