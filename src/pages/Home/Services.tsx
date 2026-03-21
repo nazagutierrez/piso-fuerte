@@ -59,7 +59,7 @@ export default function Services() {
           alt="textura"
         />
         <div className="max-w-[1600px] mx-auto py-28 sm:py-40 px-4 sm:px-6 lg:px-8 relative">
-          <h2 className="text-4xl sm:text-[7rem] font-bold text-brand-yellow mb-4 text-balance title-font">
+          <h2 className="text-7xl sm:text-[7rem] font-bold text-brand-yellow mb-4 text-balance title-font">
             NUESTROS <span className="text-white uppercase title-font">Servicios</span>
           </h2>
           <p className="text-lg text-white/90 font-thin mb-12 max-w-2xl text-pretty">
