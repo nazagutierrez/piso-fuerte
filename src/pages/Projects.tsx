@@ -156,11 +156,11 @@ export default function WorksPage() {
       <div className="mx-auto max-w-[1650px] px-4 sm:px-6 lg:px-8 z-10">
         {/* Header */}
         <div className="mb-4 ps-4 sm:ps-10">
-          <h1 className="works-title text-5xl sm:text-6xl font-semibold mb-6 tracking-tight uppercase title-font">
+          <h1 className="works-title text-5xl xs:text-7xl sm:text-8xl font-semibold mb-6 tracking-tight uppercase title-font">
             <span className="title-font uppercase text-brand-yellow">Nuestros </span>
             Trabajos
           </h1>
-          <p className="works-description text-lg font-thin max-w-xl text-pretty text-white/85 max-w-3xl">
+          <p className="works-description text-xl font-thin text-pretty text-white/85">
             Galería de nuestros trabajos, las imagenes hablan por si solas.
           </p>
         </div>

@@ -92,8 +92,8 @@ export default function ContactPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
         {/* Header */}
         <div className="contact-header">
-          <h1 className="text-5xl sm:text-6xl font-bold  mb-6 text-balance title-font uppercase">Contacto</h1>
-          <p className="text-2xl mb-10 text-white/70 font-thin max-w-3xl text-pretty">
+          <h1 className="text-6xl xs:text-7xl sm:text-8xl font-bold  mb-6 text-balance title-font uppercase">Contacto</h1>
+          <p className="text-xl mb-10 text-white/70 font-thin max-w-3xl text-pretty">
             Contactanos por cualquier duda que tengas o para solicitar un presupuesto y comenzar tu proyecto.
           </p>
           <div className="bg-brand-yellow w-14 h-1 rounded"></div>

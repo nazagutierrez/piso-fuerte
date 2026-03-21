@@ -73,7 +73,7 @@ export default function Services() {
                 className="service-card relative border-s border-brand-yellow/70 p-4 sm:p-8 transition-shadow"
               >
                 
-                <h3 className="text-2xl font-bold text-white/90 mb-3 title-font uppercase">
+                <h3 className="text-3xl font-bold text-white/90 mb-3 title-font uppercase">
                   {service.title}
                 </h3>
                 <p className="text-white/80 text-xl font-thin text-pretty leading-relaxed">
