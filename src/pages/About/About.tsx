@@ -9,26 +9,57 @@ export default function AboutPage() {
   const containerRef = useRef<HTMLDivElement>(null)
   const buildingsRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
-  const isMobile = window.innerWidth < 640;
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".about-header", {
+      gsap.fromTo(
+        ".about-header",
+        {
+          backgroundSize: "140%", // zoom inicial (leve)
+          opacity: 0,
+          y: 50,
+        },
+        {
+          backgroundSize: "120%", // tu valor final
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          ease: "power3.inOut",
+        }
+      );
+
+      gsap.from(".about-content-1", {
+        scrollTrigger: {
+          trigger: ".about-content-1",
+          start: "top bottom",
+        },
         opacity: 0,
-        y: 50,
+        delay: 1,
+        y: 30,
         duration: 1,
         ease: "power3.out",
       })
 
-      gsap.from(".about-content", {
+      gsap.from(".about-content-2", {
         scrollTrigger: {
-          trigger: ".about-content",
+          trigger: ".about-content-2",
           start: "top 80%",
         },
         opacity: 0,
         y: 30,
-        stagger: 0.2,
         duration: 0.8,
+        ease: "power3.out",
+      })
+
+      gsap.from(".info-section", {
+        scrollTrigger: {
+          trigger: ".info-section",
+          start: "top 80%",
+        },
+        opacity: 0,
+        stagger: 0.25,
+        y: 40,
+        duration: 0.5,
         ease: "power3.out",
       })
 
@@ -62,89 +93,37 @@ export default function AboutPage() {
   }, [])
 
   return (
-    <main className="min-h-screen bg-[url('/textura-oscura.jpg')] bg-bottom text-white xs:pt-24" ref={containerRef}>
+    <main className="min-h-screen bg-[url('/textura-oscura.jpg')] bg-bottom text-white " ref={containerRef}>
       <div className="absolute bg-texture-black/80 inset-0 h-full z-0" />
-
-      <img className="object-cover brightness-75 z-0 xs:hidden block absolute h-150 w-full object-[center_-180px] " src="/about-equipo.jfif" alt="equipo piso fuerte" />
-      
-      <div className="xs:max-w-7xl mx-3 xs:mx-auto sm:px-4 lg:px-8 z-20">
+            
+      <div className="w-full z-20">
         {/* Header */}
-        <div className="about-header w-full text-center xs:text-start h-100 px-5 xs:absolute  xs:w-1/2 pt-42 xs:pt-3 md:pt-6 xs:px-2 xs:ps-7 md:ps-8 mb-16">
-          <h1 className="text-6xl xs:text-5xl sm:text-5xl lg:text-6xl title-font uppercase mb-1 xs:mb-3">
+        <div className="about-header bg-[url('about-equipo.jfif')] bg-no-repeat bg-size-[120%] xs:bg-size-[110%] sm:bg-cover h-80 xs:h-100 sm:h-120 md:h-140 lg:h-160 xl:h-180 m-2 xs:m-4 rounded-t-xl rounded-b  bg-position-[30%_5%] xxs:bg-position-[30%_35%] xs:bg-position-[0_25%] sm:bg-position-[0_35%] md:bg-position-[0_40%] xl:bg-center text-center md:text-start md:ps-20 pt-16 sm:pt-20 md:pt-20 mb-4 xs:mb-16">
+          <div className="absolute bg-black/15 xs:bg-black/25 inset-0 h-full -z-10" />
+          
+          <h1 className="text-5xl sm:text-7xl lg:text-8xl title-font uppercase mb-1 xs:mb-3 mx-3">
             <span className="title-font text-brand-yellow">Sobre</span> Nosotros
           </h1>
-          <p className="text-[0.95rem] sm:text-xl md:text-2xl xs:font-thin max-w-xl text-pretty xs:text-white/85">
+          <p className="text-lg xs:text-xl md:text-2xl xs:font-thin md:max-w-xl hidden xs:block text-pretty xs:text-white">
             Construyendo sueños y transformando espacios desde 2015
           </p>
         </div>
 
-        <div ref={imageRef} className="w-full h-[710px] px-4 mb-20 relative xs:block hidden">
-          <svg className="absolute">
-            <defs>
-              <clipPath id="bite" clipPathUnits="objectBoundingBox">
-                <path
-                  d="
-                    M 0 0.35
-                    V 0.9
-                    Q 0 1 0.06 1
-                    H 0.94
-                    Q 1 1 1 0.9
-                    V 0.1
-                    Q 1 0 0.94 0
-                    H 0.6
-                    Q 0.53 0 0.53 0.1
-                    V 0.2
-                    Q 0.53 0.3 0.47 0.3
-                    H 0.06
-                    Q 0 0.3 0 0.4
-                    Z
-                  "
-                />
-              </clipPath>
-              <clipPath id="bite-mobile" clipPathUnits="objectBoundingBox">
-                <path
-                  d="
-                    M 0 0.35
-                    V 0.9
-                    Q 0 1 0.10 1
-                    H 0.90
-                    Q 1 1 1 0.9
-                    V 0.1
-                    Q 1 0 0.9 0
-                    H 0.75
-                    Q 0.64 0 0.65 0.1
-                    V 0.2
-                    Q 0.65 0.3 0.55 0.3
-                    H 0.10
-                    Q 0 0.3 0 0.35
-                    Z
-                  "
-                />
-              </clipPath>
-            </defs>
-          </svg>
+        <p className="text-lg mx-2 mb-8 xs:text-xl md:text-2xl xs:font-thin block xs:hidden text-pretty text-center text-white z-10 relative">
+          Construyendo sueños y transformando espacios desde 2015
+        </p>
 
-          <img
-            src="/about-equipo.jfif"
-            alt="Equipo"
-            className="w-full h-full object-cover brightness-80 saturate-120"
-            style={{
-              clipPath: isMobile ? "url(#bite-mobile)" : "url(#bite)"
-            }}
-          />
-        </div>
-
-        <div className="flex flex-col mx-1 xs:mx-3 sm:mx-5">
+        <div className="flex flex-col xs:max-w-7xl px-4 mx-auto">
           {/* Main Content */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 mb-5 sm:mb-20">
-            <div className="about-content order-1">
+          <div className="about-content-1 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 mb-5 sm:mb-20">
+            <div className="order-1">
               <img
                 src="/galpon-3.jfif"
                 alt="Equipo Piso Fuerte"
                 className="w-full sm:h-[400px] rounded-3xl rounded-tl-none sm:rounded-bl-none sm:rounded-t-3xl object-cover mb-8"
               />
             </div>
-            <div className="about-content space-y-6">
+            <div className="space-y-6">
               <div>
                 <h2 className="text-6xl sm:text-7xl font-bold mb-4">Nuestra Historia</h2>
                 <p className="sm:text-lg leading-relaxed text-white/70 font-thin">
@@ -157,8 +136,8 @@ export default function AboutPage() {
           </div>
 
           {/* Main Content */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 mb-10 sm:mb-20">
-            <div className="about-content space-y-6 lg:order-1">
+          <div className="about-content-2 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 mb-10 sm:mb-20">
+            <div className="space-y-6 lg:order-1">
               <div>
                 <h2 className="text-6xl sm:text-7xl font-bold mb-4">Nuestra Misión</h2>
                 <p className="sm:text-lg leading-relaxed text-white/70 font-thin">
@@ -168,7 +147,7 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
-            <div className="about-content">
+            <div>
               <img
                 src="/about-galpon-equipo.png"
                 alt="Equipo Piso Fuerte"
@@ -180,16 +159,16 @@ export default function AboutPage() {
 
 
         {/* Experience Section */}
-        <div className="about-content grid grid-cols-3 xs:grid-cols-3 gap-4 xs:gap-8 mx-2 text-center">
-          <div>
+        <div className="relative grid grid-cols-3 xs:grid-cols-3 gap-4 xs:gap-8 mx-2 text-center">
+          <div className="info-section">
             <div className="text-4xl sm:text-5xl font-bold text-brand-yellow mb-2">10+</div>
             <p className="text-base sm:text-lg font-thin">Años de Experiencia</p>
           </div>
-          <div>
+          <div className="info-section">
             <div className="text-4xl sm:text-5xl font-bold text-brand-yellow mb-2">20+</div>
             <p className="text-base sm:text-lg font-thin">Galpones realizados</p>
           </div>
-          <div>
+          <div className="info-section">
             <div className="text-4xl sm:text-5xl font-bold text-brand-yellow mb-2">30+</div>
             <p className="text-base sm:text-lg font-thin">Pisos fuertes</p>
           </div>
