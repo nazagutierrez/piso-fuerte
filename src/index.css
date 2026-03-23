@@ -75,7 +75,7 @@ html {
  position: relative;
  -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
- transition: all 350ms;
+ transition: width 350ms;
  overflow: hidden;
 }
 
@@ -90,7 +90,7 @@ html {
  z-index: -1;
  -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
- transition: all 350ms
+ transition: width 350ms
 }
 
 .call-button:hover {
@@ -156,4 +156,12 @@ html {
 .custom-bullet.swiper-pagination-bullet {
   background-color: white;
   opacity: 50%;
+}
+
+.text-gradient {
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(-90deg,#fff, var(--brand-yellow));
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 100% auto;
 }

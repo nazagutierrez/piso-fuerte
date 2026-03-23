@@ -22,38 +22,40 @@ export default function Testimonials() {
     const ctx = gsap.context(() => {
       gsap.from('.testimonial-card', {
         scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 80%',
+          trigger: '.testimonial-card',
+          start: 'top 90%',
         },
         y: 80,
+        filter: "blur(25px)",
         opacity: 0,
         duration: 0.8,
-        delay: 0.8,
+        delay: 0.3,
         stagger: 0.3,
         ease: 'power3.out',
       });
 
       gsap.from(titleRef.current, {
         opacity: 0,
-        y: 30,
-        delay: .1,
+        y: 80,
         duration: 1,
+        filter: "blur(25px)",
         ease: 'power3.out',
         scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 80%',
+          trigger: titleRef.current,
+          start: 'top 90%',
         },
       });
 
       gsap.from(subtitleRef.current, {
         opacity: 0,
-        y: 30,
-        delay: .5,
+        y: 60,
+        delay: .2,
         duration: 0.8,
+        filter: "blur(25px)",
         ease: 'power3.out',
         scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 80%',
+          trigger: subtitleRef.current,
+          start: 'top 90%',
         },
       });
     });

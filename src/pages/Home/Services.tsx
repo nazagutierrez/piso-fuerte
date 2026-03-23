@@ -25,16 +25,42 @@ const services = [
 export default function Services() {
   const servicesRef = useRef<HTMLDivElement>(null);
   const lastTextRef = useRef<HTMLHeadingElement>(null);
+  const servicesTitle = useRef<HTMLHeadingElement>(null);
+  const servicesDescription = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
 
+      gsap.from(servicesTitle.current, {
+        scrollTrigger: { 
+          trigger: servicesTitle.current, 
+          start: "top 90%" 
+        },
+        opacity: 0,
+        y: 80,
+        duration: 1.2,
+        filter: "blur(25px)",
+        ease: "power3.out",
+      });
+
+      gsap.from(servicesDescription.current, {
+        scrollTrigger: { 
+          trigger: servicesDescription.current, 
+          start: "top 90%" 
+        },
+        opacity: 0,
+        y: 70,
+        duration: 1,
+        filter: "blur(25px)",
+        ease: "power3.out",
+      });
+
       gsap.from(".service-card", {
-        scrollTrigger: { trigger: servicesRef.current, start: "top 80%" },
+        scrollTrigger: { trigger: ".service-card", start: "top 90%" },
         opacity: 0,
         y: 50,
+        filter: "blur(25px)",
         stagger: 0.3,
-        delay: 0.3,
         duration: 0.8,
         ease: "power3.out",
       });
@@ -42,10 +68,10 @@ export default function Services() {
       gsap.from(lastTextRef.current, {
         opacity: 0,
         y: 30,
-        delay: 1.2,
         duration: 0.8,
         ease: "power3.out",
-        scrollTrigger: { trigger: servicesRef.current, start: "top 80%" },
+        filter: "blur(25px)",
+        scrollTrigger: { trigger: lastTextRef.current, start: "top 90%" },
       });
     }, servicesRef);
     return () => ctx.revert();
@@ -59,10 +85,10 @@ export default function Services() {
           alt="textura"
         />
         <div className="max-w-[1600px] mx-auto py-28 sm:py-40 px-4 sm:px-6 lg:px-8 relative">
-          <h2 className="text-7xl sm:text-[7rem] font-bold text-brand-yellow mb-4 text-balance title-font">
+          <h2 ref={servicesTitle} className="text-7xl sm:text-[7rem] font-bold text-brand-yellow mb-4 text-balance title-font">
             NUESTROS <span className="text-white uppercase title-font">Servicios</span>
           </h2>
-          <p className="text-lg text-white/90 font-thin mb-12 max-w-2xl text-pretty">
+          <p ref={servicesDescription} className="text-lg text-white/90 font-thin mb-12 max-w-2xl text-pretty">
             Somos capaces de llevar a cabo muchos tipos de proyectos de construcción,
             pero principalmente nos especializamos en:
           </p>
