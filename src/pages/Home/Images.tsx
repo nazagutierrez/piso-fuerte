@@ -68,7 +68,7 @@ export default function Images() {
     <section ref={imgContainer} className="h-full w-full flex flex-col">
       <div className="h-screen w-full relative bg-texture-black">
         <img
-          src="/textura.jpg"
+          src="src/assets/textura.jpg"
           className="bg-top h-[674px] rotate-180 -scale-x-100 w-full opacity-20 object-cover"
           alt="background texture"
         ></img>

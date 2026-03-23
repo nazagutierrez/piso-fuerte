@@ -81,7 +81,7 @@ export default function Services() {
       <section ref={servicesRef} className="relative -mb-1 bg-texture-black">
         <img
           className="absolute top-0 left-0 w-full h-full object-cover opacity-20 pointer-events-none"
-          src="/textura.jpg"
+          src="src/assets/textura.jpg"
           alt="textura"
         />
         <div className="max-w-[1600px] mx-auto py-28 sm:py-40 px-4 sm:px-6 lg:px-8 relative">

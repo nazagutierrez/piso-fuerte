@@ -110,7 +110,7 @@ export default function AboutPage() {
   }, [])
 
   return (
-    <main className="min-h-screen bg-[url('/textura-oscura.jpg')] bg-bottom text-white " ref={containerRef}>
+    <main className="min-h-screen bg-[url('src/assets/textura-oscura.jpg')] bg-bottom text-white " ref={containerRef}>
       <div className="absolute bg-texture-black/80 inset-0 h-full z-0" />
             
       <div className="w-full z-20">

@@ -121,7 +121,7 @@ export default function Hero() {
 
       <div className="bg-texture-black inset-0 absolute pointer-events-none -scale-x-100 -top-[89.9%] -z-10 w-full">
         <img
-          src="/textura.jpg"
+          src="src/assets/textura.jpg"
           className="rotate-180 w-full opacity-20 h-full"
           alt="Textura de fondo de obra en construcción"
           loading="lazy"

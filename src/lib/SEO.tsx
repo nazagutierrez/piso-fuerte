@@ -20,7 +20,7 @@ export const SEO = ({
     "@context": "https://schema.org",
     "@type": "ConstructionBusiness",
     "name": "Piso Fuerte",
-    "image": "https://pisofuerte.com.ar/logo.png",
+    "image": "https://pisofuerte.com.ar/src/assets/logo.png",
     "@id": "https://pisofuerte.com.ar",
     "url": "https://pisofuerte.com.ar",
     "telephone": "+542364525588",

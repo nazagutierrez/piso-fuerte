@@ -27,7 +27,7 @@ export function Footer() {
           {/* Company Info */}
           <div className='col-span-2 sm:col-span-1 mx-auto sm:mx-0 text-center sm:text-start'>
             <Link to="/" className="flex items-center w-fit">
-              <img src="/logo.png" alt="Logo" className="h-16 -ms-2 sm:-ms-4 w-16" />
+              <img src="src/assets/logo.png" alt="Logo" className="h-16 -ms-2 sm:-ms-4 w-16" />
 
               <span className="font-bold text-3xl text-white title-font"><span className='text-brand-yellow title-font'>PISO</span> FUERTE</span>
             </Link>
