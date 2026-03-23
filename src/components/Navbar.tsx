@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import StaggeredMenu from "./StaggeredMenu"
+import logo from "../assets/logo.png"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -62,7 +63,7 @@ export function Navbar() {
   }, [])
 
   return (
-      <div className="h-screen w-full bg-black overflow-hidden z-60">
+      <nav aria-label="Navegación principal" className="h-screen w-full bg-black overflow-hidden z-60">
         <StaggeredMenu
           isFixed
           position="right"
@@ -74,11 +75,11 @@ export function Navbar() {
           openMenuButtonColor="#000"
           changeMenuColorOnOpen={true}
           colors={['#d6c44f', '#f1d200']}
-          logoUrl="src/assets/logo.png"
+          logoUrl={logo}
           accentColor="#f1d200"
           onMenuOpen={() => console.log('Menu opened')}
           onMenuClose={() => console.log('Menu closed')}
         />
-      </div>
+      </nav>
   )
 }

@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Carousel, MediaItem } from "../components/Carousel";
+import texturaOscura from "../assets/textura-oscura.jpg";
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -150,12 +151,12 @@ export default function WorksPage() {
   }, [])
 
   return (
-    <main className="min-h-screen bg-[url('src/assets/textura-oscura.jpg')] pt-24 sm:pt-32 pb-20 text-white" ref={containerRef}>
+    <main className="min-h-screen pt-24 sm:pt-32 pb-20 text-white" style={{ backgroundImage: `url(${texturaOscura})` }} ref={containerRef}>
       <div className="absolute bg-texture-black/80 inset-0 h-full z-0" />
 
       <div className="mx-auto max-w-[1650px] px-4 sm:px-6 lg:px-8 z-10">
         {/* Header */}
-        <div className="mb-4 ps-4 sm:ps-10">
+        <header className="mb-4 ps-4 sm:ps-10">
           <h1 className="works-title text-5xl xs:text-7xl sm:text-8xl font-semibold mb-6 tracking-tight uppercase title-font">
             <span className="title-font uppercase text-brand-yellow">Nuestros </span>
             Trabajos
@@ -163,7 +164,7 @@ export default function WorksPage() {
           <p className="works-description text-xl font-thin text-pretty text-white/85">
             Galería de nuestros trabajos, las imagenes hablan por si solas.
           </p>
-        </div>
+        </header>
         <div>
           <h2 className="works-info ps-4 sm:ps-10 mb-12 text font-thin opacity-50 z-20 relative"><span className="text-brand-yellow">* </span> Deslizá para ver mas y cliquea para hacer zoom y ver videos.</h2>
           <div

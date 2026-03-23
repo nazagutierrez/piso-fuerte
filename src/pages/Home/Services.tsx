@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import textura from "../../assets/textura.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -81,8 +82,8 @@ export default function Services() {
       <section ref={servicesRef} className="relative -mb-1 bg-texture-black">
         <img
           className="absolute top-0 left-0 w-full h-full object-cover opacity-20 pointer-events-none"
-          src="src/assets/textura.jpg"
-          alt="textura"
+          src={textura}
+          alt="Textura de fondo oscuro para contraste"
         />
         <div className="max-w-[1600px] mx-auto py-28 sm:py-40 px-4 sm:px-6 lg:px-8 relative">
           <h2 ref={servicesTitle} className="text-7xl sm:text-[7rem] font-bold text-brand-yellow mb-4 text-balance title-font">
@@ -94,7 +95,7 @@ export default function Services() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <div
+              <article
                 key={index}
                 className="service-card relative border-s border-brand-yellow/70 p-4 sm:p-8 transition-shadow"
               >
@@ -105,7 +106,7 @@ export default function Services() {
                 <p className="text-white/80 text-xl font-thin text-pretty leading-relaxed">
                   {service.description}
                 </p>
-              </div>
+              </article>
             ))}
           </div>
 

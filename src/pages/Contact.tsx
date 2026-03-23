@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi"
 import { FaWhatsapp, FaRegCopy } from "react-icons/fa";
+import texturaOscura from "../assets/textura-oscura.jpg";
 
 export default function ContactPage() {
   const [copiedText, setCopiedText] = useState<string | null>(null);
@@ -85,22 +86,23 @@ export default function ContactPage() {
 
 
   return (
-    <main className="min-h-screen bg-[url('/textura-oscura.jpg')] bg-top text-white pt-32 pb-20" ref={containerRef}>
+    <main className="min-h-screen bg-top text-white pt-32 pb-20" style={{ backgroundImage: `url(${texturaOscura})` }} ref={containerRef}>
       <div className="absolute bg-texture-black/80 inset-0 h-full z-0" />
 
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
         {/* Header */}
-        <div className="contact-header">
+        <header className="contact-header">
           <h1 className="text-6xl xs:text-7xl sm:text-8xl font-bold  mb-6 text-balance title-font uppercase">Contacto</h1>
           <p className="text-xl mb-10 text-white/70 font-thin max-w-3xl text-pretty">
             Contactanos por cualquier duda que tengas o para solicitar un presupuesto y comenzar tu proyecto.
           </p>
           <div className="bg-brand-yellow w-14 h-1 rounded"></div>
-        </div>
+          <div className="bg-brand-yellow w-14 h-1 rounded"></div>
+        </header>
 
           {/* Contact Info */}
-        <div className="contact-info space-y-8 mt-13">
+        <address className="contact-info not-italic space-y-8 mt-13">
           <div className="space-y-6 grid grid-cols-1 sm:grid-cols-2 gap-10">
             
             {contactMethods.map((method, index) => (
@@ -137,7 +139,7 @@ export default function ContactPage() {
               </div>
             ))}
           </div>
-        </div>
+        </address>
       </div>
     </main>
   )

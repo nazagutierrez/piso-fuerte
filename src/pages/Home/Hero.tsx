@@ -4,6 +4,7 @@ import { FiArrowRight, FiPhone } from "react-icons/fi";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import textura from "@/assets/textura.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -121,7 +122,7 @@ export default function Hero() {
 
       <div className="bg-texture-black inset-0 absolute pointer-events-none -scale-x-100 -top-[89.9%] -z-10 w-full">
         <img
-          src="src/assets/textura.jpg"
+          src={textura}
           className="rotate-180 w-full opacity-20 h-full"
           alt="Textura de fondo de obra en construcción"
           loading="lazy"

@@ -3,6 +3,7 @@ import { FiPhone, FiMail, FiMapPin } from "react-icons/fi"
 import { useRef } from 'react';
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { gsap } from "gsap";
+import logo from "../assets/logo.png";
 
 export function Footer() {
   const scrollTween = useRef<gsap.core.Tween | null>(null);
@@ -27,7 +28,7 @@ export function Footer() {
           {/* Company Info */}
           <div className='col-span-2 sm:col-span-1 mx-auto sm:mx-0 text-center sm:text-start'>
             <Link to="/" className="flex items-center w-fit">
-              <img src="src/assets/logo.png" alt="Logo" className="h-16 -ms-2 sm:-ms-4 w-16" />
+              <img src={logo} alt="Logotipo de Constructora Piso Fuerte" className="h-16 -ms-2 sm:-ms-4 w-16" />
 
               <span className="font-bold text-3xl text-white title-font"><span className='text-brand-yellow title-font'>PISO</span> FUERTE</span>
             </Link>
@@ -38,8 +39,9 @@ export function Footer() {
 
           {/* Quick Links */}
           <div className='mx-auto '>
-            <h3 className="font-thin mb-4 text-brand-yellow">Enlaces Rápidos</h3>
-            <ul className="space-y-2">
+            <nav aria-label="Enlaces rápidos del pie de página">
+              <h3 className="font-thin mb-4 text-brand-yellow">Enlaces Rápidos</h3>
+              <ul className="space-y-2">
               <li>
                 <Link to="/" className="text-sm text-neutral-400 hover:text-brand-yellow transition-colors">
                   Inicio
@@ -63,11 +65,12 @@ export function Footer() {
                   Contacto
                 </Link>
               </li>
-            </ul>
+              </ul>
+            </nav>
           </div>
 
           {/* Contact Info */}
-          <div className='mx-auto'>
+          <address className='mx-auto not-italic'>
             <h3 className="font-thin mb-4 text-center sm:text-start text-brand-yellow">Contacto</h3>
             <ul className="space-y-3">
               <a 
@@ -93,7 +96,7 @@ export function Footer() {
                 <span className="text-sm text-neutral-400">Junín, Buenos Aires</span>
               </li>
             </ul>
-          </div>
+          </address>
         </div>
 
         <div className="border-t border-[#353535] mt-8 pt-8 text-center">

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import textura from "../../assets/textura.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -68,9 +69,9 @@ export default function Images() {
     <section ref={imgContainer} className="h-full w-full flex flex-col">
       <div className="h-screen w-full relative bg-texture-black">
         <img
-          src="src/assets/textura.jpg"
+          src={textura}
           className="bg-top h-[674px] rotate-180 -scale-x-100 w-full opacity-20 object-cover"
-          alt="background texture"
+          alt="Fondo texturizado de Piso Fuerte"
         ></img>
         <img
           ref={imgRef1}

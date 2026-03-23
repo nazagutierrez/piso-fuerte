@@ -20,7 +20,7 @@ export const SEO = ({
     "@context": "https://schema.org",
     "@type": "ConstructionBusiness",
     "name": "Piso Fuerte",
-    "image": "https://pisofuerte.com.ar/src/assets/logo.png",
+    "image": "https://pisofuerte.com.ar/logo.png",
     "@id": "https://pisofuerte.com.ar",
     "url": "https://pisofuerte.com.ar",
     "telephone": "+542364525588",
@@ -65,7 +65,7 @@ export const SEO = ({
       <meta property="og:url" content={`${siteUrl}${path}`} />
       <meta
         property="og:image"
-        content={`${siteUrl}/og-image-construction.jpg`}
+        content={`${siteUrl}/piso-fuerte-redes.jpg`}
       />
 
       {/* Twitter */}

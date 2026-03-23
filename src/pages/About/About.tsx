@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Features from "./Features"
+import texturaOscura from "../../assets/textura-oscura.jpg"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -110,7 +111,7 @@ export default function AboutPage() {
   }, [])
 
   return (
-    <main className="min-h-screen bg-[url('src/assets/textura-oscura.jpg')] bg-bottom text-white " ref={containerRef}>
+    <main className="min-h-screen bg-bottom text-white" style={{ backgroundImage: `url(${texturaOscura})` }} ref={containerRef}>
       <div className="absolute bg-texture-black/80 inset-0 h-full z-0" />
             
       <div className="w-full z-20">
@@ -132,7 +133,7 @@ export default function AboutPage() {
 
         <div className="flex flex-col xs:max-w-7xl px-4 mx-auto">
           {/* Main Content */}
-          <div className="about-content-1 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 mb-5 sm:mb-20">
+          <section className="about-content-1 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 mb-5 sm:mb-20">
             <div className="order-1">
               <img
                 src="/galpon-3.jfif"
@@ -150,10 +151,10 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
-          </div>
+          </section>
 
           {/* Main Content */}
-          <div className="about-content-2 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 mb-10 sm:mb-20">
+          <section className="about-content-2 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 mb-10 sm:mb-20">
             <div className="space-y-6 lg:order-1">
               <div>
                 <h2 className="text-6xl sm:text-7xl font-bold mb-4">Nuestra Misión</h2>
@@ -171,7 +172,7 @@ export default function AboutPage() {
                 className="w-full sm:h-[400px] rounded-tl-none sm:rounded-tl-3xl sm:rounded-tr-none rounded-3xl object-cover mb-8"
               />
             </div>
-          </div>
+          </section>
         </div>
 
 
