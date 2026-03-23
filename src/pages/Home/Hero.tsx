@@ -67,7 +67,7 @@ export default function Hero() {
         });
       });
       gsap.to(animatedHeroTextRef.current, {
-        backgroundPosition: "-570% 0%",
+        backgroundPosition: "-570% 50%",
         scrollTrigger: { start: "top 10%", end: "bottom", scrub: true },
       });
     }, heroSectionRef);

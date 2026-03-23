@@ -115,7 +115,7 @@ export default function AboutPage() {
             
       <div className="w-full z-20">
         {/* Header */}
-        <div className="about-header bg-[url('about-equipo.jfif')] bg-no-repeat bg-size-[120%] xs:bg-size-[110%] sm:bg-cover h-80 xs:h-100 sm:h-120 md:h-140 lg:h-160 xl:h-180 m-2 xs:m-4 rounded-t-xl rounded-b  bg-position-[30%_5%] xxs:bg-position-[30%_35%] xs:bg-position-[0_25%] sm:bg-position-[0_35%] md:bg-position-[0_40%] xl:bg-center text-center md:text-start md:ps-20 pt-16 sm:pt-20 md:pt-20 mb-4 xs:mb-16">
+        <div className="about-header bg-[url('/about-equipo.jfif')] bg-no-repeat bg-size-[120%] xs:bg-size-[110%] sm:bg-cover h-80 xs:h-100 sm:h-120 md:h-140 lg:h-160 xl:h-180 m-2 xs:m-4 rounded-t-xl rounded-b  bg-position-[30%_5%] xxs:bg-position-[30%_35%] xs:bg-position-[0_25%] sm:bg-position-[0_35%] md:bg-position-[0_40%] xl:bg-center text-center md:text-start md:ps-20 pt-16 sm:pt-20 md:pt-20 mb-4 xs:mb-16">
           <div className="absolute bg-black/15 xs:bg-black/25 inset-0 h-full -z-10" />
           
           <h1 className="about-title text-5xl sm:text-7xl lg:text-8xl title-font uppercase mb-1 xs:mb-3 mx-3 xs:ms-0">

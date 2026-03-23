@@ -102,7 +102,7 @@ useEffect(() => {
 
       {/* TEXTO ABSOLUTO */}
       <span
-        className={`hollow-text pointer-events-none carousel-title text-center h-24 w-90 title-font text-7xl sm:text-8xl absolute top-1/2 z-40 -translate-y-1/2 ${side === 'left' ? '-left-40 sm:-left-[170px] -rotate-90' : '-right-40 sm:-right-45 rotate-90'}`}
+        className={`hollow-text-transparent pointer-events-none carousel-title text-center h-24 w-90 title-font text-7xl sm:text-8xl absolute top-1/2 z-40 -translate-y-1/2 ${side === 'left' ? '-left-40 sm:-left-[170px] -rotate-90' : '-right-40 sm:-right-45 rotate-90'}`}
       >
         {text}
       </span>
