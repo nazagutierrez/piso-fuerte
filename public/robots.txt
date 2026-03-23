@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pisofuerte.com.ar/sitemap.xml
