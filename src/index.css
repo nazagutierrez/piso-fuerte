@@ -3,6 +3,54 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@font-face {
+  font-family: 'Anton';
+  src: url('/fonts/Anton-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Zalando Sans';
+  src: url('/fonts/ZalandoSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Zalando Sans';
+  src: url('/fonts/ZalandoSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Zalando Sans';
+  src: url('/fonts/ZalandoSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Zalando Sans';
+  src: url('/fonts/ZalandoSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Zalando Sans';
+  src: url('/fonts/ZalandoSans-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Adding custom brand colors for Piso Fuerte */
 :root {
   --brand-yellow: #f1d200;
@@ -41,16 +89,18 @@
 .hollow-text {
   -webkit-text-stroke: 1px var(--brand-yellow); /* Borde del texto */
   display: inline-block;
-  background-image: -webkit-linear-gradient(left,#ffc843 50%,transparent 50%);
-  background-position: 100%;
+  background-image: linear-gradient(to right, #ffc843 50%, transparent 50%);
   background-size: 300% 100%;
-  color: #ffc843;
-  background-clip: text;
+  background-position: 100% 50%; /* Explicit X and Y with non-zero % to prevent minifier stripping */
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
-  transform: translate3d(0,0,0);
-  -moz-transform: translate3d(0,0,0);
-  -webkit-transform: translate3d(0,0,0);
+  color: transparent;
+}
+
+.hollow-text-transparent {
+  -webkit-text-stroke: 1px var(--brand-yellow); /* Borde del texto */
+  -webkit-text-fill-color: transparent;
 }
 
 .title-font {
