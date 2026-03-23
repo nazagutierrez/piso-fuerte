@@ -1,5 +1,4 @@
-import { useLocation } from "react-router-dom"
-import { useState, useEffect, useRef } from "react"
+import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import StaggeredMenu from "./StaggeredMenu"
@@ -19,8 +18,6 @@ const socialItems = [
 ];
 
 export function Navbar() {
-  const pathname = useLocation()
-  const [isOpen, setIsOpen] = useState(false)
   const navRef = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
