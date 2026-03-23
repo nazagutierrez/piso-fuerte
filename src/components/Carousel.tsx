@@ -95,10 +95,10 @@ useEffect(() => {
       />
       
       {/* FADE IZQUIERDO */}
-      <div className={`${side === "right" ? "hidden sm:block" : ""} fade-element pointer-events-none absolute left-0 top-0 h-full w-16 z-20 bg-linear-to-r from-black/80 to-transparent`} />
+      <div className={`${side === "right" ? "hidden sm:block" : ""} fade-element opacity-0 pointer-events-none absolute left-0 top-0 h-full w-16 z-20 bg-linear-to-r from-black/80 to-transparent`} />
         
       {/* FADE DERECHO */}
-      <div className={`${side === "left" ? "hidden sm:block" : ""} fade-element pointer-events-none fade-in absolute shadow-[20px_0px_30px_-5px_#000] right-0 top-0 h-full w-16 z-20 bg-linear-to-l from-black/80 to-transparent`} />
+      <div className={`${side === "left" ? "hidden sm:block" : ""} fade-element opacity-0 pointer-events-none fade-in absolute shadow-[20px_0px_30px_-5px_#000] right-0 top-0 h-full w-16 z-20 bg-linear-to-l from-black/80 to-transparent`} />
 
       {/* TEXTO ABSOLUTO */}
       <span
