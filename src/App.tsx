@@ -12,6 +12,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { Footer } from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import { SEO } from "./lib/SEO";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
@@ -27,28 +28,35 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      {/* ⚠️ Cursor SIEMPRE fuera del wrapper */}
-      <CustomCursor />
-      <ScrollToTop />
-      <Navbar />
+    <>
+      <SEO 
+        title="Construcción y Reformas Integrales" 
+        description="Transformamos tus ideas en realidad. Empresa de construcción en Junín con más de 10 años de experiencia."
+        path="/"
+      />
+      <Router>
+        {/* ⚠️ Cursor SIEMPRE fuera del wrapper */}
+        <CustomCursor />
+        <ScrollToTop />
+        <Navbar />
 
-      <div id="smooth-wrapper">
-        <div id="smooth-content">
-          <div className="min-h-screen flex flex-col">
-            <main className="flex-grow">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/nosotros" element={<About />} />
-                <Route path="/trabajos" element={<Projects />} />
-                <Route path="/contacto" element={<Contact />} />
-              </Routes>
-            </main>
-            <Footer />
+        <div id="smooth-wrapper">
+          <div id="smooth-content">
+            <div className="min-h-screen flex flex-col">
+              <main className="flex-grow">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/nosotros" element={<About />} />
+                  <Route path="/trabajos" element={<Projects />} />
+                  <Route path="/contacto" element={<Contact />} />
+                </Routes>
+              </main>
+              <Footer />
+            </div>
           </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </>
   );
 }
 
