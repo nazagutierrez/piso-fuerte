@@ -39,13 +39,13 @@ const mediaGalpones: MediaItem[] = [
   {
     id: 3,
     type: 'video',
-    src: '/galpon-video-3.mp4',
+    src: '/videos/galpon-video-3.mp4',
     thumbnail: posterGalpon3,
   },
   {
     id: 4,
     type: 'video',
-    src: '/galpon-video-2.mp4',
+    src: '/videos/galpon-video-2.mp4',
     thumbnail: posterGalpon2,
   },
   {
@@ -56,7 +56,7 @@ const mediaGalpones: MediaItem[] = [
   {
     id: 6,
     type: 'video',
-    src: '/video-hero.mp4',
+    src: '/videos/video-hero.mp4',
     thumbnail: posterHero,
   },
   {
@@ -67,7 +67,7 @@ const mediaGalpones: MediaItem[] = [
   {
     id: 8,
     type: 'video',
-    src: '/galpon-video-1.mp4',
+    src: '/videos/galpon-video-1.mp4',
     thumbnail: posterGalpon1,
   },
 ];
@@ -86,7 +86,7 @@ const mediaPisos: MediaItem[] = [
   {
     id: 3,
     type: 'video',
-    src: '/piso-fuerte-video-1.mp4',
+    src: '/videos/piso-fuerte-video-1.mp4',
     thumbnail: posterPiso1,
   },
   {
@@ -97,7 +97,7 @@ const mediaPisos: MediaItem[] = [
   {
     id: 5,
     type: 'video',
-    src: '/piso-fuerte-video-3.mp4',
+    src: '/videos/piso-fuerte-video-3.mp4',
     thumbnail: posterPiso2,
   },
 ]
@@ -121,7 +121,7 @@ const mediaOtros: MediaItem[] = [
   {
     id: 4,
     type: 'video',
-    src: '/otro-video-1.mp4',
+    src: '/videos/otro-video-1.mp4',
     thumbnail: posterOtro1,
   },
   {

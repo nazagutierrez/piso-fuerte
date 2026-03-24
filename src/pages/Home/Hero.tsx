@@ -107,10 +107,10 @@ export default function Hero() {
         </defs>
       </svg>
 
-      <div className="bg-black h-screen w-screen z-999 absolute">
+      {/* <div className="h-screen w-screen z-999 absolute">
           <div id="logo-mask" className="fixed top-0 w-full h-screen z-50">
           </div>
-      </div>
+      </div> */}
 
       <video 
         poster={posterHero} 
@@ -122,7 +122,7 @@ export default function Hero() {
         className="absolute sm:shadow-2xl shadow-white/20 brightness-35 inset-0 object-cover h-full w-full z-10"
         title="Video institucional de Piso Fuerte Constructora"
       >
-        <source src="/video-hero.mp4" type="video/mp4" />
+        <source src="/videos/video-hero.mp4" type="video/mp4" />
         Tu navegador no soporta videos.
       </video>
 
