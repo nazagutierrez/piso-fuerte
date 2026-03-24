@@ -13,6 +13,8 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { Footer } from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import { SEO } from "./lib/SEO";
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
@@ -56,6 +58,8 @@ function App() {
           </div>
         </div>
       </Router>
+      <Analytics />
+      <SpeedInsights />
     </>
   );
 }
