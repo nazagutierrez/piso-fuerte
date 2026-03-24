@@ -30,7 +30,7 @@ function App() {
   return (
     <>
       <SEO 
-        title="Construcción pisos y galpones en Junín" 
+        title="Piso Fuerte - Construcción pisos y galpones en Junín" 
         description="Transformamos tus ideas en realidad. Empresa de construcción en Junín con más de 10 años de experiencia. Especializados en Pisos, Galpones y todo tipo de construcciones."
         path="/"
       />
