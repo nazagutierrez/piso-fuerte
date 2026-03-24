@@ -4,7 +4,8 @@ import { FiArrowRight, FiPhone } from "react-icons/fi";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
-import textura from "@/assets/textura.jpg";
+import textura from "../../assets/jpg-assets/textura.jpg";
+import posterHero from "../../assets/jpg-assets/poster-hero-video.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -106,8 +107,13 @@ export default function Hero() {
         </defs>
       </svg>
 
+      <div className="bg-black h-screen w-screen z-999 absolute">
+          <div id="logo-mask" className="fixed top-0 w-full h-screen z-50">
+          </div>
+      </div>
+
       <video 
-        poster="/poster-hero-video.png" 
+        poster={posterHero} 
         ref={videoRef} 
         autoPlay 
         loop 
@@ -119,6 +125,7 @@ export default function Hero() {
         <source src="/video-hero.mp4" type="video/mp4" />
         Tu navegador no soporta videos.
       </video>
+
 
       <div className="bg-texture-black inset-0 absolute pointer-events-none -scale-x-100 -top-[89.9%] -z-10 w-full">
         <img

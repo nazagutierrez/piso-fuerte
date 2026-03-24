@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import textura from "../../assets/textura.jpg";
+import textura from "@/assets/jpg-assets/textura.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 

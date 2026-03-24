@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi"
 import { FaWhatsapp, FaRegCopy } from "react-icons/fa";
-import texturaOscura from "../assets/textura-oscura.jpg";
+import texturaOscura from "../assets/jpg-assets/textura-oscura.jpg";
 
 export default function ContactPage() {
   const [copiedText, setCopiedText] = useState<string | null>(null);

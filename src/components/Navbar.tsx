@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import StaggeredMenu from "./StaggeredMenu"
-import logo from "../assets/logo.png"
+import logo from "../assets/jpg-assets/logo.png"
 
 gsap.registerPlugin(ScrollTrigger)
 

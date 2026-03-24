@@ -2,7 +2,12 @@ import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Features from "./Features"
-import texturaOscura from "../../assets/textura-oscura.jpg"
+import texturaOscura from "../../assets/jpg-assets/textura-oscura.jpg"
+import aboutEquipoImg from "../../assets/jpg-assets/about-equipo.jpg"
+import galpon3 from "../../assets/jpg-assets/galpon-3.jpg";
+import galponEquipo1 from "../../assets/jpg-assets/about-galpon-equipo.jpg";
+import illustracion1 from "../../assets/jpg-assets/about-illustracion.png";
+import illustracion2 from "../../assets/jpg-assets/about-illustracion-2.png";
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -19,17 +24,28 @@ export default function AboutPage() {
       tl.fromTo(
         ".about-header",
         {
-          backgroundSize: "140%", // zoom inicial (leve)
           opacity: 0,
           y: 50,
         },
         {
-          backgroundSize: "120%", // tu valor final
           opacity: 1,
           y: 0,
           duration: 1.5,
           ease: "power3.inOut",
         }
+      );
+
+      tl.fromTo(
+        ".about-header-img",
+        {
+          scale: 1.4,
+        },
+        {
+          scale: 1.2,
+          duration: 1.5,
+          ease: "power3.inOut",
+        },
+        "<" // Arranca al mismo tiempo que la animación de la cabecera
       );
 
       gsap.from(".about-content-1", {
@@ -120,7 +136,12 @@ export default function AboutPage() {
             
       <div className="w-full z-20">
         {/* Header */}
-        <div className="about-header bg-[url('/about-equipo.jfif')] bg-no-repeat bg-size-[120%] xs:bg-size-[110%] sm:bg-cover h-80 xs:h-100 sm:h-120 md:h-140 lg:h-160 xl:h-180 m-2 xs:m-4 rounded-t-xl rounded-b  bg-position-[30%_5%] xxs:bg-position-[30%_35%] xs:bg-position-[0_25%] sm:bg-position-[0_35%] md:bg-position-[0_40%] xl:bg-center text-center md:text-start md:ps-20 pt-16 sm:pt-20 md:pt-20 mb-4 xs:mb-16">
+        <div className="about-header relative overflow-hidden h-80 xs:h-100 sm:h-120 md:h-140 lg:h-160 xl:h-180 m-2 xs:m-4 rounded-t-xl rounded-b text-center md:text-start md:ps-20 pt-16 sm:pt-20 md:pt-20 mb-4 xs:mb-16">
+          <img 
+            src={aboutEquipoImg} 
+            alt="Equipo de Piso Fuerte construyendo un galpón" 
+            className="about-header-img absolute inset-0 w-full h-full object-cover object-[30%_5%] xxs:object-[30%_35%] xs:object-[0_25%] sm:object-[0_35%] md:object-[0_40%] xl:object-center -z-20 origin-center"
+          />
           <div className="absolute bg-black/15 xs:bg-black/25 inset-0 h-full -z-10" />
           
           <h1 className="about-title text-5xl sm:text-7xl lg:text-8xl title-font uppercase mb-1 xs:mb-3 mx-3 xs:ms-0">
@@ -140,7 +161,7 @@ export default function AboutPage() {
           <section className="about-content-1 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 mb-5 sm:mb-20">
             <div className="order-1">
               <img
-                src="/galpon-3.jfif"
+                src={galpon3}
                 alt="Equipo Piso Fuerte"
                 className="w-full sm:h-[400px] rounded-3xl rounded-tl-none sm:rounded-bl-none sm:rounded-t-3xl object-cover mb-8"
               />
@@ -171,7 +192,7 @@ export default function AboutPage() {
             </div>
             <div>
               <img
-                src="/about-galpon-equipo.png"
+                src={galponEquipo1}
                 alt="Equipo Piso Fuerte"
                 className="w-full sm:h-[400px] rounded-tl-none sm:rounded-tl-3xl sm:rounded-tr-none rounded-3xl object-cover mb-8"
               />
@@ -203,8 +224,8 @@ export default function AboutPage() {
 
         {/* Buildings images */}
         <div ref={buildingsRef} className="relative">
-          <img src="/about-illustracion.png" className="building-img absolute hidden xs:block w-40 h-40 -top-[120px] sm:-top-[124px] z-10 right-62 xl:left-5 object-cover pointer-events-none" alt="textura" />
-          <img src="/about-illustracion-2.png" className="building-img absolute w-34 h-34 xs:w-52 xs:h-52 -top-[129px] xs:-top-[195px] sm:-top-40 z-10 right-5 object-cover pointer-events-none" alt="textura" />
+          <img src={illustracion1} className="building-img absolute hidden xs:block w-40 h-40 -top-[120px] sm:-top-[124px] z-10 right-62 xl:left-5 object-cover pointer-events-none" alt="textura" />
+          <img src={illustracion2} className="building-img absolute w-34 h-34 xs:w-52 xs:h-52 -top-[129px] xs:-top-[195px] sm:-top-40 z-10 right-5 object-cover pointer-events-none" alt="textura" />
         </div>
 
       </div>

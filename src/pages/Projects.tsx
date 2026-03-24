@@ -2,7 +2,26 @@ import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Carousel, MediaItem } from "../components/Carousel";
-import texturaOscura from "../assets/textura-oscura.jpg";
+import texturaOscura from "../assets/jpg-assets/textura-oscura.jpg";
+import galpon1 from "../assets/jpg-assets/galpon.jpg";
+import galpon6 from "../assets/jpg-assets/galpon-6.jpg";
+import posterGalpon3 from "../assets/jpg-assets/poster-galpon-3.jpg";
+import posterGalpon2 from "../assets/jpg-assets/poster-galpon-2.jpg";
+import galpon3 from "../assets/jpg-assets/galpon-3.jpg";
+import posterHero from "../assets/jpg-assets/poster-hero-video.jpg";
+import galpon2 from "../assets/jpg-assets/galpon-2.jpg";
+import posterGalpon1 from "../assets/jpg-assets/poster-galpon-1.jpg";
+import piso1 from "../assets/jpg-assets/piso-1.jpg";
+import piso3 from "../assets/jpg-assets/piso-3.jpg";
+import posterPiso1 from "../assets/jpg-assets/poster-piso-1.jpg";
+import piso2 from "../assets/jpg-assets/piso-2.jpg";
+import posterPiso2 from "../assets/jpg-assets/poster-piso-2.jpg";
+import otro4 from "../assets/jpg-assets/otro-4.jpg";
+import otro5 from "../assets/jpg-assets/otro-5.jpg";
+import otro6 from "../assets/jpg-assets/otro-6.jpg";
+import posterOtro1 from "../assets/jpg-assets/poster-otro-1.jpg";
+import otro1 from "../assets/jpg-assets/otro-1.jpg";
+import otro2 from "../assets/jpg-assets/otro-2.jpg";
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -10,46 +29,46 @@ const mediaGalpones: MediaItem[] = [
   {
     id: 1,
     type: 'image',
-    src: '/galpon.jpg',
+    src: galpon1,
   },
   {
     id: 2,
     type: 'image',
-    src: '/galpon-6.jfif',
+    src: galpon6,
   },
   {
     id: 3,
     type: 'video',
     src: '/galpon-video-3.mp4',
-    thumbnail: '/poster-galpon-3.png',
+    thumbnail: posterGalpon3,
   },
   {
     id: 4,
     type: 'video',
     src: '/galpon-video-2.mp4',
-    thumbnail: '/poster-galpon-2.png',
+    thumbnail: posterGalpon2,
   },
   {
     id: 5,
     type: 'image',
-    src: '/galpon-3.jfif',
+    src: galpon3,
   },
   {
     id: 6,
     type: 'video',
     src: '/video-hero.mp4',
-    thumbnail: '/poster-hero-video.png',
+    thumbnail: posterHero,
   },
   {
     id: 7,
     type: 'image',
-    src: '/galpon-2.jpg',
+    src: galpon2,
   },
   {
     id: 8,
     type: 'video',
     src: '/galpon-video-1.mp4',
-    thumbnail: '/poster-galpon-1.png',
+    thumbnail: posterGalpon1,
   },
 ];
 
@@ -57,29 +76,29 @@ const mediaPisos: MediaItem[] = [
   {
     id: 1,
     type: 'image',
-    src: '/piso-1.jfif',
+    src: piso1,
   },
   {
     id: 2,
     type: 'image',
-    src: '/piso-3.jpeg',
+    src: piso3,
   },
   {
     id: 3,
     type: 'video',
     src: '/piso-fuerte-video-1.mp4',
-    thumbnail: '/poster-piso-1.png',
+    thumbnail: posterPiso1,
   },
   {
     id: 4,
     type: 'image',
-    src: '/piso-2.jpeg',
+    src: piso2,
   },
   {
     id: 5,
     type: 'video',
     src: '/piso-fuerte-video-3.mp4',
-    thumbnail: '/poster-piso-2.png',
+    thumbnail: posterPiso2,
   },
 ]
 
@@ -87,33 +106,33 @@ const mediaOtros: MediaItem[] = [
   {
     id: 1,
     type: 'image',
-    src: '/otro-4.jpg',
+    src: otro4,
   },
   {
     id: 2,
     type: 'image',
-    src: '/otro-5.jpg',
+    src: otro5,
   },
   {
     id: 3,
     type: 'image',
-    src: '/otro-6.jpg',
+    src: otro6,
   },
   {
     id: 4,
     type: 'video',
     src: '/otro-video-1.mp4',
-    thumbnail: '/poster-otro-1.png',
+    thumbnail: posterOtro1,
   },
   {
     id: 5,
     type: 'image',
-    src: '/otro-1.jpeg',
+    src: otro1,
   },
   {
     id: 6,
     type: 'image',
-    src: '/otro-2.jpeg',
+    src: otro2,
   },
 ]
 

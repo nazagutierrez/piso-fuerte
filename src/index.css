@@ -215,3 +215,11 @@ html {
   background-clip: text;
   background-size: 100% auto;
 }
+
+#logo-mask {
+  background: #ccc;
+  mask-image: url("./src/assets/jpg-assets/logo.png");
+  mask-position: center 50%;
+  mask-repeat: no-repeat;
+  mask-size: clamp(40vh, 35%, 0vh);
+}

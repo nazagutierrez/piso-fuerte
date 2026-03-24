@@ -3,7 +3,7 @@ import { FiPhone, FiMail, FiMapPin } from "react-icons/fi"
 import { useRef } from 'react';
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { gsap } from "gsap";
-import logo from "../assets/logo.png";
+import logo from "../assets/jpg-assets/logo.png";
 
 export function Footer() {
   const scrollTween = useRef<gsap.core.Tween | null>(null);

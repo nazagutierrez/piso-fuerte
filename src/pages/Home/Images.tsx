@@ -1,7 +1,10 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import textura from "../../assets/textura.jpg";
+import textura from "../../assets/jpg-assets/textura.jpg";
+import galpon3 from "../../assets/jpg-assets/galpon-3.jpg";
+import piso1 from "../../assets/jpg-assets/piso-1.jpg";
+import otro6 from "../../assets/jpg-assets/otro-6.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -76,7 +79,7 @@ export default function Images() {
         <img
           ref={imgRef1}
           className="w-full h-screen object-cover absolute inset-0 brightness-85"
-          src="/galpon-3.jfif"
+          src={galpon3}
           alt="building example 1"
         />
         <div className="absolute flex flex-col items-start bottom-20 left-6 sm:left-14">
@@ -90,7 +93,7 @@ export default function Images() {
 				<img
 					ref={imgRef2}
 					className="w-full h-screen object-cover z-20 brightness-85"
-					src="/piso-1.jfif"
+					src={piso1}
 					alt="building example 2"
 				/>
         <div className="absolute flex flex-col items-start bottom-20 left-6 sm:left-14 z-30">
@@ -104,7 +107,7 @@ export default function Images() {
 				<img
 					ref={imgRef3}
 					className="w-full h-screen object-cover brightness-65"
-					src="/otro-6.jpg"
+					src={otro6}
 					alt="building example 3"
 				/>
         <div className="absolute flex flex-col items-start bottom-20 left-6 sm:left-14">
