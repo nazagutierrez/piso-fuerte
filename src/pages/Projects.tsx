@@ -128,6 +128,7 @@ export default function WorksPage() {
       tl.from(".works-title", {
         opacity: 0,
         y: 100,
+        filter: "blur(25px)",
         duration: 1,
         ease: "power3.out",
       })
@@ -135,6 +136,7 @@ export default function WorksPage() {
       tl.from(".works-description", {
         opacity: 0,
         y: 50,
+        filter: "blur(25px)",
         duration: 0.8,
         ease: "power3.out",
       }, "-=0.4")
@@ -142,6 +144,7 @@ export default function WorksPage() {
       tl.from(".works-info", {
         opacity: 0,
         y: 50,
+        filter: "blur(25px)",
         duration: 0.8,
         ease: "power3.out",
       }, "-=0.6")

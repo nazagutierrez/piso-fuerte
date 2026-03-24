@@ -22,9 +22,9 @@ export default function ContactPage() {
     },
     {
       title: "Email",
-      href: "mailto:pisofuerte@gmail.com",
-      copy: "pisofuerte@gmail.com",
-      label: <h3>pisofuerte<span className="text-brand-yellow">@</span>gmail.com</h3>,
+      href: "mailto:pisofuertejunin@gmail.com",
+      copy: "pisofuertejunin@gmail.com",
+      label: <h3>pisofuertejunin<span className="text-brand-yellow">@</span>gmail.com</h3>,
       availability: "Respuesta en menos de 24 horas",
       btnText: "Enviar",
       icon: <FiMail size={16} />
@@ -97,8 +97,7 @@ export default function ContactPage() {
           <p className="text-xl mb-10 text-white/70 font-thin max-w-3xl text-pretty">
             Contactanos por cualquier duda que tengas o para solicitar un presupuesto y comenzar tu proyecto.
           </p>
-          <div className="bg-brand-yellow w-14 h-1 rounded"></div>
-          <div className="bg-brand-yellow w-14 h-1 rounded"></div>
+          <div className="bg-brand-yellow w-16 h-1 rounded"></div>
         </header>
 
           {/* Contact Info */}

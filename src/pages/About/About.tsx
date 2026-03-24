@@ -37,6 +37,7 @@ export default function AboutPage() {
           trigger: ".about-content-1",
           start: "top bottom",
         },
+        filter: "blur(25px)",
         opacity: 0,
         delay: 1.8,
         y: 30,
@@ -47,6 +48,7 @@ export default function AboutPage() {
       tl.from(".about-title", {
         opacity: 0,
         y: 30,
+        filter: "blur(25px)",
         duration: 1,
         ease: "power3.out",
       }, "<1")
@@ -54,6 +56,7 @@ export default function AboutPage() {
       tl.from(".about-description", {
         opacity: 0,
         y: 30,
+        filter: "blur(25px)",
         duration: 1,
         ease: "power3.out",
       }, "<0.5")
@@ -61,8 +64,9 @@ export default function AboutPage() {
       gsap.from(".about-content-2", {
         scrollTrigger: {
           trigger: ".about-content-2",
-          start: "top 80%",
+          start: "top 90%",
         },
+        filter: "blur(25px)",
         opacity: 0,
         y: 30,
         duration: 0.8,
