@@ -13,8 +13,9 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { Footer } from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import { SEO } from "./lib/SEO";
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/react"
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
+import logo from "./assets/jpg-assets/logo.png";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
@@ -27,12 +28,67 @@ function App() {
       effects: true,
       smoothTouch: 0.1,
     });
+
+    const startAnimation = () => {
+      const tl = gsap.timeline();
+
+      tl.to("#logo-wrapper", {
+        filter: "brightness(100%)",
+        duration: 0.5,
+        ease: "power2.in",
+      });
+
+      tl.to("#logo-img", {
+        filter: "saturate(100%)",
+        duration: 1,
+        ease: "power2.in",
+      });
+
+      tl.to("#logo-img", {
+        duration: 0.7,
+        opacity: 0,
+        ease: "power2.out",
+      });
+
+      tl.to(
+        "#logo-img",
+        {
+          width: "28000px",
+          height: "28000px",
+          duration: 1.5,
+          ease: "power1.in",
+        },
+        "<",
+      );
+
+      tl.to(
+        "#logo-mask",
+        {
+          maskPosition: "31% 40%",
+          maskSize: "28000px",
+          webkitMaskPosition: "31% 40%",
+          webkitMaskSize: "28000px",
+          duration: 1.5,
+          ease: "power1.in",
+        },
+        "<",
+      );
+
+      tl.to("#logo-mask", {
+        maskImage: "none",
+        webkitMaskImage: "none",
+      });
+
+      tl.to("#logo-wrapper", {
+        display: "none"
+      });
+    };
   }, []);
 
   return (
     <>
-      <SEO 
-        title="Piso Fuerte - Construcción pisos y galpones en Junín" 
+      <SEO
+        title="Piso Fuerte - Construcción pisos y galpones en Junín"
         description="Transformamos tus ideas en realidad. Empresa de construcción en Junín con más de 10 años de experiencia. Especializados en Pisos, Galpones y todo tipo de construcciones."
         path="/"
       />
@@ -40,20 +96,35 @@ function App() {
         {/* ⚠️ Cursor SIEMPRE fuera del wrapper */}
         <CustomCursor />
         <ScrollToTop />
-        <Navbar />
 
-        <div id="smooth-wrapper">
-          <div id="smooth-content">
-            <div className="min-h-screen flex flex-col">
-              <main className="flex-grow">
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/nosotros" element={<About />} />
-                  <Route path="/trabajos" element={<Projects />} />
-                  <Route path="/contacto" element={<Contact />} />
-                </Routes>
-              </main>
-              <Footer />
+        <div
+          id="logo-wrapper"
+          className="fixed brightness-50 inset-0 flex justify-center items-center w-full h-screen z-300 pointer-events-none"
+        >
+          <img
+            id="logo-img"
+            src={logo}
+            className="w-[300px] saturate-0 h-[300px] object-cover"
+            alt="Piso Fuerte Logo"
+          />
+        </div>
+
+        <div id="logo-mask" className="fixed top-0 w-full h-screen z-200 pointer-events-none" style={{ maskImage: `url(${logo})`, WebkitMaskImage: `url(${logo})` }}>
+          <Navbar />
+
+          <div id="smooth-wrapper">
+            <div id="smooth-content">
+              <div className="min-h-screen flex flex-col">
+                <main className="flex-grow">
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/nosotros" element={<About />} />
+                    <Route path="/trabajos" element={<Projects />} />
+                    <Route path="/contacto" element={<Contact />} />
+                  </Routes>
+                </main>
+                <Footer />
+              </div>
             </div>
           </div>
         </div>

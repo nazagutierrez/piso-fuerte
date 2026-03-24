@@ -63,7 +63,7 @@ export function Navbar() {
   }, [])
 
   return (
-      <nav aria-label="Navegación principal" className="h-screen w-full bg-black overflow-hidden z-60">
+      <nav aria-label="Navegación principal" className="h-screen w-full overflow-hidden z-60">
         <StaggeredMenu
           isFixed
           position="right"

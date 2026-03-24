@@ -221,5 +221,8 @@ html {
   mask-image: url("./src/assets/jpg-assets/logo.png");
   mask-position: center 50%;
   mask-repeat: no-repeat;
-  mask-size: clamp(40vh, 35%, 0vh);
+  mask-size: 300px;
+  -webkit-mask-position: center 50%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 300px;
 }

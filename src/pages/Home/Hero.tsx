@@ -78,12 +78,19 @@ export default function Hero() {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".hero-title", { opacity: 0, y: 120, duration: 1.5, filter: "blur(25px)", ease: "power3.out" });
-      gsap.from(".hero-subtitle", { opacity: 0, y: 40, duration: 1, delay: 0.5, filter: "blur(25px)", ease: "power3.out" });
-      gsap.from(".hero-cta-item", { opacity: 0, filter: "blur(15px)", ease: "power3.out", duration: 1, delay: .8 });
+      // El intro en App.tsx toma alrededor de 2.5 - 3 segundos. 
+      // Calculamos el delay base asegurando que esto se ejecute después,
+      // pero solo si estamos en la carga inicial de la página.
+      const timeSinceLoad = performance.now();
+      const introDuration = 2500; // 2.5s (ajustado para que coincida suavemente con el destape)
+      const baseDelay = timeSinceLoad < introDuration ? (introDuration - timeSinceLoad) / 1000 : 0;
+
+      gsap.from(".hero-title", { opacity: 0, y: 120, duration: 1.5, delay: baseDelay, filter: "blur(25px)", ease: "power3.out" });
+      gsap.from(".hero-subtitle", { opacity: 0, y: 40, duration: 1, delay: baseDelay + 0.5, filter: "blur(25px)", ease: "power3.out" });
+      gsap.from(".hero-cta-item", { opacity: 0, filter: "blur(15px)", ease: "power3.out", duration: 1, delay: baseDelay + 0.8 });
       gsap.fromTo(".hero-cta-work-item",
         { opacity: 0, y: 60, filter: "blur(15px)" },
-        { opacity: 1, y: 0, filter: "blur(0px)", ease: "power3.out", duration: 1.5, delay: 1.2 }
+        { opacity: 1, y: 0, filter: "blur(0px)", ease: "power3.out", duration: 1.5, delay: baseDelay + 1.2 }
       );
     }, heroSectionRef);
     return () => ctx.revert();
@@ -107,24 +114,21 @@ export default function Hero() {
         </defs>
       </svg>
 
-      {/* <div className="h-screen w-screen z-999 absolute">
-          <div id="logo-mask" className="fixed top-0 w-full h-screen z-50">
-          </div>
-      </div> */}
 
-      <video 
-        poster={posterHero} 
-        ref={videoRef} 
-        autoPlay 
-        loop 
-        muted 
-        playsInline 
-        className="absolute sm:shadow-2xl shadow-white/20 brightness-35 inset-0 object-cover h-full w-full z-10"
-        title="Video institucional de Piso Fuerte Constructora"
-      >
-        <source src="/videos/video-hero.mp4" type="video/mp4" />
-        Tu navegador no soporta videos.
-      </video>
+        <video 
+          poster={posterHero} 
+          ref={videoRef} 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="absolute sm:shadow-2xl shadow-white/20 brightness-35 inset-0 object-cover h-full w-full z-10"
+          title="Video institucional de Piso Fuerte Constructora"
+        >
+          <source src="/videos/video-hero.mp4" type="video/mp4" />
+          Tu navegador no soporta videos.
+        </video>
+    
 
 
       <div className="bg-texture-black inset-0 absolute pointer-events-none -scale-x-100 -top-[89.9%] -z-10 w-full">
