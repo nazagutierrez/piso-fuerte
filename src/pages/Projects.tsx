@@ -39,7 +39,7 @@ const mediaGalpones: MediaItem[] = [
   {
     id: 3,
     type: 'video',
-    src: '/videos/galpon-video-3.mp4',
+    src: '/videos/galpon-video-4.mp4',
     thumbnail: posterGalpon3,
   },
   {
