@@ -30,6 +30,17 @@ function App() {
     });
 
     const startAnimation = () => {
+      // Forzar estado inicial como inline styles (mayor especificidad que CSS)
+      // Esto evita el flash cuando GSAP dejó inline styles de una animación anterior
+      gsap.set("#logo-mask", {
+        maskImage: `url(${logo})`,
+        webkitMaskImage: `url(${logo})`,
+        maskPosition: "center 50%",
+        maskSize: "300px",
+        webkitMaskPosition: "center 50%",
+        webkitMaskSize: "300px",
+      });
+
       const tl = gsap.timeline();
 
       tl.to("#logo-wrapper", {
@@ -39,7 +50,7 @@ function App() {
       });
 
       tl.to("#logo-img", {
-        filter: "saturate(100%)",
+        filter: "saturate(200%)",
         duration: 1,
         ease: "power2.in",
       });
@@ -58,20 +69,29 @@ function App() {
           duration: 1.5,
           ease: "power1.in",
         },
-        "<",
       );
 
       tl.to(
         "#logo-mask",
         {
-          maskPosition: "31% 40%",
-          maskSize: "28000px",
-          webkitMaskPosition: "31% 40%",
-          webkitMaskSize: "28000px",
+          maskSize: "0px",
+          webkitMaskSize: "0px",
+          maskPosition: "center 40%",
+          webkitMaskPosition: "center 40%",
           duration: 1.5,
           ease: "power1.in",
         },
         "<",
+      );
+      tl.to(
+        "#logo-mask",
+        {
+          maskSize: "38000px",
+          webkitMaskSize: "38000px",
+          duration: 1.5,
+          ease: "power1.in",
+        },
+        "<0.5",
       );
 
       tl.to("#logo-mask", {
@@ -83,6 +103,8 @@ function App() {
         display: "none"
       });
     };
+
+    startAnimation();
   }, []);
 
   return (
@@ -99,7 +121,7 @@ function App() {
 
         <div
           id="logo-wrapper"
-          className="fixed brightness-50 inset-0 flex justify-center items-center w-full h-screen z-300 pointer-events-none"
+          className="fixed brightness-50 inset-0 flex justify-center items-center w-full h-screen z-300"
         >
           <img
             id="logo-img"
@@ -109,7 +131,7 @@ function App() {
           />
         </div>
 
-        <div id="logo-mask" className="fixed top-0 w-full h-screen z-200 pointer-events-none" style={{ maskImage: `url(${logo})`, WebkitMaskImage: `url(${logo})` }}>
+        <div id="logo-mask" className="fixed top-0 w-full h-screen z-200" style={{ maskImage: `url(${logo})`, WebkitMaskImage: `url(${logo})` }}>
           <Navbar />
 
           <div id="smooth-wrapper">

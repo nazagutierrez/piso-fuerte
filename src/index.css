@@ -115,7 +115,7 @@
 }
 
 html {
-  background-color: var(--brand-dark);
+  background-color: var(--texture-black);
 }
 
 .call-button {
@@ -218,7 +218,6 @@ html {
 
 #logo-mask {
   background: #ccc;
-  mask-image: url("./src/assets/jpg-assets/logo.png");
   mask-position: center 50%;
   mask-repeat: no-repeat;
   mask-size: 300px;

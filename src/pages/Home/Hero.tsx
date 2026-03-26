@@ -82,7 +82,7 @@ export default function Hero() {
       // Calculamos el delay base asegurando que esto se ejecute después,
       // pero solo si estamos en la carga inicial de la página.
       const timeSinceLoad = performance.now();
-      const introDuration = 2500; // 2.5s (ajustado para que coincida suavemente con el destape)
+      const introDuration = 3200; // 2.5s (ajustado para que coincida suavemente con el destape)
       const baseDelay = timeSinceLoad < introDuration ? (introDuration - timeSinceLoad) / 1000 : 0;
 
       gsap.from(".hero-title", { opacity: 0, y: 120, duration: 1.5, delay: baseDelay, filter: "blur(25px)", ease: "power3.out" });

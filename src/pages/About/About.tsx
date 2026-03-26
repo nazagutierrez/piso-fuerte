@@ -134,9 +134,9 @@ export default function AboutPage() {
     <main className="min-h-screen bg-bottom text-white" style={{ backgroundImage: `url(${texturaOscura})` }} ref={containerRef}>
       <div className="absolute bg-texture-black/80 inset-0 h-full z-0" />
             
-      <div className="w-full z-20">
+      <div className="w-full z-20 p-2 xs:p-3">
         {/* Header */}
-        <div className="about-header relative overflow-hidden h-80 xs:h-100 sm:h-120 md:h-140 lg:h-160 xl:h-180 m-2 xs:m-4 rounded-t-xl rounded-b text-center md:text-start md:ps-20 pt-16 sm:pt-20 md:pt-20 mb-4 xs:mb-16">
+        <div className="about-header relative overflow-hidden h-80 xs:h-100 sm:h-120 md:h-140 lg:h-160 xl:h-180 rounded-t-xl rounded-b text-center md:text-start md:ps-20 pt-16 sm:pt-20 md:pt-20 mb-4 xs:mb-16">
           <img 
             src={aboutEquipoImg} 
             alt="Equipo de Piso Fuerte construyendo un galpón" 
@@ -156,7 +156,7 @@ export default function AboutPage() {
           Construyendo sueños y transformando espacios desde 2015
         </p>
 
-        <div className="flex flex-col xs:max-w-7xl px-4 mx-auto">
+        <div className="flex flex-col xs:max-w-7xl px-2 mx-auto">
           {/* Main Content */}
           <section className="about-content-1 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 mb-5 sm:mb-20">
             <div className="order-1">
