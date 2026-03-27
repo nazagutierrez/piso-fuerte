@@ -414,7 +414,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         </div>
 
         <header
-          className="staggered-menu-header absolute top-0 left-0 w-full flex items-center justify-between ps-[1.5em] pr-[1em] xs:py-[2em] sm:ps-[2em] sm:pr-[1.5em] lg:pr-[2em] py-[2em] bg-transparent pointer-events-none z-20"
+          className="staggered-menu-header absolute top-0 left-0 w-full flex items-center justify-between ps-[1.5em] pr-[2em] xs:py-[2em] sm:ps-[2em] py-[2em] bg-transparent pointer-events-none z-20"
           aria-label="Main navigation header"
         >
           <Link to='/' className="sm-logo flex items-center select-none pointer-events-auto" aria-label="Logo" onClick={() => { closeMenu(); }}>

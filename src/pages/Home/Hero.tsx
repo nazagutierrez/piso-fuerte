@@ -133,7 +133,7 @@ export default function Hero() {
       </video>
     
       <div className="bg-texture-black inset-0 absolute pointer-events-none -scale-x-100 -top-[89.9%] -z-10 w-full">
-        <picture className="rotate-180 w-full opacity-50 h-full">
+        <picture className="rotate-180 w-full opacity-30 h-full">
           <source srcSet={texturaAvif} type="image/avif" />
           <img
             src={textura}

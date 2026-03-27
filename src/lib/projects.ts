@@ -151,8 +151,8 @@ export const testimonials: Testimonial[] = [
     {
         "id": "d7fd8849-b349-4939-b91a-4e1dd3e12fa6",
         "name": "Alvaro Oroza",
-        "role": "Empresario exitoso en Junín",
-        "opinion": "No me hiciste renegar un día. No tuve un día un problema. La obra fue un éxito. Ayer fui lo avanzada, lo rápida, lo prolija que está",
+        "role": "Dueño de ROM",
+        "opinion": "No me hiciste renegar ni un solo día, nunca tuve un problema. La obra fue un éxito. Ayer fui y me sorprendió lo avanzada, rápida y prolija que está.",
         "audio_url": "/audios/audioalvaro.mp3",
         "rating": 5,
         "featured": true,

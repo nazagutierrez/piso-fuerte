@@ -77,7 +77,7 @@ export default function Images() {
   return (
     <section ref={imgContainer} className="h-full w-full flex flex-col">
       <div className="h-screen w-full relative bg-texture-black">
-        <picture className="bg-top h-[674px] rotate-180 -scale-x-100 w-full opacity-60 object-cover">
+        <picture className="bg-top h-[674px] rotate-180 -scale-x-100 w-full opacity-50 object-cover">
           <source srcSet={texturaAvif} type="image/avif" />
           <img
             src={textura}
