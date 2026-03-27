@@ -147,7 +147,7 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto z-50 py-20">
         <div className="gap-12 items-center">
           <div>
-            <h1 id="hero-heading" className="hero-title text-center text-6xl xs:text-7xl sm:text-8xl lg:text-[9rem] font-bold text-brand-yellow leading-tight text-balance">
+            <h1 id="hero-heading" className="hero-title text-center text-6xl xs:text-7xl sm:text-8xl lg:text-[9rem] font-bold text-brand-yellow mb-3 text-balance mx-3">
               <span
                 ref={animatedHeroTextRef}
                 className="hollow-text title-font"
@@ -157,7 +157,7 @@ export default function Hero() {
               <span className="text-white title-font"> FUERTE</span>
             </h1>
             
-            <h2 className="hero-subtitle text-center font-thin xs:text-lg sm:text-xl text-white leading-relaxed text-pretty">
+            <h2 className="hero-subtitle text-center font-thin xs:text-lg sm:text-xl text-white leading-relaxed text-pretty mx-3">
               Constructora profesional en Junín, Buenos Aires
             </h2>
 

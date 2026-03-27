@@ -215,7 +215,7 @@ export default function WorksPage() {
   }, [])
 
   return (
-    <main className="min-h-screen bg-cover pt-24 sm:pt-32 pb-20 text-white" style={{ backgroundImage: `image-set(url(${texturaAvif}) type("image/avif"), url(${textura}) type("image/jpeg"))` }} ref={containerRef}>
+    <main className="min-h-screen bg-cover pt-28 sm:pt-32 pb-20 text-white" style={{ backgroundImage: `image-set(url(${texturaAvif}) type("image/avif"), url(${textura}) type("image/jpeg"))` }} ref={containerRef}>
       <div className="absolute bg-texture-black/80 inset-0 h-full z-0" />
 
       <div className="mx-auto max-w-[1650px] px-4 sm:px-6 lg:px-8 z-10">

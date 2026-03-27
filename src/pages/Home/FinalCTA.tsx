@@ -10,8 +10,7 @@ export default function FinalCTA() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.to(ctaSection.current, {
-        padding: "16px 16px 40px 16px",
-        borderRadius: "0 0 30px 30px",
+        padding: "16px",
         scrollTrigger: {
           trigger: ctaSection.current,
           start: "50% 70%",

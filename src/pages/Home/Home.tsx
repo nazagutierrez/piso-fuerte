@@ -7,7 +7,7 @@ import Testimonials from "./Testimonials";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen pb-1">
+    <main className="min-h-screen">
       <Hero />
 
       <Services />

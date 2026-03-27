@@ -112,10 +112,10 @@ export default function ContactPage() {
 
 
   return (
-    <main className="min-h-screen bg-top text-white pt-32 pb-20" style={{ backgroundImage: `image-set(url(${texturaAvif}) type("image/avif"), url(${textura}) type("image/jpeg"))` }} ref={containerRef}>
+    <main className="min-h-screen bg-cover bg-top text-white pt-28 md:pt-32 pb-20" style={{ backgroundImage: `image-set(url(${texturaAvif}) type("image/avif"), url(${textura}) type("image/jpeg"))` }} ref={containerRef}>
       <div className="absolute bg-texture-black/80 inset-0 h-full z-0" />
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
+      <div className="max-w-[1650px] mx-auto px-6 sm:px-8 lg:px-10 z-20">
         {/* Header */}
         <header>
           <h1 className="contact-title text-6xl xs:text-7xl sm:text-8xl font-bold  mb-6 text-balance title-font uppercase">
@@ -130,13 +130,13 @@ export default function ContactPage() {
 
           {/* Contact Info */}
         <address className="contact-info not-italic space-y-8 mt-13">
-          <div className="space-y-6 grid grid-cols-1 sm:grid-cols-2 gap-10">
+          <div className="space-y-6 grid grid-cols-1 sm:grid-cols-2 gap-y-10">
             
             {contactMethods.map((method, index) => (
               <div key={index} className="flex w-fit items-start gap-4">
                 <div>
-                  <h3 className="mb-1 text-3xl title-font uppercase letter tracking-wider text-white/90">{method.title}</h3>
-                  <p className="text-white/90 font-thin text-3xl">{method.label}</p>
+                  <h3 className="mb-1 text-3xl sm:text-4xl title-font uppercase letter tracking-wider text-white/90">{method.title}</h3>
+                  <p className="text-white/90 font-thin text-2xl sm:text-3xl">{method.label}</p>
                   <p className="text-white/50 font-thin mt-2">{method.availability}</p>
                   <div className="flex w-full gap-3 mt-4">
                     {
