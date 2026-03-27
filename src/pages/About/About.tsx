@@ -2,12 +2,18 @@ import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Features from "./Features"
-import texturaOscura from "../../assets/jpg-assets/textura-oscura.jpg"
+// JPG fallbacks
+import textura from "../../assets/jpg-assets/textura.jpg"
 import aboutEquipoImg from "../../assets/jpg-assets/about-equipo.jpg"
 import galpon3 from "../../assets/jpg-assets/galpon-3.jpg";
 import galponEquipo1 from "../../assets/jpg-assets/about-galpon-equipo.jpg";
 import illustracion1 from "../../assets/jpg-assets/about-illustracion.png";
 import illustracion2 from "../../assets/jpg-assets/about-illustracion-2.png";
+// AVIF versions
+import texturaAvif from "../../assets/avif-assets/textura.avif";
+import aboutEquipoImgAvif from "../../assets/avif-assets/about-equipo.avif";
+import galpon3Avif from "../../assets/avif-assets/galpon-3.avif";
+import galponEquipo1Avif from "../../assets/avif-assets/about-galpon-equipo.avif";
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -131,17 +137,20 @@ export default function AboutPage() {
   }, [])
 
   return (
-    <main className="min-h-screen bg-bottom text-white" style={{ backgroundImage: `url(${texturaOscura})` }} ref={containerRef}>
+    <main className="min-h-screen bg-bottom bg-cover text-white" style={{ backgroundImage: `image-set(url(${texturaAvif}) type("image/avif"), url(${textura}) type("image/jpeg"))` }} ref={containerRef}>
       <div className="absolute bg-texture-black/80 inset-0 h-full z-0" />
             
       <div className="w-full z-20 p-2 xs:p-3">
         {/* Header */}
         <div className="about-header relative overflow-hidden h-80 xs:h-100 sm:h-120 md:h-140 lg:h-160 xl:h-180 rounded-t-xl rounded-b text-center md:text-start md:ps-20 pt-16 sm:pt-20 md:pt-20 mb-4 xs:mb-16">
-          <img 
-            src={aboutEquipoImg} 
-            alt="Equipo de Piso Fuerte construyendo un galpón" 
-            className="about-header-img absolute inset-0 w-full h-full object-cover object-[30%_5%] xxs:object-[30%_35%] xs:object-[0_25%] sm:object-[0_35%] md:object-[0_40%] xl:object-center -z-20 origin-center"
-          />
+          <picture>
+            <source srcSet={aboutEquipoImgAvif} type="image/avif" />
+            <img 
+              src={aboutEquipoImg} 
+              alt="Equipo de Piso Fuerte construyendo un galpón" 
+              className="about-header-img absolute inset-0 w-full h-full object-cover object-[30%_5%] xxs:object-[30%_35%] xs:object-[0_25%] sm:object-[0_35%] md:object-[0_40%] xl:object-center -z-20 origin-center"
+            />
+          </picture>
           <div className="absolute bg-black/15 xs:bg-black/25 inset-0 h-full -z-10" />
           
           <h1 className="about-title text-5xl sm:text-7xl lg:text-8xl title-font uppercase mb-1 xs:mb-3 mx-3 xs:ms-0">
@@ -160,11 +169,14 @@ export default function AboutPage() {
           {/* Main Content */}
           <section className="about-content-1 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 mb-5 sm:mb-20">
             <div className="order-1">
-              <img
-                src={galpon3}
-                alt="Equipo Piso Fuerte"
-                className="w-full sm:h-[400px] rounded-3xl rounded-tl-none sm:rounded-bl-none sm:rounded-t-3xl object-cover mb-8"
-              />
+              <picture>
+                <source srcSet={galpon3Avif} type="image/avif" />
+                <img
+                  src={galpon3}
+                  alt="Equipo Piso Fuerte"
+                  className="w-full sm:h-[400px] rounded-3xl rounded-tl-none sm:rounded-bl-none sm:rounded-t-3xl object-cover mb-8"
+                />
+              </picture>
             </div>
             <div className="space-y-6">
               <div>
@@ -191,11 +203,14 @@ export default function AboutPage() {
               </div>
             </div>
             <div>
-              <img
-                src={galponEquipo1}
-                alt="Equipo Piso Fuerte"
-                className="w-full sm:h-[400px] rounded-tl-none sm:rounded-tl-3xl sm:rounded-tr-none rounded-3xl object-cover mb-8"
-              />
+              <picture>
+                <source srcSet={galponEquipo1Avif} type="image/avif" />
+                <img
+                  src={galponEquipo1}
+                  alt="Equipo Piso Fuerte"
+                  className="w-full sm:h-[400px] rounded-tl-none sm:rounded-tl-3xl sm:rounded-tr-none rounded-3xl object-cover mb-8"
+                />
+              </picture>
             </div>
           </section>
         </div>

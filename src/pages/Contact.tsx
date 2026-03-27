@@ -4,7 +4,10 @@ import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi"
 import { FaWhatsapp, FaRegCopy } from "react-icons/fa";
-import texturaOscura from "../assets/jpg-assets/textura-oscura.jpg";
+// JPG fallbacks
+import textura from "../assets/jpg-assets/textura.jpg";
+// AVIF versions
+import texturaAvif from "../assets/avif-assets/textura.avif";
 
 export default function ContactPage() {
   const [copiedText, setCopiedText] = useState<string | null>(null);
@@ -50,22 +53,45 @@ export default function ContactPage() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".contact-header", {
+      const tl =  gsap.timeline()
+
+      tl.from(".contact-title", {
         opacity: 0,
-        y: 50,
+        y: 100,
+        duration: 1,
+        filter: "blur(25px)",
+        ease: "power3.out",
+      })
+
+      tl.to(".contact-title-acto", {
+        color: "var(--brand-yellow)",
+        duration: 1,
+        ease: "power3.out",
+      }, "-=0.3")
+
+      tl.from(".contact-description", {
+        opacity: 0,
+        y: 100,
+        filter: "blur(25px)",
+        duration: 0.8,
+        ease: "power3.out",
+      }, "-=1")
+
+      tl.to(".contact-line", {
+        opacity: 1,
+        width: "64px",
         duration: 1,
         ease: "power3.out",
       })
 
-      gsap.from(".contact-info", {
+      tl.from(".contact-info", {
         opacity: 0,
         x: -30,
         duration: 0.8,
-        delay: 0.3,
         ease: "power3.out",
-      })
+      }, "<")
 
-      gsap.from(".contact-form", {
+      tl.from(".contact-form", {
         opacity: 0,
         x: 30,
         duration: 0.8,
@@ -86,18 +112,20 @@ export default function ContactPage() {
 
 
   return (
-    <main className="min-h-screen bg-top text-white pt-32 pb-20" style={{ backgroundImage: `url(${texturaOscura})` }} ref={containerRef}>
+    <main className="min-h-screen bg-top text-white pt-32 pb-20" style={{ backgroundImage: `image-set(url(${texturaAvif}) type("image/avif"), url(${textura}) type("image/jpeg"))` }} ref={containerRef}>
       <div className="absolute bg-texture-black/80 inset-0 h-full z-0" />
-
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
         {/* Header */}
-        <header className="contact-header">
-          <h1 className="text-6xl xs:text-7xl sm:text-8xl font-bold  mb-6 text-balance title-font uppercase">Contacto</h1>
-          <p className="text-xl mb-10 text-white/70 font-thin max-w-3xl text-pretty">
+        <header>
+          <h1 className="contact-title text-6xl xs:text-7xl sm:text-8xl font-bold  mb-6 text-balance title-font uppercase">
+            Cont
+            <span className="contact-title-acto title-font">acto</span>
+          </h1>
+          <p className="contact-description text-xl mb-10 text-white/70 font-thin max-w-3xl text-pretty">
             Contactanos por cualquier duda que tengas o para solicitar un presupuesto y comenzar tu proyecto.
           </p>
-          <div className="bg-brand-yellow w-16 h-1 rounded"></div>
+          <div className="contact-line relative z-10 w-0 bg-brand-yellow h-1 rounded"></div>
         </header>
 
           {/* Contact Info */}

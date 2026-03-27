@@ -109,10 +109,13 @@ export function MediaViewer({ media, initialIndex, onClose }: ViewerProps) {
           {media.map((item, index) => (
             <SwiperSlide key={item.id} className="viewer-slide">
               {item.type === "image" ? (
-                <img
-                  src={item.src}
-                  className="w-full md:w-[40vw] h-[80dvh] object-cover rounded"
-                />
+                <picture>
+                  {item.avifSrc && <source srcSet={item.avifSrc} type="image/avif" />}
+                  <img
+                    src={item.src}
+                    className="w-full md:w-[40vw] h-[80dvh] object-cover rounded"
+                  />
+                </picture>
               ) : (
               <video
                 ref={(el) => {

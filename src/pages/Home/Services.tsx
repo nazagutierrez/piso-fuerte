@@ -1,7 +1,10 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+// JPG fallbacks
 import textura from "@/assets/jpg-assets/textura.jpg";
+// AVIF versions
+import texturaAvif from "@/assets/avif-assets/textura.avif";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -79,12 +82,15 @@ export default function Services() {
   }, []);
 
   return (
-      <section ref={servicesRef} className="relative -mb-1 bg-texture-black">
-        <img
-          className="absolute top-0 left-0 w-full h-full object-cover opacity-20 pointer-events-none"
-          src={textura}
-          alt="Textura de fondo oscuro para contraste"
-        />
+      <section ref={servicesRef} className="relative -my-1 bg-texture-black">
+        <picture className="absolute top-0 left-0 w-full h-full object-cover opacity-60 pointer-events-none">
+          <source srcSet={texturaAvif} type="image/avif" />
+          <img
+            className="absolute top-0 left-0 w-full h-full object-cover opacity-20 pointer-events-none"
+            src={textura}
+            alt="Textura de fondo oscuro para contraste"
+          />
+        </picture>
         <div className="max-w-[1600px] mx-auto py-28 sm:py-40 px-4 sm:px-6 lg:px-8 relative">
           <h2 ref={servicesTitle} className="text-7xl sm:text-[7rem] font-bold text-brand-yellow mb-4 text-balance title-font">
             NUESTROS <span className="text-white uppercase title-font">Servicios</span>

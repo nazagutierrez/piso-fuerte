@@ -14,7 +14,9 @@ export type MediaItem = {
   id: number;
   type: 'image' | 'video';
   src: string;
+  avifSrc?: string;
   thumbnail?: string;
+  thumbnailAvif?: string;
 };
 
 export function Carousel({ text, media, side, classname, isFirst = false }: { text: string, media: MediaItem[], side: 'left' | 'right', classname?: string, isFirst?: boolean }) {
@@ -147,18 +149,24 @@ useEffect(() => {
               className="w-full h-full relative cursor-zoom-in"
             >
               {item.type === 'image' ? (
-                <img
-                  src={item.src}
-                  alt="Imagen de ejemplo del trabajo de Piso Fuerte"
-                  className="w-full h-full object-cover rounded"
-                />
-              ) : (
-                <div className="relative w-full h-full">
+                <picture className="w-full h-full">
+                  {item.avifSrc && <source srcSet={item.avifSrc} type="image/avif" />}
                   <img
-                    src={item.thumbnail}
-                    alt="Video de ejemplo del trabajo de Piso Fuerte"
+                    src={item.src}
+                    alt="Imagen de ejemplo del trabajo de Piso Fuerte"
                     className="w-full h-full object-cover rounded"
                   />
+                </picture>
+              ) : (
+                <div className="relative w-full h-full">
+                  <picture className="w-full h-full">
+                    {item.thumbnailAvif && <source srcSet={item.thumbnailAvif} type="image/avif" />}
+                    <img
+                      src={item.thumbnail}
+                      alt="Video de ejemplo del trabajo de Piso Fuerte"
+                      className="w-full h-full object-cover rounded"
+                    />
+                  </picture>
                   {/* play icon */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className='border border-brand-yellow rounded-full py-4 pl-4 pr-3'>

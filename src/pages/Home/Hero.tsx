@@ -4,8 +4,11 @@ import { FiArrowRight, FiPhone } from "react-icons/fi";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+// JPG fallbacks
 import textura from "../../assets/jpg-assets/textura.jpg";
 import posterHero from "../../assets/jpg-assets/poster-hero-video.jpg";
+// AVIF versions
+import texturaAvif from "../../assets/avif-assets/textura.avif";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -114,30 +117,31 @@ export default function Hero() {
         </defs>
       </svg>
 
-
-        <video 
-          poster={posterHero} 
-          ref={videoRef} 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          className="absolute sm:shadow-2xl shadow-white/20 brightness-35 inset-0 object-cover h-full w-full z-10"
-          title="Video institucional de Piso Fuerte Constructora"
-        >
-          <source src="/videos/video-hero.mp4" type="video/mp4" />
-          Tu navegador no soporta videos.
-        </video>
+      <video 
+        poster={posterHero} 
+        ref={videoRef} 
+        autoPlay 
+        loop 
+        muted 
+        playsInline 
+        {...({ fetchPriority: "high" } as any)}
+        className="absolute sm:shadow-2xl shadow-white/20 brightness-35 inset-0 object-cover h-full w-full z-10"
+        title="Video institucional de Piso Fuerte Constructora"
+      >
+        <source src="/videos/video-hero.mp4" type="video/mp4" />
+        Tu navegador no soporta videos.
+      </video>
     
-
-
       <div className="bg-texture-black inset-0 absolute pointer-events-none -scale-x-100 -top-[89.9%] -z-10 w-full">
-        <img
-          src={textura}
-          className="rotate-180 w-full opacity-20 h-full"
-          alt="Textura de fondo de obra en construcción"
-          loading="lazy"
-        />
+        <picture className="rotate-180 w-full opacity-50 h-full">
+          <source srcSet={texturaAvif} type="image/avif" />
+          <img
+            src={textura}
+            className="rotate-180 w-full opacity-40 h-full"
+            alt="Textura de fondo de obra en construcción"
+            loading="lazy"
+          />
+        </picture>
       </div>
       
       <div className="max-w-7xl mx-auto z-50 py-20">

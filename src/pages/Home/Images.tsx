@@ -1,10 +1,16 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+// JPG fallbacks
 import textura from "../../assets/jpg-assets/textura.jpg";
 import galpon3 from "../../assets/jpg-assets/galpon-3.jpg";
 import piso1 from "../../assets/jpg-assets/piso-1.jpg";
 import otro6 from "../../assets/jpg-assets/otro-6.jpg";
+// AVIF versions
+import texturaAvif from "../../assets/avif-assets/textura.avif";
+import galpon3Avif from "../../assets/avif-assets/galpon-3.avif";
+import piso1Avif from "../../assets/avif-assets/piso-1.avif";
+import otro6Avif from "../../assets/avif-assets/otro-6.avif";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -71,17 +77,23 @@ export default function Images() {
   return (
     <section ref={imgContainer} className="h-full w-full flex flex-col">
       <div className="h-screen w-full relative bg-texture-black">
-        <img
-          src={textura}
-          className="bg-top h-[674px] rotate-180 -scale-x-100 w-full opacity-20 object-cover"
-          alt="Fondo texturizado de Piso Fuerte"
-        ></img>
-        <img
-          ref={imgRef1}
-          className="w-full h-screen object-cover absolute inset-0 brightness-85"
-          src={galpon3}
-          alt="building example 1"
-        />
+        <picture className="bg-top h-[674px] rotate-180 -scale-x-100 w-full opacity-60 object-cover">
+          <source srcSet={texturaAvif} type="image/avif" />
+          <img
+            src={textura}
+            className="bg-top h-[674px] rotate-180 -scale-x-100 w-full opacity-20 object-cover"
+            alt="Fondo texturizado de Piso Fuerte"
+          />
+        </picture>
+        <picture className="w-full h-screen object-cover absolute inset-0 brightness-85">
+          <source srcSet={galpon3Avif} type="image/avif" />
+          <img
+            ref={imgRef1}
+            className="w-full h-screen object-cover absolute inset-0 brightness-85"
+            src={galpon3}
+            alt="building example 1"
+          />
+        </picture>
         <div className="absolute flex flex-col items-start bottom-20 left-6 sm:left-14">
           <h2 className="uppercase title-font text-brand-yellow text-5xl xs:text-6xl sm:text-7xl">
             Galpones
@@ -90,12 +102,15 @@ export default function Images() {
         </div>
       </div>
 			<div className="h-screen relative">
-				<img
-					ref={imgRef2}
-					className="w-full h-screen object-cover z-20 brightness-85"
-					src={piso1}
-					alt="building example 2"
-				/>
+				<picture className="w-full h-screen object-cover z-20 brightness-85">
+					<source srcSet={piso1Avif} type="image/avif" />
+					<img
+						ref={imgRef2}
+						className="w-full h-screen object-cover z-20 brightness-85"
+						src={piso1}
+						alt="building example 2"
+					/>
+				</picture>
         <div className="absolute flex flex-col items-start bottom-20 left-6 sm:left-14 z-30">
           <h2 className="uppercase title-font text-brand-yellow text-5xl xs:text-6xl sm:text-7xl">
             Pisos
@@ -104,12 +119,15 @@ export default function Images() {
         </div>
 			</div>
 			<div className="h-screen relative z-30">
-				<img
-					ref={imgRef3}
-					className="w-full h-screen object-cover brightness-65"
-					src={otro6}
-					alt="building example 3"
-				/>
+				<picture className="w-full h-screen object-cover brightness-65">
+					<source srcSet={otro6Avif} type="image/avif" />
+					<img
+						ref={imgRef3}
+						className="w-full h-screen object-cover brightness-65"
+						src={otro6}
+						alt="building example 3"
+					/>
+				</picture>
         <div className="absolute flex flex-col items-start bottom-20 left-6 sm:left-14">
           <h2 className="uppercase title-font text-brand-yellow text-5xl xs:text-6xl sm:text-7xl">
             Construcción prolija

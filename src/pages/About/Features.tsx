@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FiArrowRight, FiCheck } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import galponEquipo2 from "../../assets/jpg-assets/about-galpon-equipo-2.jpg";
+import galponEquipo2Avif from "../../assets/avif-assets/about-galpon-equipo-2.avif";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -41,11 +42,14 @@ export default function Features() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative h-[400px]">
-            <img
-              src={galponEquipo2}
-              alt="Equipo profesional"
-              className="w-full h-full rounded object-cover"
-            />
+            <picture className="w-full h-full">
+              <source srcSet={galponEquipo2Avif} type="image/avif" />
+              <img
+                src={galponEquipo2}
+                alt="Equipo profesional"
+                className="w-full h-full rounded object-cover"
+              />
+            </picture>
           </div>
           <div>
             <h2 className="text-4xl uppercase title-font sm:text-5xl text-brand-dark mb-6 text-balance">
