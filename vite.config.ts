@@ -14,7 +14,7 @@ export default defineConfig({
     Sitemap({ hostname: 'https://pisofuerte.com.ar' }),
     prerender({
       routes: ['/', '/nosotros', '/trabajos', '/contacto'],
-      renderer: '@prerenderer/renderer-puppeteer',
+      renderer: '@prerenderer/renderer-jsdom',
       server: {
         port: 5173,
       },
