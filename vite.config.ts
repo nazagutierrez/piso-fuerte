@@ -32,12 +32,17 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          // Splitting heavy libraries into separate files
-          vendor: ['react', 'react-dom', 'react-helmet-async'],
+          // Splitting heavy libraries into separate files to improve caching and reduce main bundle size
+          'vendor-react': ['react', 'react-dom', 'react-helmet-async'],
+          'vendor-gsap': ['gsap', 'gsap/ScrollTrigger', 'gsap/ScrollSmoother'],
+          'vendor-swiper': ['swiper', 'swiper/react', 'swiper/modules'],
+          'vendor-icons': ['react-icons', 'react-icons/fi', 'react-icons/fa'],
         },
       },
     },
     cssCodeSplit: true,
-    assetsInlineLimit: 4096, // Inline small assets (4kb) to reduce HTTP requests
+    assetsInlineLimit: 4096,
+    target: 'esnext',
+    minify: 'esbuild',
   },
 });

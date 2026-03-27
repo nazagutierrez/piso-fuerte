@@ -1,9 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useEffect } from "react";
-import Home from "./pages/Home/Home";
-import About from "./pages/About/About";
-import Projects from "./pages/Projects";
-import Contact from "./pages/Contact";
+import { useEffect, Suspense, lazy } from "react";
+
+import Home from "./pages/Home/Home"; // Eagerly load Home for better LCP
+const About = lazy(() => import("./pages/About/About"));
+const Projects = lazy(() => import("./pages/Projects"));
+const Contact = lazy(() => import("./pages/Contact"));
+
 import { Navbar } from "./components/Navbar";
 import CustomCursor from "./components/CustomCursor";
 
@@ -21,13 +23,20 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 function App() {
   useEffect(() => {
-    ScrollSmoother.create({
+    const smoother = ScrollSmoother.create({
       wrapper: "#smooth-wrapper",
       content: "#smooth-content",
       smooth: 2,
       effects: true,
       smoothTouch: 0.1,
     });
+
+    const handlePageHide = () => {
+      // Revert GSAP state for bfcache
+      smoother?.kill();
+    };
+
+    window.addEventListener("pagehide", handlePageHide);
 
     const startAnimation = () => {
       // Forzar estado inicial como inline styles (mayor especificidad que CSS)
@@ -105,6 +114,11 @@ function App() {
     };
 
     startAnimation();
+
+    return () => {
+      window.removeEventListener("pagehide", handlePageHide);
+      smoother?.kill();
+    };
   }, []);
 
   return (
@@ -138,12 +152,14 @@ function App() {
             <div id="smooth-content">
               <div className="min-h-screen flex flex-col">
                 <main className="flex-grow">
-                  <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/nosotros" element={<About />} />
-                    <Route path="/trabajos" element={<Projects />} />
-                    <Route path="/contacto" element={<Contact />} />
-                  </Routes>
+                  <Suspense fallback={<div className="min-h-screen bg-texture-black" />}>
+                    <Routes>
+                      <Route path="/" element={<Home />} />
+                      <Route path="/nosotros" element={<About />} />
+                      <Route path="/trabajos" element={<Projects />} />
+                      <Route path="/contacto" element={<Contact />} />
+                    </Routes>
+                  </Suspense>
                 </main>
                 <Footer />
               </div>
