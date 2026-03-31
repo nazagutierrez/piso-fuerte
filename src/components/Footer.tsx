@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FiPhone, FiMail, FiMapPin } from "react-icons/fi"
+import { FiPhone, FiMail, FiMapPin, FiInstagram } from "react-icons/fi"
 import { useRef } from 'react';
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { gsap } from "gsap";
@@ -70,17 +70,26 @@ export function Footer() {
           </div>
 
           {/* Contact Info */}
-          <address className='mx-auto not-italic'>
+          <address className='mx-auto ps-10 xs:ps-8 sm:ps-0 not-italic'>
             <h3 className="font-thin mb-4 text-center sm:text-start text-brand-yellow">Contacto</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-3 flex gap-3 sm:gap-0 items-end sm:items-start flex-col">
               <a 
                 href="tel:+5492364525588" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-neutral-400 hover:text-brand-yellow"
               >
-                <FiPhone className="text-brand-yellow flex-shrink-0" size={16} />
-                <span className="text-sm transition-all">+54 9 2364 52-5588</span>
+                <FiPhone className="text-brand-yellow flex-shrink-0 w-6 h-6 sm:w-4 sm:h-4" />
+                <span className="text-sm transition-all sm:block hidden">+54 9 2364 52-5588</span>
+              </a>
+              <a 
+                href="https://www.instagram.com/constructorapisofuerte" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-neutral-400 hover:text-brand-yellow"
+              >
+                <FiInstagram className="text-brand-yellow flex-shrink-0 w-6 h-6 sm:w-4 sm:h-4" />
+                <span className="text-sm transition-all sm:block hidden">@constructorapisofuerte</span>
               </a>
               <a 
                 href="mailto:pisofuertejunin@gmail.com" 
@@ -88,11 +97,11 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-neutral-400 hover:text-brand-yellow"
               >
-                <FiMail className="text-brand-yellow flex-shrink-0" size={16} />
-                <span className="text-sm break-all text-balance transition-all">pisofuertejunin@gmail.com</span>
+                <FiMail className="text-brand-yellow flex-shrink-0 w-6 h-6 sm:w-4 sm:h-4" />
+                <span className="text-sm break-all text-balance transition-all sm:block hidden">pisofuertejunin@gmail.com</span>
               </a>
-              <li className="flex items-start gap-3">
-                <FiMapPin className="text-brand-yellow flex-shrink-0" size={16} />
+              <li className="hidden items-start gap-3 sm:flex">
+                <FiMapPin className="text-brand-yellow flex-shrink-0 w-6 h-6 sm:w-4 sm:h-4" />
                 <span className="text-sm text-neutral-400">Junín, Buenos Aires</span>
               </li>
             </ul>

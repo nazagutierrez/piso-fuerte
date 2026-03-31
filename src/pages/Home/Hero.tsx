@@ -147,7 +147,7 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto z-50 py-20">
         <div className="gap-12 items-center">
           <div>
-            <h1 id="hero-heading" className="hero-title text-center text-6xl xs:text-7xl sm:text-8xl lg:text-[9rem] font-bold text-brand-yellow mb-3 text-balance mx-3">
+            <h1 id="hero-heading" className="hero-title text-center text-7xl sm:text-8xl lg:text-[9rem] font-bold text-brand-yellow mb-3 text-balance mx-3">
               <span
                 ref={animatedHeroTextRef}
                 className="hollow-text title-font"
