@@ -13,16 +13,16 @@ export const SEO = ({
   type = "website",
   path,
 }: SEOProps) => {
-  const siteUrl = "https://pisofuerte.com.ar";
-  const fullTitle = `${title} | Piso Fuerte Junín`;
+  const siteUrl = "https://www.pisofuerte.com.ar";
+  const fullTitle = `${title} | Construcción, galpones y piletas en Junín`;
 
     const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "ConstructionBusiness",
     "name": "Piso Fuerte",
-    "image": "https://pisofuerte.com.ar/logo.png",
-    "@id": "https://pisofuerte.com.ar",
-    "url": "https://pisofuerte.com.ar",
+    "image": "https://www.pisofuerte.com.ar/logo.png",
+    "@id": "https://www.pisofuerte.com.ar",
+    "url": "https://www.pisofuerte.com.ar",
     "telephone": "+542364525588",
     "address": {
         "@type": "PostalAddress",
@@ -41,7 +41,7 @@ export const SEO = ({
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
         "opens": "08:00",
-        "closes": "08:00"
+        "closes": "20:00"
     },
     "sameAs": [
         "https://www.instagram.com/constructorapisofuerte",
@@ -57,6 +57,7 @@ export const SEO = ({
       {/* Standard Metadata */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
+      <link rel="canonical" href={`${siteUrl}${path}`} />
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />

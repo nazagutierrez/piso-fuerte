@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi"
 import { FaWhatsapp, FaRegCopy } from "react-icons/fa";
+import { SEO } from "../lib/SEO";
 // JPG fallbacks
 import textura from "../assets/jpg-assets/textura.jpg";
 // AVIF versions
@@ -113,6 +114,11 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen bg-cover bg-top text-white pt-28 md:pt-32 pb-20" style={{ backgroundImage: `image-set(url(${texturaAvif}) type("image/avif"), url(${textura}) type("image/jpeg"))` }} ref={containerRef}>
+      <SEO 
+        title="Contacto"
+        description="Contactanos para presupuestos y consultas sobre tu próximo proyecto de construcción en Junín. Estamos para asesorarte en galpones, piletas y más."
+        path="/contacto"
+      />
       <div className="absolute bg-texture-black/80 inset-0 h-full z-0" />
       
       <div className="max-w-[1650px] mx-auto px-6 sm:px-8 lg:px-10 z-20">

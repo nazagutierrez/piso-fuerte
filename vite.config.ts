@@ -11,7 +11,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
     viteCompression(),
-    Sitemap({ hostname: 'https://pisofuerte.com.ar' }),
+    Sitemap({ hostname: 'https://www.pisofuerte.com.ar' }),
     prerender({
       routes: ['/', '/nosotros', '/trabajos', '/contacto'],
       renderer: '@prerenderer/renderer-jsdom',

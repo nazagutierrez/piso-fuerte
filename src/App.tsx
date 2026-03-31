@@ -14,7 +14,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { Footer } from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
-import { SEO } from "./lib/SEO";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import logo from "./assets/jpg-assets/logo.png";
@@ -123,11 +122,6 @@ function App() {
 
   return (
     <>
-      <SEO
-        title="Piso Fuerte - Construcción pisos y galpones en Junín"
-        description="Transformamos tus ideas en realidad. Empresa de construcción en Junín con más de 10 años de experiencia. Especializados en Pisos, Galpones y todo tipo de construcciones."
-        path="/"
-      />
       <Router>
         {/* ⚠️ Cursor SIEMPRE fuera del wrapper */}
         <CustomCursor />

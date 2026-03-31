@@ -15,6 +15,8 @@ import aboutEquipoImgAvif from "../../assets/avif-assets/about-equipo.avif";
 import galpon3Avif from "../../assets/avif-assets/galpon-3.avif";
 import galponEquipo1Avif from "../../assets/avif-assets/about-galpon-equipo.avif";
 
+import { SEO } from "../../lib/SEO";
+
 gsap.registerPlugin(ScrollTrigger)
 
 export default function AboutPage() {
@@ -138,6 +140,11 @@ export default function AboutPage() {
 
   return (
     <main className="min-h-screen bg-bottom bg-cover text-white" style={{ backgroundImage: `image-set(url(${texturaAvif}) type("image/avif"), url(${textura}) type("image/jpeg"))` }} ref={containerRef}>
+      <SEO 
+        title="Sobre Nosotros"
+        description="Conocé la historia de Piso Fuerte, liderando la construcción en Junín desde 2015. Nuestro compromiso con la calidad y la satisfacción del cliente."
+        path="/nosotros"
+      />
       <div className="absolute bg-texture-black/80 inset-0 h-full z-0" />
             
       <div className="w-full z-20 p-2 xs:p-3">
