@@ -33,6 +33,7 @@ export default function Services() {
   const servicesDescription = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
+    if (!servicesRef.current) return;
     const ctx = gsap.context(() => {
 
       gsap.from(servicesTitle.current, {
@@ -89,6 +90,8 @@ export default function Services() {
             className="absolute top-0 left-0 w-full h-full object-cover opacity-20 pointer-events-none"
             src={textura}
             alt="Textura de fondo oscuro para contraste"
+            loading="lazy"
+            decoding="async"
           />
         </picture>
         <div className="max-w-[1600px] mx-auto py-28 sm:py-40 px-4 sm:px-6 lg:px-8 relative">

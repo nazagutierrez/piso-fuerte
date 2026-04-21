@@ -5,9 +5,9 @@ import Home from "./pages/Home/Home"; // Eagerly load Home for better LCP
 const About = lazy(() => import("./pages/About/About"));
 const Projects = lazy(() => import("./pages/Projects"));
 const Contact = lazy(() => import("./pages/Contact"));
+const CustomCursor = lazy(() => import("./components/CustomCursor"));
 
 import { Navbar } from "./components/Navbar";
-import CustomCursor from "./components/CustomCursor";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -123,8 +123,10 @@ function App() {
   return (
     <>
       <Router>
-        {/* ⚠️ Cursor SIEMPRE fuera del wrapper */}
-        <CustomCursor />
+        {/* ⚠️ Cursor lazy-loaded — no se carga en el bundle inicial */}
+        <Suspense fallback={null}>
+          <CustomCursor />
+        </Suspense>
         <ScrollToTop />
 
         <div
@@ -139,7 +141,7 @@ function App() {
           />
         </div>
 
-        <div id="logo-mask" className="fixed top-0 w-full h-screen z-200" style={{ maskImage: `url(${logo})`, WebkitMaskImage: `url(${logo})` }}>
+        <div id="logo-mask" className="fixed top-0 w-full h-screen z-200" style={{ maskImage: `url(${logo})`, WebkitMaskImage: `url(${logo})`, willChange: 'mask-size, mask-position' }}>
           <Navbar />
 
           <div id="smooth-wrapper">

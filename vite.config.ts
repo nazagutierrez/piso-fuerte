@@ -39,9 +39,9 @@ export default defineConfig({
         },
       },
     },
-    cssCodeSplit: true,
+    cssCodeSplit: false,
     assetsInlineLimit: 4096,
-    target: 'esnext',
+    target: 'es2020',
     minify: 'esbuild',
   },
 });

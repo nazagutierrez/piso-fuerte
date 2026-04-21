@@ -46,6 +46,7 @@ export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
+    if (!heroSectionRef.current) return;
     const mm = gsap.matchMedia();
     const ctx = gsap.context(() => {
       gsap.set(videoRef.current, { borderRadius: "450px", overflow: "hidden" });
@@ -82,6 +83,7 @@ export default function Hero() {
   }, []);
 
   useLayoutEffect(() => {
+    if (!heroSectionRef.current) return;
     const ctx = gsap.context(() => {
       // El intro en App.tsx toma alrededor de 2.5 - 3 segundos. 
       // Calculamos el delay base asegurando que esto se ejecute después,
@@ -143,6 +145,7 @@ export default function Hero() {
             className="rotate-180 w-full opacity-40 h-full"
             alt="Textura de fondo de obra en construcción"
             loading="lazy"
+            decoding="async"
           />
         </picture>
       </div>

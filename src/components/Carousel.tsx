@@ -37,6 +37,7 @@ const [activeIndex, setActiveIndex] = useState<number | null>(null);
   }, [activeIndex]);
 
 useEffect(() => {
+  if (!carouselRef.current) return;
   const ctx = gsap.context(() => {
     if (!carouselRef.current) return;
 
@@ -155,6 +156,8 @@ useEffect(() => {
                     src={item.src}
                     alt="Imagen de ejemplo del trabajo de Piso Fuerte"
                     className="w-full h-full object-cover rounded"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </picture>
               ) : (
@@ -165,6 +168,8 @@ useEffect(() => {
                       src={item.thumbnail}
                       alt="Video de ejemplo del trabajo de Piso Fuerte"
                       className="w-full h-full object-cover rounded"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </picture>
                   {/* play icon */}

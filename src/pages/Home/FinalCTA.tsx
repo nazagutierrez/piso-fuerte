@@ -8,6 +8,7 @@ export default function FinalCTA() {
   const cardContainer = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!ctaSection.current) return;
     const ctx = gsap.context(() => {
       gsap.to(ctaSection.current, {
         padding: "16px",

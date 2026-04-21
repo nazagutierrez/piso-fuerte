@@ -1,35 +1,49 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import gsap from "gsap";
 
+// Check once at module level — avoids re-evaluation on every render
+const isTouchDevice =
+  typeof window !== "undefined" &&
+  window.matchMedia("(hover: none)").matches;
+
 export default function CustomCursor() {
-  const cursorRef = useRef(null);
+  const cursorRef = useRef<HTMLDivElement>(null);
   const mouse = useRef({ x: 0, y: 0 });
   const pos = useRef({ x: 0, y: 0 });
+  const rafId = useRef<number>(0);
+
+  const tick = useCallback(() => {
+    pos.current.x += (mouse.current.x - pos.current.x) * 0.15;
+    pos.current.y += (mouse.current.y - pos.current.y) * 0.15;
+
+    // Direct style.transform avoids GSAP's internal layout reads (offsetWidth etc.)
+    // which were causing the 540ms forced reflow reported by Lighthouse
+    if (cursorRef.current) {
+      cursorRef.current.style.transform = `translate(${pos.current.x}px, ${pos.current.y}px) translate(-50%, -50%)`;
+    }
+
+    rafId.current = requestAnimationFrame(tick);
+  }, []);
 
   useEffect(() => {
-    const cursor = cursorRef.current;
+    // On touch devices the cursor is invisible via CSS, so skip all JS work entirely
+    if (isTouchDevice) return;
 
-    gsap.ticker.lagSmoothing(0); // 🔥 CLAVE con smooth scroll
+    const cursor = cursorRef.current;
+    if (!cursor) return;
 
     const handleMouseMove = (e: MouseEvent) => {
       mouse.current.x = e.clientX;
       mouse.current.y = e.clientY;
     };
 
-    const tick = () => {
-      pos.current.x += (mouse.current.x - pos.current.x) * 0.15;
-      pos.current.y += (mouse.current.y - pos.current.y) * 0.15;
-
-      gsap.set(cursor, {
-        x: pos.current.x,
-        y: pos.current.y,
-      });
-    };
-
     const hoverables = document.querySelectorAll("a, button");
 
-    hoverables.forEach((el) => {
-      el.addEventListener("mouseenter", () => {
+    const enterHandlers: Array<() => void> = [];
+    const leaveHandlers: Array<() => void> = [];
+
+    hoverables.forEach((el, i) => {
+      const onEnter = () => {
         gsap.to(cursor, {
           scale: 1.5,
           backgroundColor: "rgba(255, 215, 0, 0.15)",
@@ -37,9 +51,8 @@ export default function CustomCursor() {
           duration: 0.25,
           ease: "power3.out",
         });
-      });
-
-      el.addEventListener("mouseleave", () => {
+      };
+      const onLeave = () => {
         gsap.to(cursor, {
           scale: 1,
           backgroundColor: "transparent",
@@ -47,17 +60,30 @@ export default function CustomCursor() {
           duration: 0.25,
           ease: "power3.out",
         });
-      });
+      };
+
+      enterHandlers[i] = onEnter;
+      leaveHandlers[i] = onLeave;
+      el.addEventListener("mouseenter", onEnter);
+      el.addEventListener("mouseleave", onLeave);
     });
 
-    gsap.ticker.add(tick);
+    // Use native rAF instead of gsap.ticker to avoid GSAP overhead on every frame
+    rafId.current = requestAnimationFrame(tick);
     window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
-      gsap.ticker.remove(tick);
+      cancelAnimationFrame(rafId.current);
       window.removeEventListener("mousemove", handleMouseMove);
+      hoverables.forEach((el, i) => {
+        el.removeEventListener("mouseenter", enterHandlers[i]);
+        el.removeEventListener("mouseleave", leaveHandlers[i]);
+      });
     };
-  }, []);
+  }, [tick]);
+
+  // Don't even render the DOM element on touch devices
+  if (isTouchDevice) return null;
 
   return (
     <div
@@ -66,6 +92,7 @@ export default function CustomCursor() {
                  h-5 w-5 rounded-full border border-brand-yellow
                  pointer-events-none custom-cursor
                  -translate-x-1/2 -translate-y-1/2"
+      style={{ willChange: "transform" }}
     />
   );
 }

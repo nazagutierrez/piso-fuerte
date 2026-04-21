@@ -18,6 +18,7 @@ export default function Testimonials() {
 
   useEffect(() => {
     if (testimonials.length === 0) return;
+    if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
       gsap.from('.testimonial-card', {
@@ -58,7 +59,7 @@ export default function Testimonials() {
           start: 'top 90%',
         },
       });
-    });
+    }, sectionRef);
 
     return () => ctx.revert();
   }, [testimonials]);

@@ -77,8 +77,6 @@ export function Navbar() {
           colors={['#d6c44f', '#f1d200']}
           logoUrl={logo}
           accentColor="#f1d200"
-          onMenuOpen={() => console.log('Menu opened')}
-          onMenuClose={() => console.log('Menu closed')}
         />
       </nav>
   )

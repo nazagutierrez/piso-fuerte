@@ -21,6 +21,7 @@ export default function Images() {
   const imgRef3 = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
+    if (!imgContainer.current) return;
     const ctx = gsap.context(() => {
       gsap.set(imgRef1.current, {
         scale: 0.9,
@@ -83,6 +84,8 @@ export default function Images() {
             src={textura}
             className="bg-top h-[674px] rotate-180 -scale-x-100 w-full opacity-20 object-cover"
             alt="Fondo texturizado de Piso Fuerte"
+            loading="lazy"
+            decoding="async"
           />
         </picture>
         <picture className="w-full h-screen object-cover absolute inset-0 brightness-85">
@@ -92,6 +95,8 @@ export default function Images() {
             className="w-full h-screen object-cover absolute inset-0 brightness-85"
             src={galpon3}
             alt="building example 1"
+            loading="lazy"
+            decoding="async"
           />
         </picture>
         <div className="absolute flex flex-col items-start bottom-20 left-6 sm:left-14">
@@ -109,6 +114,8 @@ export default function Images() {
 						className="w-full h-screen object-cover z-20 brightness-85"
 						src={piso1}
 						alt="building example 2"
+						loading="lazy"
+						decoding="async"
 					/>
 				</picture>
         <div className="absolute flex flex-col items-start bottom-20 left-6 sm:left-14 z-30">
@@ -126,6 +133,8 @@ export default function Images() {
 						className="w-full h-screen object-cover brightness-65"
 						src={otro6}
 						alt="building example 3"
+						loading="lazy"
+						decoding="async"
 					/>
 				</picture>
         <div className="absolute flex flex-col items-start bottom-20 left-6 sm:left-14">
