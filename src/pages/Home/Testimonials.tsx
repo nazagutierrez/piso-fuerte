@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { IoPlayOutline } from "react-icons/io5";
-import { CiPause1 } from "react-icons/ci";
-import { FaStar } from "react-icons/fa";
 import { testimonials } from '../../lib/projects';
-import { LuQuote } from "react-icons/lu";
+import QuoteSvg from '@/assets/svg/QuoteSvg';
+import StarSvg from '@/assets/svg/StarSvg';
+import PauseSvg from '@/assets/svg/PauseSvg';
+import PlayOutlineSvg from '@/assets/svg/PlayOutlineSvg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -100,7 +100,7 @@ export default function Testimonials() {
               key={testimonial.id}
               className="testimonial-card relative text-center bg-white rounded-lg p-8 shadow-lg hover:shadow-2xl transition-shadow"
             >
-              <LuQuote className="w-8 h-8 xs:w-10 xs:h-10 sm:w-15 sm:h-15 absolute top-3 sm:top-6 right-3 sm:right-8 text-brand-yellow/50" />
+              <QuoteSvg className="w-8 h-8 xs:w-10 xs:h-10 sm:w-15 sm:h-15 absolute top-3 sm:top-6 right-3 sm:right-8 text-brand-yellow/50" />
 
               <div className="flex items-center justify-center mb-4">
                 <div>
@@ -113,7 +113,7 @@ export default function Testimonials() {
 
               <div className="flex gap-1 justify-center mb-4">
                 {Array.from({ length: testimonial.rating }).map((_, i) => (
-                  <FaStar
+                  <StarSvg
                     key={i}
                     className="w-5 h-5 fill-[#f1d200] text-[#f1d200]"
                   />
@@ -134,12 +134,12 @@ export default function Testimonials() {
                   >
                     {playingId === testimonial.id && audioRef.current && !audioRef.current.paused ? (
                       <>
-                        <CiPause1 className="w-5 h-5" />
+                        <PauseSvg className="w-5 h-5" />
                         Pausar Audio
                       </>
                     ) : (
                       <>
-                        <IoPlayOutline className="w-5 h-5" />
+                        <PlayOutlineSvg className="w-5 h-5" />
                         Escuchar Opinión
                       </>
                     )}

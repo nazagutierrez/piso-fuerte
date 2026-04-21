@@ -1,27 +1,29 @@
 import { useEffect, useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { FiArrowRight, FiPhone } from "react-icons/fi";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 // JPG fallbacks
 import textura from "../../assets/jpg-assets/textura.jpg";
 import posterHero from "../../assets/jpg-assets/poster-hero-video.jpg";
 // AVIF versions
 import texturaAvif from "../../assets/avif-assets/textura.avif";
+import InstagramSvg from "@/assets/svg/InstagramSvg";
+import PhoneSvg from "@/assets/svg/PhoneSvg";
+import WhatsappSvg from "@/assets/svg/WhatsappSvg";
+import ArrowSvg from "@/assets/svg/ArrowSvg";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const buttons = [
   {
     href: "tel:+542364525588",
-    icon: <FiPhone className="group-hover:text-brand-yellow transition-all" aria-hidden="true" />,
+    icon: <PhoneSvg className="group-hover:text-brand-yellow transition-all" aria-hidden="true" />,
     text: "Llamar",
     label: "Llamar por teléfono a Piso Fuerte",
   },
   {
     href: "https://wa.me/542364525588?text=Hola!%20vengo%20de%20la%20página%20web%20y%20quiero%20saber%20más%20sobre%20sus%20servicios.",
-    icon: <FaWhatsapp className="group-hover:text-[#25D366] transition-all" aria-hidden="true" />,
+    icon: <WhatsappSvg className="group-hover:text-[#25D366] transition-all" aria-hidden="true" />,
     text: "Whatsapp",
     label: "Contactar por WhatsApp",
   },
@@ -29,8 +31,8 @@ const buttons = [
     href: "https://www.instagram.com/constructorapisofuerte",
     icon: (
       <span className="relative flex items-center justify-center" aria-hidden="true">
-        <FaInstagram className="transition-opacity duration-500 group-hover:opacity-0" />
-        <FaInstagram className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 fill-[url(#instagramGradient)]" />
+        <InstagramSvg className="transition-opacity duration-500 group-hover:opacity-0"></InstagramSvg>
+        <InstagramSvg className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 fill-[url(#instagramGradient)]" />
       </span>
     ),
     text: "Instagram",
@@ -123,6 +125,7 @@ export default function Hero() {
         autoPlay 
         loop 
         muted 
+        controls={false}
         playsInline 
         {...({ fetchPriority: "high" } as any)}
         className="absolute sm:shadow-2xl shadow-white/20 brightness-35 inset-0 object-cover h-full w-full z-10"
@@ -184,7 +187,7 @@ export default function Hero() {
                 title="Ver galería de trabajos realizados"
               >
                 <span className="ps-2">Ver Trabajos</span> 
-                <FiArrowRight aria-hidden="true" />
+                <ArrowSvg aria-hidden="true" />
               </Link>
             </div>
           </div>

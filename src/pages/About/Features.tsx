@@ -1,10 +1,11 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FiArrowRight, FiCheck } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import galponEquipo2 from "../../assets/jpg-assets/about-galpon-equipo-2.jpg";
 import galponEquipo2Avif from "../../assets/avif-assets/about-galpon-equipo-2.avif";
+import CheckSvg from "@/assets/svg/CheckSvg";
+import ArrowSvg from "@/assets/svg/ArrowSvg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -62,7 +63,7 @@ export default function Features() {
                   className="feature-item flex items-center gap-3 text-brand-dark"
                 >
                   <div className="w-6 h-6 bg-brand-yellow flex items-center justify-center flex-shrink-0">
-                    <FiCheck className="text-brand-dark" size={16} />
+                    <CheckSvg className="text-brand-dark size-4" />
                   </div>
                   <span className="text-base sm:text-lg text-foreground">{feature}</span>
                 </li>
@@ -73,7 +74,7 @@ export default function Features() {
               className="inline-flex items-center gap-2 mt-8 text-brand-dark font-semibold group transition-colors"
             >
               Contactanos {" "}
-              <FiArrowRight className="group-hover:ms-2 group-hover:text-brand-yellow transition-all" />
+              <ArrowSvg className="group-hover:ms-2 group-hover:text-brand-yellow transition-all" />
             </Link>
           </div>
         </div>

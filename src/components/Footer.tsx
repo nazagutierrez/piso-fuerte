@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
-import { FiPhone, FiMail, FiMapPin, FiInstagram } from "react-icons/fi"
 import { useRef } from 'react';
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { gsap } from "gsap";
 import logo from "../assets/jpg-assets/logo.png";
+import PhoneSvg from '@/assets/svg/PhoneSvg';
+import InstagramSvg from '@/assets/svg/InstagramSvg';
+import MailSvg from '@/assets/svg/MailSvg';
+import MapPinSvg from '@/assets/svg/MapPinSvg';
 
 export function Footer() {
   const scrollTween = useRef<gsap.core.Tween | null>(null);
@@ -79,7 +82,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-neutral-400 hover:text-brand-yellow"
               >
-                <FiPhone className="text-brand-yellow flex-shrink-0 w-6 h-6 sm:w-4 sm:h-4" />
+                <PhoneSvg className="text-brand-yellow flex-shrink-0 w-6 h-6 sm:w-4 sm:h-4" />
                 <span className="text-sm transition-all sm:block hidden">+54 9 2364 52-5588</span>
               </a>
               <a 
@@ -88,7 +91,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-neutral-400 hover:text-brand-yellow"
               >
-                <FiInstagram className="text-brand-yellow flex-shrink-0 w-6 h-6 sm:w-4 sm:h-4" />
+                <InstagramSvg className="text-brand-yellow flex-shrink-0 w-6 h-6 sm:w-4 sm:h-4" />
                 <span className="text-sm transition-all sm:block hidden">@constructorapisofuerte</span>
               </a>
               <a 
@@ -97,11 +100,11 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-neutral-400 hover:text-brand-yellow"
               >
-                <FiMail className="text-brand-yellow flex-shrink-0 w-6 h-6 sm:w-4 sm:h-4" />
+                <MailSvg className="text-brand-yellow flex-shrink-0 w-6 h-6 sm:w-4 sm:h-4" />
                 <span className="text-sm break-all text-balance transition-all sm:block hidden">pisofuertejunin@gmail.com</span>
               </a>
               <li className="hidden items-start gap-3 sm:flex">
-                <FiMapPin className="text-brand-yellow flex-shrink-0 w-6 h-6 sm:w-4 sm:h-4" />
+                <MapPinSvg className="text-brand-yellow flex-shrink-0 w-6 h-6 sm:w-4 sm:h-4" />
                 <span className="text-sm text-neutral-400">Junín, Buenos Aires</span>
               </li>
             </ul>

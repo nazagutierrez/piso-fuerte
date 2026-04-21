@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
-import { FiArrowRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { gsap } from "gsap";
+import ArrowSvg from "@/assets/svg/ArrowSvg";
 
 export default function FinalCTA() {
   const ctaSection = useRef<HTMLDivElement>(null);
@@ -52,7 +52,7 @@ export default function FinalCTA() {
           className="text-sm sm:text-base inline-flex group items-center gap-2 bg-brand-yellow text-brand-dark px-8 py-4 font-semibold hover:opacity-80 transition-opacity"
         >
           Solicitar Presupuesto{" "}
-          <FiArrowRight className="group-hover:translate-x-1.5 transition-all" />
+          <ArrowSvg className="group-hover:translate-x-1.5 transition-all" />
         </Link>
       </div>
     </section>

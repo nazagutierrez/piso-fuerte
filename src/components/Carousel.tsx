@@ -2,13 +2,13 @@ import { useState, useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Pagination, A11y } from 'swiper/modules';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
-import { FaPlay } from "react-icons/fa";
 import gsap from 'gsap';
 
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import { MediaViewer } from './MediaViewer';
+import PlaySvg from '@/assets/svg/PlaySvg';
 
 export type MediaItem = {
   id: number;
@@ -170,7 +170,7 @@ useEffect(() => {
                   {/* play icon */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className='border border-brand-yellow rounded-full py-4 pl-4 pr-3'>
-                      <FaPlay className='text-[#fff67d] text-3xl' />
+                      <PlaySvg className='text-[#fff67d] text-3xl' />
                     </div>
                   </div>
                 </div>

@@ -2,13 +2,16 @@
 
 import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
-import { FiMail, FiPhone, FiMapPin } from "react-icons/fi"
-import { FaWhatsapp, FaRegCopy } from "react-icons/fa";
 import { SEO } from "../lib/SEO";
 // JPG fallbacks
 import textura from "../assets/jpg-assets/textura.jpg";
 // AVIF versions
 import texturaAvif from "../assets/avif-assets/textura.avif";
+import PhoneSvg from "@/assets/svg/PhoneSvg";
+import MailSvg from "@/assets/svg/MailSvg";
+import MapPinSvg from "@/assets/svg/MapPinSvg";
+import WhatsappSvg from "@/assets/svg/WhatsappSvg";
+import CopySvg from "@/assets/svg/CopySvg";
 
 export default function ContactPage() {
   const [copiedText, setCopiedText] = useState<string | null>(null);
@@ -22,7 +25,7 @@ export default function ContactPage() {
       label: <h3><span className="text-brand-yellow">+</span>54 9 2364 525588</h3>,
       availability: "Lunes a Viernes: 9:00 - 21:00",
       btnText: "Llamar",
-      icon: <FiPhone size={16} />
+      icon: <PhoneSvg className="size-4" />
     },
     {
       title: "Email",
@@ -31,7 +34,7 @@ export default function ContactPage() {
       label: <h3>pisofuertejunin<span className="text-brand-yellow">@</span>gmail.com</h3>,
       availability: "Respuesta en menos de 24 horas",
       btnText: "Enviar",
-      icon: <FiMail size={16} />
+      icon: <MailSvg className="size-4" />
     },
     {
       title: "Whatsapp",
@@ -40,7 +43,7 @@ export default function ContactPage() {
       label: <h3><span className="text-brand-yellow">+</span>54 9 2364 525588</h3>,
       availability: "Lunes a Viernes: 9:00 - 21:00",
       btnText: "Mensaje",
-      icon: <FaWhatsapp size={16} />
+      icon: <WhatsappSvg className="size-4" />
     },
     {
       title: "Dirección",
@@ -48,7 +51,7 @@ export default function ContactPage() {
       label: <h3>Junín <span className="text-brand-yellow">y</span> alrededores</h3>,
       availability: "Llegamos a todas las localidades cercanas",
       btnText: "Ir",
-      icon: <FiMapPin size={16} />
+      icon: <MapPinSvg className="size-4" />
     },
   ];
 
@@ -155,7 +158,7 @@ export default function ContactPage() {
                         }}                          
                         className="inline-flex call-button cursor-pointer justify-center items-center gap-2 w-32 py-2 rounded"
                       >
-                        <FaRegCopy size={16} /> {copiedText === method.copy ? "¡Copiado!" : "Copiar"}
+                        <CopySvg className="size-4" /> {copiedText === method.copy ? "¡Copiado!" : "Copiar"}
                       </button>
                     }
                     <a
