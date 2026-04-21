@@ -5,7 +5,6 @@ import Home from "./pages/Home/Home"; // Eagerly load Home for better LCP
 const About = lazy(() => import("./pages/About/About"));
 const Projects = lazy(() => import("./pages/Projects"));
 const Contact = lazy(() => import("./pages/Contact"));
-const CustomCursor = lazy(() => import("./components/CustomCursor"));
 
 import { Navbar } from "./components/Navbar";
 
@@ -122,9 +121,6 @@ function App() {
     <>
       <Router>
         {/* ⚠️ Cursor lazy-loaded — no se carga en el bundle inicial */}
-        <Suspense fallback={null}>
-          <CustomCursor />
-        </Suspense>
         <ScrollToTop />
 
         <div
