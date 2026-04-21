@@ -36,7 +36,6 @@ export default defineConfig({
           'vendor-react': ['react', 'react-dom', 'react-helmet-async'],
           'vendor-gsap': ['gsap', 'gsap/ScrollTrigger', 'gsap/ScrollSmoother'],
           'vendor-swiper': ['swiper', 'swiper/react', 'swiper/modules'],
-          'vendor-icons': ['react-icons', 'react-icons/fi', 'react-icons/fa'],
         },
       },
     },
