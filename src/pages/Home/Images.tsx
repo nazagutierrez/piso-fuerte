@@ -22,57 +22,83 @@ export default function Images() {
 
   useEffect(() => {
     if (!imgContainer.current) return;
+    const mm = gsap.matchMedia();
     const ctx = gsap.context(() => {
-      gsap.set(imgRef1.current, {
-        scale: 0.9,
-        transformOrigin: "center center",
-        borderRadius: "60px",
+
+      // ── Desktop: full pinned + scale + borderRadius animations ──
+      mm.add("(min-width: 1024px)", () => {
+        gsap.set(imgRef1.current, {
+          scale: 0.9,
+          transformOrigin: "center center",
+          borderRadius: "60px",
+        });
+
+        gsap.to(imgRef1.current, {
+          scale: 1.2,
+          borderRadius: "-50px",
+          ease: "none",
+          scrollTrigger: {
+            trigger: imgRef1.current,
+            start: "top bottom",
+            end: "105% top",
+            scrub: true,
+          },
+        });
+
+        gsap.from(imgRef1.current, {
+          opacity: 1,
+          scrollTrigger: {
+            trigger: imgRef1.current,
+            start: "top 7%",
+            end: "bottom",
+            scrub: true,
+            pin: true,
+          },
+        });
+
+        gsap.set(imgRef2.current, { scale: 1.1 });
+
+        gsap.from(imgRef2.current, {
+          scrollTrigger: {
+            trigger: imgRef2.current,
+            snap: { snapTo: 0.5, duration: 0.5, ease: "power1.out" },
+          },
+        });
+
+        gsap.from(imgRef2.current, {
+          scale: 1,
+          scrollTrigger: {
+            trigger: imgRef2.current,
+            start: "top top",
+            end: "bottom",
+            scrub: true,
+            pin: true,
+          },
+        });
       });
 
-      gsap.to(imgRef1.current, {
-        scale: 1.2,
-        borderRadius: "-50px",
-        ease: "none",
-        scrollTrigger: {
-          trigger: imgRef1.current,
-          start: "top bottom",
-          end: "105% top",
-          scrub: true,
-        },
+      // ── Mobile: lightweight fade-in only, NO pin, NO scrubbed scale ──
+      mm.add("(max-width: 1023px)", () => {
+        [imgRef1, imgRef2, imgRef3].forEach((ref) => {
+          if (!ref.current) return;
+          gsap.from(ref.current, {
+            opacity: 0,
+            y: 40,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: ref.current,
+              start: "top 85%",
+            },
+          });
+        });
       });
 
-      gsap.from(imgRef1.current, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: imgRef1.current,
-          start: "top 7%",
-          end: "bottom",
-          scrub: true,
-          pin: true,
-        },
-      });
-
-      gsap.set(imgRef2.current, { scale: 1.1 });
-
-      gsap.from(imgRef2.current, {
-        scrollTrigger: {
-          trigger: imgRef2.current,
-          snap: { snapTo: 0.5, duration: 0.5, ease: "power1.out" },
-        },
-      });
-
-      gsap.from(imgRef2.current, {
-        scale: 1,
-        scrollTrigger: {
-          trigger: imgRef2.current,
-          start: "top top",
-          end: "bottom",
-          scrub: true,
-          pin: true,
-        },
-      });
     }, imgContainer);
-    return () => ctx.revert();
+    return () => {
+      mm.revert();
+      ctx.revert();
+    };
   }, []);
 
   return (
@@ -106,7 +132,7 @@ export default function Images() {
           <h4 className="text-xl text-pretty sm:text-2xl text-white mr-3">Somos expertos, construimos galpones industriales y comerciales adaptados a tus necesidades específicas.</h4>
         </div>
       </div>
-			<div className="h-screen relative">
+			<div className="h-screen relative bg-texture-black">
 				<picture className="w-full h-screen object-cover z-20 brightness-85">
 					<source srcSet={piso1Avif} type="image/avif" />
 					<img
@@ -125,7 +151,7 @@ export default function Images() {
           <h4 className="text-xl text-pretty sm:text-2xl text-white">Te garantizamos un trabajo de primera calidad con maquinaria moderna y materiales resistentes.</h4>
         </div>
 			</div>
-			<div className="h-screen relative z-30">
+			<div className="h-screen relative z-30 bg-texture-black">
 				<picture className="w-full h-screen object-cover brightness-65">
 					<source srcSet={otro6Avif} type="image/avif" />
 					<img

@@ -19,13 +19,10 @@ const socialItems = [
 ];
 
 export function Navbar() {
-  const navRef = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
-    if (!navRef.current) return
-
     const showNav = () => {
-      gsap.to(navRef.current, {
+      gsap.to(".staggered-menu-header", {
         y: 0,
         duration: 0.4,
         ease: "power2.out",
@@ -33,7 +30,7 @@ export function Navbar() {
     }
 
     const hideNav = () => {
-      gsap.to(navRef.current, {
+      gsap.to(".staggered-menu-header", {
         y: "-100%",
         duration: 0.4,
         ease: "power2.out",
@@ -63,7 +60,7 @@ export function Navbar() {
   }, [])
 
   return (
-      <nav aria-label="Navegación principal" className="h-screen w-full overflow-hidden z-60">
+      <nav aria-label="Navegación principal" className="fixed top-0 left-0 w-full z-[60] pointer-events-none">
         <StaggeredMenu
           isFixed
           position="right"

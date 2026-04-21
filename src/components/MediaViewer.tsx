@@ -4,6 +4,44 @@ import { createPortal } from "react-dom";
 import { gsap } from "gsap";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+function MediaSlide({ item, index, videoRefs }: { item: MediaItem, index: number, videoRefs: React.MutableRefObject<(HTMLVideoElement | null)[]> }) {
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <div className="relative w-full md:w-[40vw] h-[80dvh] mx-auto flex items-center justify-center">
+      {!loaded && (
+        <div className="absolute bg-texture-black/30 border border-brand-yellow/20 inset-0 flex items-center justify-center z-[-1]">
+          <div className="w-10 h-10 border-4 border-white/20 border-t-brand-yellow rounded-full animate-spin"></div>
+        </div>
+      )}
+      
+      {item.type === "image" ? (
+        <picture className="w-full h-full">
+          {item.avifSrc && <source srcSet={item.avifSrc} type="image/avif" />}
+          <img
+            src={item.src}
+            onLoad={() => setLoaded(true)}
+            className={`w-full h-full object-cover rounded transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}
+          />
+        </picture>
+      ) : (
+        <video
+          ref={(el) => {
+            videoRefs.current[index] = el;
+          }}
+          src={item.src}
+          controls={false}
+          loop
+          playsInline
+          muted
+          onLoadedData={() => setLoaded(true)}
+          className={`w-full h-full object-cover rounded pointer-events-none transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}
+        />
+      )}
+    </div>
+  );
+}
+
 type ViewerProps = {
   media: MediaItem[];
   initialIndex: number;
@@ -11,7 +49,6 @@ type ViewerProps = {
 };
 
 export function MediaViewer({ media, initialIndex, onClose }: ViewerProps) {
-  const swiperRef = useRef<any>(null);
   const [activeIndex, setActiveIndex] = useState(initialIndex);
   
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
@@ -108,27 +145,7 @@ export function MediaViewer({ media, initialIndex, onClose }: ViewerProps) {
         >
           {media.map((item, index) => (
             <SwiperSlide key={item.id} className="viewer-slide">
-              {item.type === "image" ? (
-                <picture>
-                  {item.avifSrc && <source srcSet={item.avifSrc} type="image/avif" />}
-                  <img
-                    src={item.src}
-                    className="w-full md:w-[40vw] h-[80dvh] object-cover rounded"
-                  />
-                </picture>
-              ) : (
-              <video
-                ref={(el) => {
-                  videoRefs.current[index] = el;
-                }}                
-                src={item.src}
-                controls={false}
-                loop
-                playsInline
-                muted
-                className="w-full md:w-[40vw] h-[80dvh] object-cover rounded pointer-events-none"
-              />
-              )}
+              <MediaSlide item={item} index={index} videoRefs={videoRefs} />
             </SwiperSlide>
           ))}
         </Swiper>

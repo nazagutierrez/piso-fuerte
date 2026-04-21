@@ -49,20 +49,9 @@ export default function Hero() {
     if (!heroSectionRef.current) return;
     const mm = gsap.matchMedia();
     const ctx = gsap.context(() => {
-      gsap.set(videoRef.current, { borderRadius: "450px", overflow: "hidden" });
-      mm.add("(max-width: 1023px)", () => {
-        gsap.from(videoRef.current, {
-          borderRadius: "0px",
-          duration: 0.5,
-          scrollTrigger: {
-            trigger: heroSectionRef.current,
-            start: "top -80%",
-            end: "bottom -50%",
-            scrub: true,
-          },
-        });
-      });
+      // Desktop: Animación de borderRadius con scrub
       mm.add("(min-width: 1024px)", () => {
+        gsap.set(videoRef.current, { borderRadius: "450px", overflow: "hidden" });
         gsap.from(videoRef.current, {
           borderRadius: "0px",
           duration: 0.5,
@@ -73,6 +62,11 @@ export default function Hero() {
             scrub: true,
           },
         });
+      });
+
+      // Mobile: Sin animación de borderRadius para evitar layout thrashing
+      mm.add("(max-width: 1023px)", () => {
+        gsap.set(videoRef.current, { borderRadius: "0px", overflow: "hidden" });
       });
       gsap.to(animatedHeroTextRef.current, {
         backgroundPosition: "-570% 50%",

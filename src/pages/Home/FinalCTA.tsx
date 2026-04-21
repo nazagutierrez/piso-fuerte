@@ -9,28 +9,36 @@ export default function FinalCTA() {
 
   useEffect(() => {
     if (!ctaSection.current) return;
-    const ctx = gsap.context(() => {
-      gsap.to(ctaSection.current, {
-        padding: "16px",
-        scrollTrigger: {
-          trigger: ctaSection.current,
-          start: "50% 70%",
-          end: "center 20%",
-          scrub: true,
-        },
-      });
+    const mm = gsap.matchMedia();
 
-      gsap.to(cardContainer.current, {
-        borderRadius: "5px 5px 30px 30px",
-        scrollTrigger: {
-          trigger: ctaSection.current,
-          start: "50% 70%",
-          end: "center 20%",
-          scrub: true,
-        },
+    const ctx = gsap.context(() => {
+      mm.add("(min-width: 600px)", () => {
+        gsap.to(ctaSection.current, {
+          padding: "16px",
+          scrollTrigger: {
+            trigger: ctaSection.current,
+            start: "50% 70%",
+            end: "center 20%",
+            scrub: true,
+          },
+        });
+
+        gsap.to(cardContainer.current, {
+          borderRadius: "5px 5px 30px 30px",
+          scrollTrigger: {
+            trigger: ctaSection.current,
+            start: "50% 70%",
+            end: "center 20%",
+            scrub: true,
+          },
+        });
       });
     }, ctaSection);
-    return () => ctx.revert();
+    
+    return () => {
+      mm.revert();
+      ctx.revert();
+    }
   }, []);
 
   return (

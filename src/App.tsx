@@ -27,7 +27,7 @@ function App() {
       content: "#smooth-content",
       smooth: 2,
       effects: true,
-      smoothTouch: 0.1,
+      smoothTouch: false, // MUST be false — iOS uses a compositor thread for native scroll; any JS interception causes severe jank
     });
 
     const handlePageHide = () => {
@@ -80,31 +80,29 @@ function App() {
       );
 
       tl.to(
-        "#logo-mask",
+        "#intro-overlay",
         {
-          maskSize: "0px",
-          webkitMaskSize: "0px",
-          maskPosition: "center 40%",
-          webkitMaskPosition: "center 40%",
+          "--mask-size": "0px",
           duration: 1.5,
           ease: "power1.in",
         },
-        "<",
-      );
-      tl.to(
-        "#logo-mask",
-        {
-          maskSize: "38000px",
-          webkitMaskSize: "38000px",
-          duration: 1.5,
-          ease: "power1.in",
-        },
-        "<0.5",
+        "<"
       );
 
-      tl.to("#logo-mask", {
-        maskImage: "none",
-        webkitMaskImage: "none",
+      tl.to(
+        "#intro-overlay",
+        {
+          "--mask-size": "38000px",
+          "--mask-x": "45%", // TWEAK ME: Menos es a la izquierda, Más es a la derecha
+          "--mask-y": "39%", // TWEAK ME: Menos es arriba, Más es abajo
+          duration: 1.5,
+          ease: "power1.in",
+        },
+        "<0.5"
+      );
+
+      tl.to("#intro-overlay", {
+        display: "none"
       });
 
       tl.to("#logo-wrapper", {
@@ -131,18 +129,40 @@ function App() {
 
         <div
           id="logo-wrapper"
-          className="fixed brightness-50 inset-0 flex justify-center items-center w-full h-screen z-300"
+          className="fixed pointer-events-none inset-0 w-full h-[100dvh] z-300"
         >
-          <img
+          <div
             id="logo-img"
-            src={logo}
-            className="w-[300px] saturate-0 h-[300px] object-cover"
-            alt="Piso Fuerte Logo"
+            className="w-full h-full brightness-50 saturate-0"
+            style={{
+              backgroundImage: `url(${logo})`,
+              backgroundSize: '300px 300px',
+              backgroundPosition: 'center center',
+              backgroundRepeat: 'no-repeat',
+            }}
           />
         </div>
 
-        <div id="logo-mask" className="fixed top-0 w-full h-screen z-200" style={{ maskImage: `url(${logo})`, WebkitMaskImage: `url(${logo})`, willChange: 'mask-size, mask-position' }}>
-          <Navbar />
+        <div 
+          id="intro-overlay" 
+          className="fixed inset-0 w-full h-[100dvh] z-200 pointer-events-none bg-[#141414]"
+          style={{
+            '--mask-size': '300px',
+            '--mask-x': '50%',
+            '--mask-y': '50%',
+            WebkitMaskImage: `url(${logo}), linear-gradient(black, black)`,
+            maskImage: `url(${logo}), linear-gradient(black, black)`,
+            WebkitMaskSize: 'var(--mask-size) var(--mask-size), 100% 100%',
+            maskSize: 'var(--mask-size) var(--mask-size), 100% 100%',
+            WebkitMaskPosition: 'var(--mask-x) var(--mask-y), center',
+            maskPosition: 'var(--mask-x) var(--mask-y), center',
+            WebkitMaskRepeat: 'no-repeat, no-repeat',
+            maskRepeat: 'no-repeat, no-repeat',
+            WebkitMaskComposite: 'destination-out',
+            maskComposite: 'exclude',
+          } as React.CSSProperties}
+        ></div>
+        <Navbar />
 
           <div id="smooth-wrapper">
             <div id="smooth-content">
@@ -161,7 +181,6 @@ function App() {
               </div>
             </div>
           </div>
-        </div>
       </Router>
       <Analytics />
       <SpeedInsights />
