@@ -137,6 +137,7 @@ export function MediaViewer({ media, initialIndex, onClose }: ViewerProps) {
           centeredSlides
           slidesPerView={1.1}
           spaceBetween={30}
+          loop={true}
           nested={true}
           onSlideChange={(swiper) => {
             setActiveIndex(swiper.activeIndex);

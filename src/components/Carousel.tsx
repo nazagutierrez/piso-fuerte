@@ -137,6 +137,7 @@ useEffect(() => {
             spaceBetween: 10,
           },
         }}
+        loop={true}
         modules={[FreeMode, Pagination, A11y]}
         className="h-120 mx-0! w-full m-0!"
       >
