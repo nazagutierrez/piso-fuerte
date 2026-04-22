@@ -11,6 +11,7 @@ import InstagramSvg from "@/assets/svg/InstagramSvg";
 import PhoneSvg from "@/assets/svg/PhoneSvg";
 import WhatsappSvg from "@/assets/svg/WhatsappSvg";
 import ArrowSvg from "@/assets/svg/ArrowSvg";
+import ArrowDownSvg from "@/assets/svg/ArrowDownSvg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -103,6 +104,9 @@ export default function Hero() {
       className="min-h-screen relative flex items-center"
       aria-labelledby="hero-heading"
     >
+
+      <ArrowDownSvg className="w-9 h-9 text-white/80 absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce z-20" />
+
       <svg width="0" height="0" aria-hidden="true">
         <defs>
           <radialGradient id="instagramGradient" cx="30%" cy="107%" r="150%">
@@ -161,12 +165,12 @@ export default function Hero() {
               Constructora profesional en Junín, Buenos Aires
             </h2>
 
-            <div className="mt-10 mx-10 flex items-center justify-center flex-wrap gap-2">
+            <div className="md:mt-10 mt-5 mx-10 flex items-center justify-center flex-wrap gap-2">
               {buttons.map((button) => (
                 <a
                   key={button.text}
                   href={button.href}
-                  className="inline-flex rounded group place-content-center bg-[#212121] hero-cta-item w-[80px] sm:w-[159px] translate-y-5 border border-transparent text-white hover:border-[#9c8700] hover:bg-[#1a1a1a] items-center duration-400 transition-colors gap-2 px-8 py-4"
+                  className="inline-flex rounded group place-content-center bg-[#212121] hero-cta-item w-[8px] sm:w-[159px] translate-y-5 border border-transparent text-white hover:border-[#9c8700] hover:bg-[#1a1a1a] items-center duration-400 transition-colors gap-2 px-7.5 py-4"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={button.label}

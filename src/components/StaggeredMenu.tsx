@@ -2,6 +2,7 @@ import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { Link } from 'react-router-dom';
 import './staggered-menu.css';
+import NaztroSvg from '@/assets/svg/NaztroSvg';
 
 export interface StaggeredMenuItem {
   label: string;
@@ -123,7 +124,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     const numberEls = Array.from(
       panel.querySelectorAll('.sm-panel-list[data-numbering] .sm-panel-item')
     ) as HTMLElement[];
-    const socialTitle = panel.querySelector('.sm-socials-title') as HTMLElement | null;
+    const socialTitles = Array.from(panel.querySelectorAll('.sm-socials-title')) as HTMLElement[];
     const socialLinks = Array.from(panel.querySelectorAll('.sm-socials-link')) as HTMLElement[];
 
     const layerStates = layers.map(el => ({ el, start: Number(gsap.getProperty(el, 'xPercent')) }));
@@ -131,7 +132,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
 
     if (itemEls.length) gsap.set(itemEls, { yPercent: 140, rotate: 10 });
     if (numberEls.length) gsap.set(numberEls, { ['--sm-num-opacity' as any]: 0 });
-    if (socialTitle) gsap.set(socialTitle, { opacity: 0 });
+    if (socialTitles.length) gsap.set(socialTitles, { opacity: 0 });
     if (socialLinks.length) gsap.set(socialLinks, { y: 25, opacity: 0 });
 
     const tl = gsap.timeline({ paused: true });
@@ -170,10 +171,10 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
       }
     }
 
-    if (socialTitle || socialLinks.length) {
+    if (socialTitles.length || socialLinks.length) {
       const socialsStart = panelInsertTime + panelDuration * 0.4;
 
-      if (socialTitle) tl.to(socialTitle, { opacity: 1, duration: 0.5, ease: 'power2.out' }, socialsStart);
+      if (socialTitles.length) tl.to(socialTitles, { opacity: 1, duration: 0.5, ease: 'power2.out' }, socialsStart);
       if (socialLinks.length) {
         tl.to(
           socialLinks,
@@ -238,9 +239,9 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         ) as HTMLElement[];
         if (numberEls.length) gsap.set(numberEls, { ['--sm-num-opacity' as any]: 0 });
 
-        const socialTitle = panel.querySelector('.sm-socials-title') as HTMLElement | null;
+        const socialTitles = Array.from(panel.querySelectorAll('.sm-socials-title')) as HTMLElement[];
         const socialLinks = Array.from(panel.querySelectorAll('.sm-socials-link')) as HTMLElement[];
-        if (socialTitle) gsap.set(socialTitle, { opacity: 0 });
+        if (socialTitles.length) gsap.set(socialTitles, { opacity: 0 });
         if (socialLinks.length) gsap.set(socialLinks, { y: 25, opacity: 0 });
 
         busyRef.current = false;
@@ -533,6 +534,14 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                 </ul>
               </div>
             )}
+
+            <p className="flex flex-col gap-1 items-start font-bold">
+              <span className='text-brand-yellow brightness-75 sm-socials-title'>Hecho por</span>
+              <a className='title-font uppercase text-brand-dark/90! tracking-wider sm-socials-link underline! underline-offset-4 decoration-[#4b96e3]!' href="https://www.instagram.com/naztrosoftware/" target="_blank" rel="noopener noreferrer" aria-label="Naztro">
+                Naztro
+                <NaztroSvg className='w-8 h-8 inline-block mx-1' />
+              </a>
+            </p>
           </div>
         </aside>
       </div>

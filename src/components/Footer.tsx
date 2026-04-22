@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useRef } from 'react';
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { gsap } from "gsap";
@@ -7,8 +7,10 @@ import PhoneSvg from '@/assets/svg/PhoneSvg';
 import InstagramSvg from '@/assets/svg/InstagramSvg';
 import MailSvg from '@/assets/svg/MailSvg';
 import MapPinSvg from '@/assets/svg/MapPinSvg';
+import NaztroSvg from '@/assets/svg/NaztroSvg';
 
 export function Footer() {
+  const pathname = useLocation().pathname;
   const scrollTween = useRef<gsap.core.Tween | null>(null);
 
   const scrollToTop = () => {
@@ -29,7 +31,7 @@ export function Footer() {
       <div className="max-w-7xl flex flex-col mx-auto px-4 sm:px-6 lg:px-8 pb-6 pt-4 sm:pt-12">
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-8 sm:gap-8">
           {/* Company Info */}
-          <div className='col-span-2 sm:col-span-1 mx-auto sm:mx-0 text-center sm:text-start'>
+          <div className={`${pathname === "/" && "hidden"} col-span-2 sm:col-span-1 mx-auto sm:mx-0 text-center sm:text-start`}>
             <Link to="/" className="flex items-center w-fit">
               <img src={logo} alt="Logotipo de Constructora Piso Fuerte" className="h-16 -ms-2 sm:-ms-4 w-16" />
 
@@ -111,9 +113,21 @@ export function Footer() {
           </address>
         </div>
 
-        <div className="border-t border-[#353535] mt-8 pt-8 text-center">
-          <p className="text-sm text-neutral-400">
+        <div className="border-t text-neutral-400 border-[#353535] flex flex-col mt-8 pt-8 text-center">
+          <p className="text-sm">
             © {new Date().getFullYear()} Piso Fuerte. Todos los derechos reservados.
+          </p>
+          <p className="mt-2 flex mx-auto">
+            <span className='p-2 pr-0'>Hecho por </span>
+            <a 
+              href="https://www.instagram.com/naztrosoftware/" 
+              target='_blank' 
+              rel='noopener noreferrer' 
+              className='underline p-2 pl-1 title-font uppercase tracking-wider flex items-center underline-offset-4 decoration-[#4b96e3]'
+            >
+              Naztro
+              <NaztroSvg className="w-6 h-6 ml-1" />
+            </a>
           </p>
         </div>
 

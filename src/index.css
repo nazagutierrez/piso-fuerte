@@ -46,12 +46,6 @@
     --breakpoint-xxs: 22.5rem;
 }
 
-@media (hover: none) {
-  .custom-cursor {
-    display: none;
-  }
-}
-
 ::selection {
   background: rgba(241, 209, 0, 0.781);
   color: rgb(22, 22, 22);
@@ -140,10 +134,6 @@ html {
 .call-button[data-variant="yellow"]::before {
   content: "";
   background-color: #1a1a1a;
-}
-
-.bite-svg {
-  clip-path: url(#bite);
 }
 
 .custom-bullet {

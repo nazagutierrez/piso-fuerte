@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import StaggeredMenu from "./StaggeredMenu"
@@ -19,7 +19,6 @@ const socialItems = [
 ];
 
 export function Navbar() {
-
   useEffect(() => {
     const showNav = () => {
       gsap.to(".staggered-menu-header", {
