@@ -79,6 +79,15 @@ export function MediaViewer({ media, initialIndex, onClose }: ViewerProps) {
     return () => window.removeEventListener("keydown", handleKey);
   }, [onClose]);
 
+  // Bloquear scroll del body
+  useEffect(() => {
+    const originalStyle = window.getComputedStyle(document.body).overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = originalStyle;
+    };
+  }, []);
+
   // Animación de entrada
   useEffect(() => {
     if (!overlayRef.current || !contentRef.current) return;
@@ -122,11 +131,12 @@ export function MediaViewer({ media, initialIndex, onClose }: ViewerProps) {
     <div
       ref={overlayRef}
       onClick={closeWithAnimation}
-      className="fixed cursor-zoom-out inset-0 z-[9999] bg-black/60 flex items-center justify-center"
+      className="fixed cursor-zoom-out top-0 left-0 w-screen h-[100dvh] z-[9999] bg-black/60 flex items-center justify-center"
     >
       <button
         onClick={closeWithAnimation}
-        className="absolute cursor-pointer top-6 right-6 text-white text-4xl z-50"
+        className="absolute cursor-pointer right-4 md:right-6 text-white text-3xl md:text-4xl z-50 p-2"
+        style={{ top: 'calc(1rem + env(safe-area-inset-top, 0px))' }}
       >
         ✕
       </button>
