@@ -4,8 +4,20 @@ import { createPortal } from "react-dom";
 import { gsap } from "gsap";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-function MediaSlide({ item, index, videoRefs }: { item: MediaItem, index: number, videoRefs: React.MutableRefObject<(HTMLVideoElement | null)[]> }) {
+function MediaSlide({ item, isActive }: { item: MediaItem, isActive: boolean }) {
   const [loaded, setLoaded] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (item.type === "video" && videoRef.current) {
+      if (isActive) {
+        videoRef.current.play().catch(() => {});
+      } else {
+        videoRef.current.pause();
+        videoRef.current.currentTime = 0;
+      }
+    }
+  }, [isActive, item.type]);
 
   return (
     <div className="relative w-full md:w-[40vw] h-[80dvh] mx-auto flex items-center justify-center">
@@ -26,9 +38,7 @@ function MediaSlide({ item, index, videoRefs }: { item: MediaItem, index: number
         </picture>
       ) : (
         <video
-          ref={(el) => {
-            videoRefs.current[index] = el;
-          }}
+          ref={videoRef}
           src={item.src}
           controls={false}
           loop
@@ -49,9 +59,6 @@ type ViewerProps = {
 };
 
 export function MediaViewer({ media, initialIndex, onClose }: ViewerProps) {
-  const [activeIndex, setActiveIndex] = useState(initialIndex);
-  
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const overlayRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -110,22 +117,7 @@ export function MediaViewer({ media, initialIndex, onClose }: ViewerProps) {
     };
   }, []);
 
-  const updateVideos = (activeIndex: number) => {
-    videoRefs.current.forEach((video, index) => {
-      if (!video) return;
 
-      if (index === activeIndex) {
-        video.play().catch(() => {});
-      } else {
-        video.pause();
-        video.currentTime = 0;
-      }
-    });
-  };
-
-  useEffect(() => {
-  updateVideos(activeIndex)
-}, [activeIndex])
 
   return createPortal(
     <div
@@ -149,14 +141,16 @@ export function MediaViewer({ media, initialIndex, onClose }: ViewerProps) {
           spaceBetween={30}
           loop={true}
           nested={true}
-          onSlideChange={(swiper) => {
-            setActiveIndex(swiper.activeIndex);
+          onSlideChange={() => {
+            // Optional: Handle slide change if needed
           }}
           className="viewer-swiper overflow-visible! max-w-[90vw] max-h-[90vh]"
         >
-          {media.map((item, index) => (
+          {media.map((item) => (
             <SwiperSlide key={item.id} className="viewer-slide">
-              <MediaSlide item={item} index={index} videoRefs={videoRefs} />
+              {({ isActive }) => (
+                <MediaSlide item={item} isActive={isActive} />
+              )}
             </SwiperSlide>
           ))}
         </Swiper>
